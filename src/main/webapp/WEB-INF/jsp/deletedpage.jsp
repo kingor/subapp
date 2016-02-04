@@ -13,7 +13,7 @@
 <h1>Actor</h1>
 <p>You have deleted a person with id ${id} at <%= new java.util.Date() %></p>
  
-<c:url var="mainUrl" value="/mycompany/main/actors" />
+<c:url var="mainUrl" value="/telecom/main/actors" />
 <p>Return to <a href="${mainUrl}">Main List</a></p>
  
 </body>

@@ -11,7 +11,7 @@
 <body>
  
 <h1>Edit Actor</h1>
-<c:url var="saveUrl" value="/mycompany/main/actors/edit?id=${actorAttribute.id}" />
+<c:url var="saveUrl" value="/telecom/main/actors/edit?id=${actorAttribute.id}" />
 <form:form modelAttribute="actorAttribute" method="POST" action="${saveUrl}">
  <table>
   <tr>

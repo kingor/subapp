@@ -16,24 +16,24 @@
 <body>
 <h1>Persons</h1>
  
-<c:url var="addUrl" value="/telecom/main/actors/add" />
+<%-- <c:url var="addUrl" value="/telecom/main/actors/add" /> --%>
 <table style="border: 1px solid; width: 500px; text-align:center">
  <thead style="background:#fcf">
   <tr>
-   <th>First Name</th>
-   <th>Last Name</th>
+   <th>Login</th>
+   <th>Password</th>
    <th>ID</th>
    <th colspan="3"></th>
   </tr>
  </thead>
  <tbody>
- <c:forEach items="${actors}" var="actor">
- <c:url var="editUrl" value="/telecom/main/actors/edit?id=${actor.id}" />
-   <c:url var="deleteUrl" value="/telecom/main/actors/delete?id=${actor.id}" /> 
+ <c:forEach items="${users}" var="user">
+<%--  <c:url var="editUrl" value="/telecom/main/actors/edit?id=${actor.id}" />
+   <c:url var="deleteUrl" value="/telecom/main/actors/delete?id=${actor.id}" />  --%>
   <tr>
-   <td><c:out value="${actor.firstName}" /></td>
-   <td><c:out value="${actor.lastName}" /></td>
-   <td><c:out value="${actor.id}" /></td>
+   <td><c:out value="${user.login}" /></td>
+   <td><c:out value="${user.password}" /></td>
+   <td><c:out value="${user.id}" /></td>
    <td><a href="${editUrl}">Edit</a></td>
    <td><a href="${deleteUrl}">Delete</a></td>
    <td><a href="${addUrl}">Add</a></td>
@@ -42,7 +42,7 @@
  </tbody>
 </table>
  
-<c:if test="${empty actors}">
+<c:if test="${empty users}">
  There are currently no persons in the list. a person.
 </c:if>
  

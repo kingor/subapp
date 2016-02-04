@@ -6,13 +6,16 @@
 package by.telecom.subapp.controller;
 
 import by.telecom.subapp.domain.Actor;
+import by.telecom.subapp.domain.User;
 import by.telecom.subapp.service.ActorService;
+import by.telecom.subapp.service.UserService;
 
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -40,6 +43,18 @@ public class MainController {
 		model.addAttribute("actors", actors);
 
 		return "actorspage";
+	}
+	
+	@Autowired
+	private UserService userService;
+
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
+	public String getUsers(Model model) {
+		List<User> users = userService.getAll();
+
+		model.addAttribute("users", users);
+
+		return "userspage";
 	}
 
 	@RequestMapping(value = "/actors/add", method = RequestMethod.GET)

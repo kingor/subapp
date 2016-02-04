@@ -11,7 +11,7 @@
 <body>
  
 <h1>Create New Person</h1>
-<c:url var="saveUrl" value="/mycompany/main/actors/add" />
+<c:url var="saveUrl" value="/telecom/main/actors/add" />
 <form:form modelAttribute="actorAttribute" method="POST" action="${saveUrl}">
  <table>
   <tr>

@@ -7,11 +7,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>subapp Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-	<properties>
-		<org.springframework.version>4.0.5.RELEASE</org.springframework.version>
-		<org.hibernate.version>4.3.5.Final</org.hibernate.version>
-		<mysql.version>5.1.37</mysql.version>
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -105,4 +100,9 @@
 	<build>
 		<finalName>subapp</finalName>
 	</build>
+		<properties>
+		<org.springframework.version>4.0.5.RELEASE</org.springframework.version>
+		<org.hibernate.version>4.3.5.Final</org.hibernate.version>
+		<mysql.version>5.1.37</mysql.version>
+	</properties>
 </project>

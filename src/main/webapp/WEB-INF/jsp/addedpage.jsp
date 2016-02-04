@@ -13,7 +13,7 @@
 <h1>Actors</h1>
 <p>You have added a new actor at <%= new java.util.Date() %></p>
  
-<c:url var="mainUrl" value="/mycompany/main/actors" />
+<c:url var="mainUrl" value="/telecom/main/actors" />
 <p>Return to <a href="${mainUrl}">Main List</a></p>
  
 </body>
