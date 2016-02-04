@@ -6,18 +6,16 @@
 
 package by.telecom.subapp.dao;
 
-import java.util.Collection;
-
-import by.telecom.subapp.model.User;
-
 import java.util.List;
+
+import by.telecom.subapp.model.Subscriber;
+import by.telecom.subapp.model.User;
 
 /**
  *
  * @author ASUP8
  */
-public interface UserDao {
-	public List<User> getAll();
-    public List<User> getByLogin(String login);
-    public List<User> getByParameter(String login, String name, Integer category, String sort, String orderType);
+public interface SubscriberDao {
+	public List<Subscriber> getAll();
+   // List<Subscriber> getByParameter(String name, String address, String comment, String sort, String orderType);
 }

@@ -6,21 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import by.telecom.subapp.dao.UserDao;
-import by.telecom.subapp.model.User;
-import by.telecom.subapp.service.UserService;
+import by.telecom.subapp.dao.SubscriberDao;
+import by.telecom.subapp.service.SubscriberService;
+
 @Service
-public class UserServiceImpl implements UserService {
+public class SubscriberServiceImpl implements SubscriberService {
 	
 	@Autowired
-	private UserDao userDao;
+	private SubscriberDao subscriberDao;
 	
 	@Transactional
 	public List getAll() {
-		return userDao.getAll();
+		return subscriberDao.getAll();
 	}
 
-	@Transactional
+	/*@Transactional
 	public List<User> getByLogin(String login) {
 		// TODO Auto-generated method stub
 		return null;
@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
 		return null;
 	}
 	
-	/*@Transactional
+	@Transactional
 	public void add(Student student) {
 		studentDao.add(student);
 	}

@@ -5,7 +5,7 @@
  */
 package by.telecom.subapp.service;
 
-import by.telecom.subapp.domain.Actor;
+import by.telecom.subapp.model.Actor;
 
 import java.util.List;
 

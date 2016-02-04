@@ -7,7 +7,6 @@
 package by.telecom.subapp.dao.impl;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -16,8 +15,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 
-import by.telecom.subapp.dao.UserDao;
-import by.telecom.subapp.model.User;
+import by.telecom.subapp.dao.SubscriberDao;
+import by.telecom.subapp.model.Subscriber;
 
 import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,37 +27,20 @@ import org.springframework.stereotype.Repository;
  * @author ASUP8
  */
 @Repository
-public class UserDaoImpl implements UserDao{
+public class SubscriberDaoImpl implements SubscriberDao{
     
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-    public List<User> getAll() {
-    	List<User> list = (List<User>) sessionFactory.getCurrentSession().createQuery("from User").list();
+    public List<Subscriber> getAll() {
+    	List<Subscriber> list = (List<Subscriber>) sessionFactory.getCurrentSession().createQuery("from Subscriber").list();
 		return list;
     }
 
-    public List<User> getByLogin(String login) {
-      /*  Session session = null;
-        List<User> all = null;
-        try {
-            session = sessionFactory.getCurrentSession();
-            session.beginTransaction();
-            all = session.createCriteria(User.class)
-                    .add(Restrictions.like("login", "%"+login+"%")).list();
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }*/
-        return null;//all; 
-    }
-
+   
+/*
     public List<User> getByParameter(String login, String name, Integer category, String sort, String orderType) {
-        /*Session session = null;
+        Session session = null;
         List<User> all = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
@@ -78,9 +60,9 @@ public class UserDaoImpl implements UserDao{
             if (session != null && session.isOpen()) {
                 session.close();
             }
-        }*/
+        }
         return null;//all; 
-    }
+    }*/
 
     
 }
