@@ -10,7 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
 
-import by.telecom.subapp.domain.User;
+import by.telecom.subapp.model.User;
 
 @Service("userService")
 @Transactional

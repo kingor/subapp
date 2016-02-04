@@ -2,7 +2,7 @@ package by.telecom.subapp.service;
 
 import java.util.List;
 
-import by.telecom.subapp.domain.User;
+import by.telecom.subapp.model.User;
 
 public interface UserService {
 	public List getAll();

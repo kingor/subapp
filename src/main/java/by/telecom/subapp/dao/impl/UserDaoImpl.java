@@ -17,7 +17,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 
 import by.telecom.subapp.dao.UserDao;
-import by.telecom.subapp.domain.User;
+import by.telecom.subapp.model.User;
 
 import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;

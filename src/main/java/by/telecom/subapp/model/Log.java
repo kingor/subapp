@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 
-package by.telecom.subapp.domain;
+package by.telecom.subapp.model;
 
-import by.telecom.subapp.domain.Subscriber;
+import by.telecom.subapp.model.Subscriber;
+
 import java.io.Serializable;
 import java.util.Date;
 

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import by.telecom.subapp.dao.UserDao;
-import by.telecom.subapp.domain.User;
+import by.telecom.subapp.model.User;
 import by.telecom.subapp.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {

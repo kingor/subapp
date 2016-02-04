@@ -8,7 +8,7 @@ package by.telecom.subapp.dao;
 
 import java.util.Collection;
 
-import by.telecom.subapp.domain.User;
+import by.telecom.subapp.model.User;
 
 import java.util.List;
 
