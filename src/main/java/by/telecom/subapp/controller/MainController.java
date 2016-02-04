@@ -6,8 +6,10 @@
 package by.telecom.subapp.controller;
 
 import by.telecom.subapp.model.Actor;
+import by.telecom.subapp.model.Subscriber;
 import by.telecom.subapp.model.User;
 import by.telecom.subapp.service.ActorService;
+import by.telecom.subapp.service.SubscriberService;
 import by.telecom.subapp.service.UserService;
 
 import java.util.List;
@@ -55,6 +57,18 @@ public class MainController {
 		model.addAttribute("users", users);
 
 		return "userspage";
+	}
+	
+	@Autowired
+	private SubscriberService subscriberService;
+
+	@RequestMapping(value = "/subscribers", method = RequestMethod.GET)
+	public String getSubscribers(Model model) {
+		List<Subscriber> subscribers = subscriberService.getAll();
+
+		model.addAttribute("subscribers", subscribers);
+
+		return "viewSubscribers";
 	}
 
 	@RequestMapping(value = "/actors/add", method = RequestMethod.GET)
