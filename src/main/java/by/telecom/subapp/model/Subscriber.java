@@ -8,14 +8,21 @@ package by.telecom.subapp.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  *
  * @author Family_P
  */
+@Entity
 public class Subscriber implements Serializable{
 	
 	private static final long serialVersionUID = -5527566248002296042L;
 	
+	@Id
+	@GeneratedValue
     private Long id;                                
     private String name;
     private String address;
