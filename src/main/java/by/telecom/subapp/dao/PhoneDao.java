@@ -6,6 +6,7 @@
 package by.telecom.subapp.dao;
 
 import java.util.List;
+
 import by.telecom.subapp.model.Subscriber;
 import by.telecom.subapp.model.Phone;
 
@@ -13,9 +14,9 @@ import by.telecom.subapp.model.Phone;
  *
  * @author ASUP8
  */
-public interface PhoneDao {
+public interface PhoneDao extends GenericDao<Phone, Long>{
     public List<Phone> getBySubscriber(Subscriber subscriber);
-    public List<Phone> getAll();
+   // public List<Phone> getAll();
     /*public List<Phone> getByParameter(String number, String band, 
             String security, String scv, String adsl, String name, String sort, String orderType);*/
 }

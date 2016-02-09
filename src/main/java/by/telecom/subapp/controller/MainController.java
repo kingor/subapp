@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author asup
  */
 @Controller
-@RequestMapping("/main")
+@RequestMapping("/")
 public class MainController {
 
 	 protected static Logger logger = Logger.getLogger("controller");
@@ -62,19 +62,6 @@ public class MainController {
 	}
 
 	
-	@Autowired
-	private PhoneService phoneService;
-
-	@RequestMapping(value = "/phones", method = RequestMethod.GET)
-	public String getPhones(Model model) {
-		List<Phone> phones = phoneService.getAll();
-
-		model.addAttribute("phones", phones);
-
-		return "viewPhones";
-	}
-	
-
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String getIndex(Model model) {
 

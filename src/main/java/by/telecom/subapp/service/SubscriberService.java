@@ -9,5 +9,6 @@ public interface SubscriberService {
 	//public List getAll();
 	public List getAll(Class<Subscriber> clazz, String sort, String orderType);
 	//public List<User> getByLogin(String login);
-	//public List<User> getByParameter(String login, String name, Integer category, String sort, String orderType);
+	public List<Subscriber> getByParameter(String name, String address, 
+			   String comment, String sort, String orderType);
 }

@@ -30,6 +30,25 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class SubscriberDaoImpl extends GenericDaoImpl<Subscriber, Long> implements SubscriberDao{
 
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	public List<Subscriber> getByParameter(String name, String address,
+			String comment, String sort, String orderType) {
+		Session session = null;
+        List<Subscriber> all = null;
+        session = sessionFactory.getCurrentSession();
+    	Order order = Order.asc(sort);
+        if(orderType.equals("desc"))
+            order = Order.desc(sort);
+        all = session.createCriteria(Subscriber.class)
+                .add( Restrictions.like("name", "%"+name+"%"))
+                .add( Restrictions.like("address", "%"+address+"%"))
+                .add( Restrictions.like("comment", "%"+comment+"%"))
+                .addOrder(order).list();
+		return all;
+	}
+
    
 	/*@Autowired
 	private SessionFactory sessionFactory;*/

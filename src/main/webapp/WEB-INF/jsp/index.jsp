@@ -4,6 +4,7 @@
     Author     : Family_P
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
     <head>
@@ -11,8 +12,7 @@
         <meta name="keywords" content="">
         <meta name="description" content="">
         <META content="text/html; charset=windows-1251" http-equiv=Content-Type>
-        <LINK href="style/main3.css" type=text/css 
-              rel=stylesheet>
+        <LINK href="<c:url value="/resources/style/main3.css"/>" rel="stylesheet">
     </head>
     <body bgcolor="#e4e8ea">
         <div align="center">

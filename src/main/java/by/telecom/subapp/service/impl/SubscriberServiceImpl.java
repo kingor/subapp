@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import by.telecom.subapp.dao.SubscriberDao;
 import by.telecom.subapp.model.Subscriber;
+import by.telecom.subapp.model.User;
 import by.telecom.subapp.service.SubscriberService;
 
 @Service
@@ -16,14 +17,15 @@ public class SubscriberServiceImpl implements SubscriberService {
 	@Autowired
 	private SubscriberDao subscriberDao;
 	
-	/*@Transactional
-	/*public List getAll() {
-		return subscriberDao.getAll();
-	}*/
-	
 	@Transactional
 	public List getAll(Class<Subscriber> clazz, String sort, String orderType) {
 		return subscriberDao.getAll(Subscriber.class, sort, orderType);
+	}
+
+	@Transactional
+	public List<Subscriber> getByParameter(String name, String address,
+			String comment, String sort, String orderType) {
+		return subscriberDao.getByParameter(name, address, comment, sort, orderType);
 	}
 
 	/*@Transactional

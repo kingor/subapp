@@ -25,7 +25,7 @@
                             <table class="AllWidth">
                                 <tr >
                                     <td>
-                                        <form name="form5" method="post" action="index.jsp">
+                                        <form name="form5" method="get" action="index">
                                             <INPUT type="submit" name="submit" value="Главная страница" style="width: 100%">
                                         </form>
                                     </td>
@@ -39,14 +39,14 @@
                                 </tr>
                                 <tr>
                                     <td >
-                                        <form name="form6" method="post" action="subscriberSearch.do">
+                                        <form name="form6" method="get" action="subscriberSearch.do">
                                         <INPUT type="submit" name="submit" value="    Поиск абонентов    " style="width:100%">
                                         </form>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <form name="form6" method="post" action="phones.do">
+                                        <form name="form6" method="get" action="phones.do">
                                         <INPUT type="submit" name="submit" value="Просмотр тех. данных" style="width:100%">
                                         </form>
                                     </td>

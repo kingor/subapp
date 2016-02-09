@@ -7,13 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import by.telecom.subapp.dao.PhoneDao;
+import by.telecom.subapp.dao.SubscriberDao;
 import by.telecom.subapp.model.Phone;
 import by.telecom.subapp.model.Subscriber;
 
 @Repository
-public class PhoneDaoImpl implements PhoneDao {
+public class PhoneDaoImpl extends GenericDaoImpl<Phone, Long> implements PhoneDao {
 
-	@Autowired
+	public List<Phone> getBySubscriber(Subscriber subscriber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*@Autowired
 	private SessionFactory sessionFactory;
 	
 	public List<Phone> getBySubscriber(Subscriber subscriber) {
@@ -24,6 +30,6 @@ public class PhoneDaoImpl implements PhoneDao {
 	public List<Phone> getAll() {
 		List<Phone> list = (List<Phone>) sessionFactory.getCurrentSession().createQuery("from Phone").list();
 		return list;
-	}
+	}*/
 
 }
