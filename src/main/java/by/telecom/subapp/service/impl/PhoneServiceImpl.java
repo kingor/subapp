@@ -6,24 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import by.telecom.subapp.dao.PhoneDao;
 import by.telecom.subapp.dao.SubscriberDao;
-import by.telecom.subapp.model.Subscriber;
+import by.telecom.subapp.service.PhoneService;
 import by.telecom.subapp.service.SubscriberService;
 
 @Service
-public class SubscriberServiceImpl implements SubscriberService {
+public class PhoneServiceImpl implements PhoneService {
 	
 	@Autowired
-	private SubscriberDao subscriberDao;
-	
-	/*@Transactional
-	/*public List getAll() {
-		return subscriberDao.getAll();
-	}*/
+	private PhoneDao phoneDao;
 	
 	@Transactional
-	public List getAll(Class<Subscriber> clazz, String sort, String orderType) {
-		return subscriberDao.getAll(Subscriber.class, sort, orderType);
+	public List getAll() {
+		return phoneDao.getAll();
 	}
 
 	/*@Transactional

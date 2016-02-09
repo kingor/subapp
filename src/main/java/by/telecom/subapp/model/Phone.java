@@ -10,13 +10,26 @@ import by.telecom.subapp.model.Subscriber;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 /**
  *
  * @author Family_P
  */
+@Entity
 public class Phone implements Serializable{
+	
+	@Id
+	@GeneratedValue
     private Long id;
+	
+	@ManyToOne(cascade=CascadeType.ALL)
     private Subscriber subscriber;
+	
     private String number;
     private String band;
     private String security;

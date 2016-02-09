@@ -6,9 +6,11 @@
 package by.telecom.subapp.controller;
 
 import by.telecom.subapp.model.Actor;
+import by.telecom.subapp.model.Phone;
 import by.telecom.subapp.model.Subscriber;
 import by.telecom.subapp.model.User;
 import by.telecom.subapp.service.ActorService;
+import by.telecom.subapp.service.PhoneService;
 import by.telecom.subapp.service.SubscriberService;
 import by.telecom.subapp.service.UserService;
 
@@ -59,6 +61,19 @@ public class MainController {
 		return "userspage";
 	}
 
+	
+	@Autowired
+	private PhoneService phoneService;
+
+	@RequestMapping(value = "/phones", method = RequestMethod.GET)
+	public String getPhones(Model model) {
+		List<Phone> phones = phoneService.getAll();
+
+		model.addAttribute("phones", phones);
+
+		return "viewPhones";
+	}
+	
 	@RequestMapping(value = "/actors/add", method = RequestMethod.GET)
 	public String getAdd(Model model) {
 		logger.debug("Received request to show add page");

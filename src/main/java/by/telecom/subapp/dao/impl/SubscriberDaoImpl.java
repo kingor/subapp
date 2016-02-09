@@ -15,6 +15,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 
+import by.telecom.subapp.dao.GenericDao;
 import by.telecom.subapp.dao.SubscriberDao;
 import by.telecom.subapp.model.Subscriber;
 
@@ -27,16 +28,25 @@ import org.springframework.stereotype.Repository;
  * @author ASUP8
  */
 @Repository
-public class SubscriberDaoImpl implements SubscriberDao{
-    
-	@Autowired
-	private SessionFactory sessionFactory;
+public class SubscriberDaoImpl extends GenericDaoImpl<Subscriber, Long> implements SubscriberDao{
+
+   
+	/*@Autowired
+	private SessionFactory sessionFactory;*/
 	
-    public List<Subscriber> getAll() {
+   /* public List<Subscriber> getAll() {
     	List<Subscriber> list = (List<Subscriber>) sessionFactory.getCurrentSession().createQuery("from Subscriber").list();
 		return list;
-    }
+    }*/
 
+	/*public List<Subscriber> getAll(String sort, String orderType) {
+		return getAll(sort, orderType);
+	}
+
+   /* public List<Subscriber> getAll() {
+    	List<Subscriber> list = (List<Subscriber>) sessionFactory.getCurrentSession().createQuery("from Subscriber").list();
+		return list;
+    }*/
    
 /*
     public List<User> getByParameter(String login, String name, Integer category, String sort, String orderType) {

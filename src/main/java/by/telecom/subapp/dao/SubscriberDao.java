@@ -15,7 +15,7 @@ import by.telecom.subapp.model.User;
  *
  * @author ASUP8
  */
-public interface SubscriberDao {
-	public List<Subscriber> getAll();
+public interface SubscriberDao extends GenericDao<Subscriber, Long> {
+	//public List<Subscriber> getAll();
    // List<Subscriber> getByParameter(String name, String address, String comment, String sort, String orderType);
 }

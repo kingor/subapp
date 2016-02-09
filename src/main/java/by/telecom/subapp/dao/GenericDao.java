@@ -16,20 +16,16 @@ import java.util.List;
  */
 public interface GenericDao <T, PK extends Serializable> {
 
-    /** Сохранить объект newInstance в базе данных */
+   /* 
     PK create(T newInstance);
 
-    /** �?звлечь объект, предварительно сохраненный в базе данных, используя
-     *   указанный id в качестве первичного ключа
-     */
+    
     T read(PK id);
 
-    /** Сохранить изменения, сделанные в объекте.  */
     void update(T transientObject);
 
-    /** Удалить объект из базы данных */
     void delete(T persistentObject);
-    
-    List<T> getAll(String sort, String orderType);
+    */
+    List<T> getAll(Class<T> clazz, String sort, String orderType);
     
 }
