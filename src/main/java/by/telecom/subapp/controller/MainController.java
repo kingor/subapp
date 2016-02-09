@@ -74,6 +74,13 @@ public class MainController {
 		return "viewPhones";
 	}
 	
+
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String getIndex(Model model) {
+
+		return "index";
+	}
+	
 	@RequestMapping(value = "/actors/add", method = RequestMethod.GET)
 	public String getAdd(Model model) {
 		logger.debug("Received request to show add page");
