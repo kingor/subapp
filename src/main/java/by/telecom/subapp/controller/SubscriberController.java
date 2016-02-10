@@ -1,5 +1,6 @@
 package by.telecom.subapp.controller;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +11,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import by.telecom.subapp.model.Subscriber;
+import by.telecom.subapp.service.PhoneService;
 import by.telecom.subapp.service.SubscriberService;
+import by.telecom.subapp.model.Phone;
+
 
 @Controller
 @RequestMapping("/")
 public class SubscriberController {
 	@Autowired
 	private SubscriberService subscriberService;
+	
+	@Autowired
+	private PhoneService phoneService;
 
 	@RequestMapping(value = "/subscribers.do", method = RequestMethod.GET)
 	public String getSubscribers(
@@ -45,26 +52,27 @@ public class SubscriberController {
             sort = "name";
         if(!"asc".equals(order) && !"desc".equals(order))
             order = "asc";
+       
+        
 		List<Subscriber> subscribers = subscriberService.getByParameter(name, address, comment, sort, order);
 
-		model.addAttribute("subscribers", subscribers);
+		model.addAttribute("subscriberSearch", subscribers);
 
 		return "viewSubscriberSearch";
 	}
 	
-	@RequestMapping(value = "/subscribersFull.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/subscriberFull.do", method = RequestMethod.POST)
 	public String getSubscribersFull(
-			@RequestParam(value = "order", required = false) String order,
-			@RequestParam(value = "sort", required = false) String sort, Model model) {
-        if(!"name".equals(sort) && !"address".equals(sort) && !"comment".equals(sort))
-            sort = "name";
-        if(!"asc".equals(order) && !"desc".equals(order))
-            order = "asc";
-		List<Subscriber> subscribers = subscriberService.getAll(Subscriber.class, sort, order);
+			@RequestParam(value = "subscriberSelect", required = false) Long subscriberId, Model model) {
 
-		model.addAttribute("subscribers", subscribers);
+		Subscriber subscriber = subscriberService.read(Subscriber.class, subscriberId);
 
-		return "viewSubscribers";
+        List<Phone> listPhones = phoneService.getBySubscriber(subscriber);
+
+		model.addAttribute("subscriber", subscriber);
+		model.addAttribute("phones", listPhones);
+
+		return "viewSubscriberFull";
 	}
 	
 }

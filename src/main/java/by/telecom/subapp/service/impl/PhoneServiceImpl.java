@@ -23,5 +23,10 @@ public class PhoneServiceImpl implements PhoneService {
 	public List getAll(Class<Phone> clazz, String sort, String orderType) {
 		return phoneDao.getAll(Phone.class, sort, orderType);
 	}
+	
+	@Transactional
+	public List getBySubscriber(Subscriber subscriber) {
+		return phoneDao.getBySubscriber(subscriber);
+	}
 
 }

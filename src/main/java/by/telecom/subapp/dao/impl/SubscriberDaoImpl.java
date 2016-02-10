@@ -37,10 +37,12 @@ public class SubscriberDaoImpl extends GenericDaoImpl<Subscriber, Long> implemen
 			String comment, String sort, String orderType) {
 		Session session = null;
         List<Subscriber> all = null;
+        
         session = sessionFactory.getCurrentSession();
     	Order order = Order.asc(sort);
         if(orderType.equals("desc"))
             order = Order.desc(sort);
+        System.out.println("!!!!!!!!DEBAG name" + name + " address" + address + " comment" + comment );
         all = session.createCriteria(Subscriber.class)
                 .add( Restrictions.like("name", "%"+name+"%"))
                 .add( Restrictions.like("address", "%"+address+"%"))
@@ -48,50 +50,5 @@ public class SubscriberDaoImpl extends GenericDaoImpl<Subscriber, Long> implemen
                 .addOrder(order).list();
 		return all;
 	}
-
-   
-	/*@Autowired
-	private SessionFactory sessionFactory;*/
-	
-   /* public List<Subscriber> getAll() {
-    	List<Subscriber> list = (List<Subscriber>) sessionFactory.getCurrentSession().createQuery("from Subscriber").list();
-		return list;
-    }*/
-
-	/*public List<Subscriber> getAll(String sort, String orderType) {
-		return getAll(sort, orderType);
-	}
-
-   /* public List<Subscriber> getAll() {
-    	List<Subscriber> list = (List<Subscriber>) sessionFactory.getCurrentSession().createQuery("from Subscriber").list();
-		return list;
-    }*/
-   
-/*
-    public List<User> getByParameter(String login, String name, Integer category, String sort, String orderType) {
-        Session session = null;
-        List<User> all = null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            session.beginTransaction();
-            Order order = Order.asc(sort);
-            if(orderType.equals("desc"))
-                order = Order.desc(sort);
-            all = session.createCriteria(User.class)
-                    .add(Restrictions.like("login", "%"+login+"%"))
-                    .add(Restrictions.like("name", "%"+name+"%"))
-                    .add(Restrictions.ge("category", category))
-                    .addOrder(order).list();
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }
-        return null;//all; 
-    }*/
-
-    
+  
 }

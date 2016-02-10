@@ -27,43 +27,28 @@ public class SubscriberServiceImpl implements SubscriberService {
 			String comment, String sort, String orderType) {
 		return subscriberDao.getByParameter(name, address, comment, sort, orderType);
 	}
-
-	/*@Transactional
-	public List<User> getByLogin(String login) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Transactional
-	public List<User> getByParameter(String login, String name,
-			Integer category, String sort, String orderType) {
-		// TODO Auto-generated method stub
-		return null;
+	public Long create(Subscriber newInstanse) {
+		return subscriberDao.create(newInstanse);
 	}
 	
 	@Transactional
-	public void add(Student student) {
-		studentDao.add(student);
+	public Subscriber read(Class<Subscriber> classT, Long id) {
+		// TODO Auto-generated method stub
+		return subscriberDao.read(classT, id);
 	}
-
+	
 	@Transactional
-	public void edit(Student student) {
-		studentDao.edit(student);
+	public void update(Subscriber transientObject) {
+		subscriberDao.update(transientObject);
+		
 	}
-
+	
 	@Transactional
-	public void delete(int studentId) {
-		studentDao.delete(studentId);
+	public void delete(Subscriber persistentObject) {
+		subscriberDao.delete(persistentObject);
+		
 	}
-
-	@Transactional
-	public Student getStudent(int studentId) {
-		return studentDao.getStudent(studentId);
-	}
-
-	@Transactional
-	public List getAllStudent() {
-		return studentDao.getAllStudent();
-	}*/
 
 }

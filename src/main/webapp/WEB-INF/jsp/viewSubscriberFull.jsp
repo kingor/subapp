@@ -17,8 +17,7 @@
         <meta name="keywords" content="">
         <meta name="description" content="">
         <META content="text/html; charset=windows-1251" http-equiv=Content-Type>
-        <LINK href="style/main3.css" type=text/css 
-              rel=stylesheet>
+        <LINK href="<c:url value="/resources/style/main3.css"/>" rel="stylesheet">
     </head>
     <body bgcolor="#e4e8ea">
         <div align="center">

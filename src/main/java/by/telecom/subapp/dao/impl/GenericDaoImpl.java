@@ -6,6 +6,7 @@
 
 package by.telecom.subapp.dao.impl;
 
+import by.telecom.subapp.dao.GenericDao;
 import by.telecom.subapp.model.Subscriber;
 
 import java.io.Serializable;
@@ -26,99 +27,16 @@ import org.springframework.stereotype.Repository;
  * @param <PK>
  */
 @Repository
-public class GenericDaoImpl<T, PK extends Serializable> {
+public class GenericDaoImpl<T, PK extends Serializable> implements GenericDao<T, PK> {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-    //@Override
-	/*
-    public Long create(T newInstance) {
-        Session session = null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            session.beginTransaction();
-            session.persist(newInstance);
-            session.getTransaction().commit();
-            return 1L;
-        } catch (HibernateException e) {
-            session.getTransaction().rollback();
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }
-        return 0L;
-    }
-    
-    //@Override
-    public T read(Class classT, Long id) {
-        Session session = null;
-        T objectT = null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            session.beginTransaction();
-            objectT = (T) session.createCriteria(classT)
-                    .add(Restrictions.eq("id", id)).uniqueResult();
-            session.getTransaction().commit();
-        } catch (HibernateException e) {
-            e.printStackTrace();
-            session.getTransaction().rollback();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }
-        return objectT;
-    }
-
-    //@Override
-    public void update(T transientObject) {
-        Session session = null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            session.beginTransaction();
-            session.update(transientObject);
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }
-    }
-
-    //@Override
-    public void delete(T persistentObject) {
-        Session session = null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            session.beginTransaction();
-            session.delete(persistentObject);
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }
-    }
-    */
-
     public List<T> getAll(Class classT, String sort, String orderType) {
     	Session session = null;
         List<T> all = null;
         session = sessionFactory.getCurrentSession();
-    	//List<T> list = (List<T>) sessionFactory.getCurrentSession().createQuery("from Subscriber").list();
+
     	Order order = Order.asc(sort);
         if(orderType.equals("desc"))
             order = Order.desc(sort);
@@ -126,6 +44,28 @@ public class GenericDaoImpl<T, PK extends Serializable> {
                 .addOrder(order).list();
 		return all;
     }
+
+	public PK create(T newInstance) {
+		Session session = sessionFactory.getCurrentSession();
+		return (PK) session.save(newInstance);
+	}
+
+	public T read(Class<T> classT, PK id) {
+		Session session = sessionFactory.getCurrentSession();
+		T objectT = (T) session.createCriteria(classT)
+                .add(Restrictions.eq("id", id)).uniqueResult();
+		return objectT;
+	}
+
+	public void update(T transientObject) {
+		Session session = sessionFactory.getCurrentSession();
+		session.update(transientObject);	
+	}
+
+	public void delete(T persistentObject) {
+		Session session = sessionFactory.getCurrentSession();
+		session.delete(persistentObject);		
+	}
 
     
 }

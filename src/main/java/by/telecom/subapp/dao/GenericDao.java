@@ -15,17 +15,15 @@ import java.util.List;
  * @author ASUP8
  */
 public interface GenericDao <T, PK extends Serializable> {
-
-   /* 
+  
     PK create(T newInstance);
-
     
-    T read(PK id);
+    T read(Class<T> classT, PK id);
 
     void update(T transientObject);
 
     void delete(T persistentObject);
-    */
-    List<T> getAll(Class<T> clazz, String sort, String orderType);
+
+    List<T> getAll(Class<T> classT, String sort, String orderType);
     
 }
