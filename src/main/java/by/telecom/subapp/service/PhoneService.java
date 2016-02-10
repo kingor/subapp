@@ -9,6 +9,7 @@ import by.telecom.subapp.model.User;
 public interface PhoneService {
 	public List getAll(Class<Phone> clazz, String sort, String orderType);
 	public List getBySubscriber(Subscriber subscriber);
-	//public List<User> getByLogin(String login);
-	//public List<User> getByParameter(String login, String name, Integer category, String sort, String orderType);
+	public List getByParameter(String number, String band,
+			String security, String scv, String adsl, String name, String sort,
+			String orderType);
 }

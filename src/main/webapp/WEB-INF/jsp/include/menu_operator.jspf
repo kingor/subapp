@@ -25,7 +25,7 @@
                             <table width="100%">
                                 <tr >
                                     <td>
-                                        <form name="form5" method="post" action="createSubscriber.jsp">
+                                        <form name="form5" method="get" action="createSubscriber">
                                             <INPUT type="submit" name="submit" value="Новый абонент" style="width:100%">
                                         </form>
                                     </td>

@@ -34,4 +34,28 @@ public class PhoneController {
 
 		return "viewPhones";
 	}
+	
+	@RequestMapping(value = "/phoneSearch.do", method = RequestMethod.GET)
+	public String getPhoneSearch(
+			@RequestParam(value = "order", required = false) String order,
+			@RequestParam(value = "sort", required = false) String sort, 
+			@RequestParam(value = "number", required = false) String number,
+			@RequestParam(value = "band", required = false) String band,
+			@RequestParam(value = "security", required = false) String security,
+			@RequestParam(value = "scv", required = false) String scv,
+			@RequestParam(value = "adsl", required = false) String adsl,
+			@RequestParam(value = "name", required = false) String name,
+			Model model) {
+        if(!"name".equals(sort) && !"address".equals(sort) && !"comment".equals(sort))
+            sort = "name";
+        if(!"asc".equals(order) && !"desc".equals(order))
+            order = "asc";     
+        
+		List<Phone> phones = phoneService.getByParameter(number, band, security, scv, 
+				adsl, name, sort, order);
+
+		model.addAttribute("phoneSearch", phones);
+
+		return "viewPhoneSearch";
+	}
 }

@@ -53,7 +53,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <form name="form6" method="post" action="phoneSearch.do">
+                                        <form name="form6" method="get" action="phoneSearch.do">
                                         <INPUT type="submit" name="submit" value="Поиск по тех. данным" style="width:100%">
                                         </form>
                                     </td>

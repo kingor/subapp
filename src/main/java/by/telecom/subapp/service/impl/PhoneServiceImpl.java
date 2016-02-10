@@ -29,4 +29,10 @@ public class PhoneServiceImpl implements PhoneService {
 		return phoneDao.getBySubscriber(subscriber);
 	}
 
+	@Transactional
+	public List getByParameter(String number, String band, String security,
+			String scv, String adsl, String name, String sort, String orderType) {
+		return phoneDao.getByParameter(number, band, security, scv, adsl, name, sort, orderType);
+	}
+
 }
