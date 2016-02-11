@@ -85,11 +85,12 @@ public class SubscriberController {
 	
 	@RequestMapping(value = "/createSubscriber.do", method = RequestMethod.POST)
 	public String createSubscriberPost(
-			@ModelAttribute("subscriberAttr") Subscriber subscriber) {
+			@ModelAttribute("subscriber") Subscriber subscriber, Model model) {
 
 		subscriberService.create(subscriber);
+		model.addAttribute("subscriber", subscriber);
 
-		return "viewSubscribers";
+		return "createPhone";
 	}
 	
 }

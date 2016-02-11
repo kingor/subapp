@@ -12,12 +12,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import by.telecom.subapp.model.Phone;
 import by.telecom.subapp.model.Subscriber;
 import by.telecom.subapp.service.PhoneService;
+import by.telecom.subapp.service.SubscriberService;
 
 @Controller
 @RequestMapping("/")
 public class PhoneController {
 	@Autowired
 	private PhoneService phoneService;
+	
+	@Autowired
+	private SubscriberService subscriberService;
 
 	@RequestMapping(value = "/phones", method = RequestMethod.GET)
 	public String getPhones(
@@ -57,5 +61,16 @@ public class PhoneController {
 		model.addAttribute("phoneSearch", phones);
 
 		return "viewPhoneSearch";
+	}
+	
+	@RequestMapping(value = "/createPhone", method = RequestMethod.GET)
+	public String createPhone(
+			@RequestParam(value = "id", required = false) Long subscriberId,Model model) {
+		
+		Subscriber subscriber = subscriberService.read(Subscriber.class, subscriberId);
+		Phone phone = new Phone();
+		phone.setSubscriber(subscriber);
+		model.addAttribute("phone", phone);
+		return "createPhone.do";
 	}
 }
