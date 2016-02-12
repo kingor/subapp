@@ -85,10 +85,15 @@ public class SubscriberController {
 	
 	@RequestMapping(value = "/createSubscriber.do", method = RequestMethod.POST)
 	public String createSubscriberPost(
-			@ModelAttribute("subscriber") Subscriber subscriber, Model model) {
+			@ModelAttribute("subscriberAttr") Subscriber subscriber,Model model) {
 
 		subscriberService.create(subscriber);
+		System.out.println("!!!!!!!!!!!!!!!!+++++++++" + subscriber.getId() + "!!!!!!!!!!!!!");
 		model.addAttribute("subscriber", subscriber);
+		Phone phone = new Phone();
+		phone.setSubscriber(subscriber);
+		System.out.println("!!!!!!!!!!!!!!!!+++++++++" + phone.getSubscriber().getId() + "!!!!!!!!!!!!!");
+		model.addAttribute("phoneAttr", phone);
 
 		return "createPhone";
 	}

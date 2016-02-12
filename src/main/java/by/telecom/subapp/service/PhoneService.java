@@ -12,4 +12,12 @@ public interface PhoneService {
 	public List getByParameter(String number, String band,
 			String security, String scv, String adsl, String name, String sort,
 			String orderType);
+	
+	Long create(Phone newInstance);
+    
+	Phone read(Class<Phone> classT, Long id);
+
+    void update(Phone phone);
+
+    void delete(Phone phone);
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -63,14 +64,13 @@ public class PhoneController {
 		return "viewPhoneSearch";
 	}
 	
-	@RequestMapping(value = "/createPhone", method = RequestMethod.GET)
+	@RequestMapping(value = "/createPhone", method = RequestMethod.POST)
 	public String createPhone(
-			@RequestParam(value = "id", required = false) Long subscriberId,Model model) {
-		
-		Subscriber subscriber = subscriberService.read(Subscriber.class, subscriberId);
-		Phone phone = new Phone();
-		phone.setSubscriber(subscriber);
+			@ModelAttribute("phoneAttr") Phone phone, Model model) {	
+		System.out.println("!!!!!!!!!!!!!!!!+++++++++" + phone.getSubscriber().getId() + "!!!!!!!!!!!!!");
+		phoneService.create(phone);
+		model.addAttribute("subscriber", phone.getSubscriber());
 		model.addAttribute("phone", phone);
-		return "createPhone.do";
+		return "createFull";
 	}
 }

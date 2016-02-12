@@ -35,4 +35,24 @@ public class PhoneServiceImpl implements PhoneService {
 		return phoneDao.getByParameter(number, band, security, scv, adsl, name, sort, orderType);
 	}
 
+	@Transactional
+	public Long create(Phone newInstance) {		
+		return phoneDao.create(newInstance);
+	}
+
+	@Transactional
+	public Phone read(Class<Phone> classT, Long id) {
+		return phoneDao.read(classT, id);
+	}
+
+	@Transactional
+	public void update(Phone phone) {
+		phoneDao.update(phone);		
+	}
+
+	@Transactional
+	public void delete(Phone phone) {
+		phoneDao.delete(phone);
+	}
+
 }
