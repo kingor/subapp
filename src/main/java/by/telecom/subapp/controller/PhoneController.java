@@ -66,7 +66,10 @@ public class PhoneController {
 	
 	@RequestMapping(value = "/createPhone", method = RequestMethod.POST)
 	public String createPhone(
-			@ModelAttribute("phoneAttr") Phone phone, Model model) {	
+			@ModelAttribute("phoneAttr") Phone phone,
+			@RequestParam(value = "id_subscriber", required = false) Long subscriberId,Model model) {	
+		
+		phone.setSubscriber(subscriberService.read(Subscriber.class, subscriberId));
 		System.out.println("!!!!!!!!!!!!!!!!+++++++++" + phone.getSubscriber().getId() + "!!!!!!!!!!!!!");
 		phoneService.create(phone);
 		model.addAttribute("subscriber", phone.getSubscriber());

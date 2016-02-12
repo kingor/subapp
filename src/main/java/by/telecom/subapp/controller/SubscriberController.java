@@ -85,7 +85,7 @@ public class SubscriberController {
 	
 	@RequestMapping(value = "/createSubscriber.do", method = RequestMethod.POST)
 	public String createSubscriberPost(
-			@ModelAttribute("subscriberAttr") Subscriber subscriber,Model model) {
+			@ModelAttribute("subscriberAttr") Subscriber subscriber, Model model) {
 
 		subscriberService.create(subscriber);
 		System.out.println("!!!!!!!!!!!!!!!!+++++++++" + subscriber.getId() + "!!!!!!!!!!!!!");
@@ -96,6 +96,27 @@ public class SubscriberController {
 		model.addAttribute("phoneAttr", phone);
 
 		return "createPhone";
+	}
+	
+	@RequestMapping(value = "/subscriberSearchEdit.do", method = RequestMethod.GET)
+	public String getSubscriberEdit(
+			@RequestParam(value = "order", required = false) String order,
+			@RequestParam(value = "sort", required = false) String sort, 
+			@RequestParam(value = "name", required = false) String name,
+			@RequestParam(value = "address", required = false) String address,
+			@RequestParam(value = "comment", required = false) String comment,
+			Model model) {
+        if(!"name".equals(sort) && !"address".equals(sort) && !"comment".equals(sort))
+            sort = "name";
+        if(!"asc".equals(order) && !"desc".equals(order))
+            order = "asc";
+       
+        
+		List<Subscriber> subscribers = subscriberService.getByParameter(name, address, comment, sort, order);
+
+		model.addAttribute("subscriberSearchEdit", subscribers);
+
+		return "viewSubscriberEdit";
 	}
 	
 }

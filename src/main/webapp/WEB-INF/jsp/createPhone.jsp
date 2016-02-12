@@ -49,14 +49,14 @@
 												</table>
 												<h2>Параметры:</h2>
 												<form:form modelAttribute="phoneAttr" method="post"
-													action="createPhone.do">
+													action="createPhone">
 													<!-- <form name="form5" method="post" action="createPhone"> -->
 													<%--  <input type="hidden" name="subscriber_id" value="${subscriber.id}"> --%>
 													
 													<table width="600">
 														<tr>
-															<td width="25%">Номер телефона:<INPUT type="text" name="subscriber_id"
-																value="${phoneAttr.getSubscriber().getId()}" style="width: 100%" ></td>
+															<td width="25%">Номер телефона:<INPUT type="text" name="id_subscriber"
+																  value="${phoneAttr.getSubscriber().getId()}"  style="width: 100%" ></td>
 															<td><INPUT type="text" name="number"
 																style="width: 100%"></td>
 														</tr>

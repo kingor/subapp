@@ -25,7 +25,7 @@
                             <table class="AllWidth">
                                 <tr >
                                     <td>
-                                        <form name="form5" method="get" action="index">
+                                        <form name="form5" method="post" action="index">
                                             <INPUT type="submit" name="submit" value="Главная страница" style="width: 100%">
                                         </form>
                                     </td>

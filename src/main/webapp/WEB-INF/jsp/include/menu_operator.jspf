@@ -32,7 +32,7 @@
                                 </tr>
                                 <tr>
                                     <td >
-                                        <form name="form6" method="post" action="subscriberSearchEdit.do">
+                                        <form name="form6" method="get" action="subscriberSearchEdit.do">
                                         <INPUT type="submit" name="submit" value="Редактор абонентов" style="width:100%">
                                         </form>
                                     </td>
