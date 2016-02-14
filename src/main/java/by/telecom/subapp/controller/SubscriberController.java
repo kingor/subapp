@@ -136,4 +136,13 @@ public class SubscriberController {
 		return "index";
 	}
 	
+	@RequestMapping(value = "/deleteSubscriber.do", method = RequestMethod.POST)
+	public String deleteSubscriber(
+			@RequestParam(value = "subscriberSelect", required = false) Long subscriberId, 
+			Model model) {
+		Subscriber subscriber = subscriberService.read(Subscriber.class, subscriberId);
+		subscriberService.delete(subscriber);
+		return "viewSubscriberEdit";
+	}
+	
 }
