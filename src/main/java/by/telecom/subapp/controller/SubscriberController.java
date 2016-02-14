@@ -119,4 +119,21 @@ public class SubscriberController {
 		return "viewSubscriberEdit";
 	}
 	
+	@RequestMapping(value = "/editSubscriberView.do", method = RequestMethod.POST)
+	public String editSubscriber(
+			@RequestParam(value = "subscriberSelect", required = false) Long subscriberId, 
+			Model model) {
+		Subscriber subscriber = subscriberService.read(Subscriber.class, subscriberId);
+		model.addAttribute("subscriber", subscriber);
+		return "editSubscriber";
+	}
+	
+	@RequestMapping(value = "/editSubscriber.do", method = RequestMethod.POST)
+	public String editSubscriberDo(
+			@ModelAttribute("subscriberAttr") Subscriber subscriber, Model model) {
+
+		subscriberService.update(subscriber);
+		return "index";
+	}
+	
 }

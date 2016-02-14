@@ -10,6 +10,8 @@
 <%@page import="java.util.Collection"%>
 <%@page import="by.telecom.subapp.model.Subscriber"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
     <head>
@@ -37,7 +39,8 @@
                                             <td class="content">
                                                 <center>
                                                     <h2>Подробные данные:</h2>
-                                                    <form name="form5" method="post" action="editSubscriber.do">
+                                                    <form:form modelAttribute="subscriberAttr" method="post" action="editSubscriber.do">
+                                                    <!-- <form name="form5" method="post" action="editSubscriber.do"> -->
                                                         <INPUT type="hidden" name="id" value="${subscriber.id}">
                                                     <table class=AllWidth>
                                                         <tr>
@@ -57,7 +60,8 @@
                                                                 <INPUT type="submit" name="submit" value="Сохранить" style="width:20%">
                                                         </th>
                                                     </table>
-                                                    </form>
+                                                    </form:form>
+                                                   <%--  </form> --%>
                                                 </center>
                                             </td>
                                         </tr>
