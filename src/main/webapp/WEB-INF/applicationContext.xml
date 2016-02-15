@@ -31,6 +31,8 @@
   
  <!-- Load Hibernate related configuration -->
  <import resource="hibernate-context.xml" /> 
+ 
+ <import resource="spring-security.xml" /> 
        
     <!--bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
