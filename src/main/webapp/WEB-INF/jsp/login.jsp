@@ -4,6 +4,7 @@
     Author     : Family_P
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
     <head>
@@ -45,7 +46,8 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="300">
-                                                            <form name="form5" method="post" action="/static/j_spring_security_check">
+                                                        <c:url value="/j_spring_security_check" var="loginUrl" />
+                                                            <form name="form5" method="post" action="${loginUrl}">
                                                                 
                                                                     <table width="300">
                                                                         <tr>

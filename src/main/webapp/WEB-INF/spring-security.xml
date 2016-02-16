@@ -5,10 +5,10 @@
     http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd">
 
 	<http auto-config='true' use-expressions="false">
-		<intercept-url pattern="/telecom/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<intercept-url pattern="/**" access="ROLE_USER" />
-		<form-login login-processing-url="/static/j_spring_security_check"
-			login-page="/telecom/login" authentication-failure-url="/login?login_error=t" />
+		<form-login login-processing-url="/j_spring_security_check"
+			login-page="/login" authentication-failure-url="/login?login_error=t" />
 	</http>
 
 	<authentication-manager>
