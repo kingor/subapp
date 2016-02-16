@@ -62,10 +62,16 @@ public class MainController {
 	}
 
 	
-	@RequestMapping(value = "/index", method = RequestMethod.POST)
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String getIndex(Model model) {
 
 		return "index";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String getLogin(Model model) {
+
+		return "login";
 	}
 	
 	@RequestMapping(value = "/actors/add", method = RequestMethod.GET)
