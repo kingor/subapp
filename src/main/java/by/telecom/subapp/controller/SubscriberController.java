@@ -19,7 +19,7 @@ import by.telecom.subapp.model.Phone;
 
 
 @Controller
-@RequestMapping("/")
+//@RequestMapping("/")
 public class SubscriberController {
 	@Autowired
 	private SubscriberService subscriberService;

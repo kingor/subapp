@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author asup
  */
 @Controller
-@RequestMapping("/")
+//@RequestMapping("/")
 public class MainController {
 
 	 protected static Logger logger = Logger.getLogger("controller");

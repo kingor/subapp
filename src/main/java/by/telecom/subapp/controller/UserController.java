@@ -15,7 +15,7 @@ import by.telecom.subapp.service.SubscriberService;
 import by.telecom.subapp.service.UserService;
 
 @Controller
-@RequestMapping("/")
+//@RequestMapping("/")
 public class UserController {
 	
 	@Autowired

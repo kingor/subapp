@@ -16,7 +16,7 @@ import by.telecom.subapp.service.PhoneService;
 import by.telecom.subapp.service.SubscriberService;
 
 @Controller
-@RequestMapping("/")
+//@RequestMapping("/")
 public class PhoneController {
 	@Autowired
 	private PhoneService phoneService;
