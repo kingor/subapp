@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import by.telecom.subapp.dao.UserDao;
+import by.telecom.subapp.model.Subscriber;
 import by.telecom.subapp.model.User;
 import by.telecom.subapp.service.UserService;
 @Service
@@ -16,46 +17,38 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 	
 	@Transactional
-	public List getAll() {
-		return userDao.getAll();
+	public List getAll(Class<User> clazz, String sort, String orderType) {
+		return userDao.getAll(User.class, sort, orderType);
 	}
 
 	@Transactional
-	public List<User> getByLogin(String login) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Transactional
-	public List<User> getByParameter(String login, String name,
-			Integer category, String sort, String orderType) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<User> getByParameter(String login, String name, Integer category, 
+			String sort, String orderType) {
+		return userDao.getByParameter(login, name, category, sort, orderType);
 	}
 	
-	/*@Transactional
-	public void add(Student student) {
-		studentDao.add(student);
+	@Transactional
+	public Long create(User newInstanse) {
+		return userDao.create(newInstanse);
+	}
+	
+	@Transactional
+	public User read(Class<User> classT, Long id) {
+		// TODO Auto-generated method stub
+		return userDao.read(classT, id);
+	}
+	
+	@Transactional
+	public void update(User transientObject) {
+		userDao.update(transientObject);
+		
+	}
+	
+	@Transactional
+	public void delete(User persistentObject) {
+		userDao.delete(persistentObject);
+		
 	}
 
-	@Transactional
-	public void edit(Student student) {
-		studentDao.edit(student);
-	}
-
-	@Transactional
-	public void delete(int studentId) {
-		studentDao.delete(studentId);
-	}
-
-	@Transactional
-	public Student getStudent(int studentId) {
-		return studentDao.getStudent(studentId);
-	}
-
-	@Transactional
-	public List getAllStudent() {
-		return studentDao.getAllStudent();
-	}*/
 
 }

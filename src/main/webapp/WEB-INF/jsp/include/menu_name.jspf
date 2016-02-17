@@ -30,7 +30,8 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <form name="form5" method="post" action="logout">
+                                    <c:url value="/telecom/j_spring_security_logout" var="logoutUrl" />
+                                        <form name="form5" method="post" action="${logoutUrl}">
                                             <INPUT type="submit" name="submit" value="Выход" style="width:100%">
                                         </form>
                                     </td>

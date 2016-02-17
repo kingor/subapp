@@ -7,7 +7,6 @@
 package by.telecom.subapp.dao.impl;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -17,6 +16,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 
 import by.telecom.subapp.dao.UserDao;
+import by.telecom.subapp.model.Subscriber;
 import by.telecom.subapp.model.User;
 
 import org.hibernate.criterion.Order;
@@ -28,17 +28,12 @@ import org.springframework.stereotype.Repository;
  * @author ASUP8
  */
 @Repository
-public class UserDaoImpl implements UserDao{
+public class UserDaoImpl extends GenericDaoImpl<User, Long> implements UserDao{
     
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-    public List<User> getAll() {
-    	List<User> list = (List<User>) sessionFactory.getCurrentSession().createQuery("from User").list();
-		return list;
-    }
-
-    public List<User> getByLogin(String login) {
+    public User getByLogin(String login) {
       /*  Session session = null;
         List<User> all = null;
         try {
@@ -54,7 +49,19 @@ public class UserDaoImpl implements UserDao{
                 session.close();
             }
         }*/
-        return null;//all; 
+    	Session session = null;
+        List<User> all = null;
+        
+        session = sessionFactory.getCurrentSession();
+        all = session.createCriteria(User.class)
+        		.add(Restrictions.like("login", "%"+login+"%")).list();
+        
+        if (all.size() > 0) {
+			return all.get(0);
+		} else {
+			return null;
+		}
+        
     }
 
     public List<User> getByParameter(String login, String name, Integer category, String sort, String orderType) {

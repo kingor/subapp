@@ -49,17 +49,17 @@ public class MainController {
 		return "actorspage";
 	}
 	
-	@Autowired
-	private UserService userService;
-
-	@RequestMapping(value = "/users", method = RequestMethod.GET)
-	public String getUsers(Model model) {
-		List<User> users = userService.getAll();
-
-		model.addAttribute("users", users);
-
-		return "userspage";
-	}
+//	@Autowired
+//	private UserService userService;
+//
+//	@RequestMapping(value = "/users", method = RequestMethod.GET)
+//	public String getUsers(Model model) {
+//		List<User> users = userService.getAll();
+//
+//		model.addAttribute("users", users);
+//
+//		return "userspage";
+//	}
 
 	
 	@RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)

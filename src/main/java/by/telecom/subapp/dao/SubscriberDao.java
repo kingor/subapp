@@ -9,7 +9,7 @@ package by.telecom.subapp.dao;
 import java.util.List;
 
 import by.telecom.subapp.model.Subscriber;
-import by.telecom.subapp.model.User;
+
 
 /**
  *
