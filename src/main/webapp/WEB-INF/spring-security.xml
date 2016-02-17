@@ -14,11 +14,17 @@
 		<logout logout-url="/telecom/j_spring_security_logout"/>
 	</http>
 
-	<authentication-manager>
-		<authentication-provider>
-			<user-service>
-				<user name="1" password="1" authorities="ROLE_USER" />
-			</user-service>
-		</authentication-provider>
-	</authentication-manager>
+<!-- 	<authentication-manager> -->
+<!-- 		<authentication-provider> -->
+<!-- 			<user-service> -->
+<!-- 				<user name="1" password="1" authorities="ROLE_USER" /> -->
+<!-- 			</user-service> -->
+<!-- 		</authentication-provider> -->
+<!-- 	</authentication-manager> -->
+
+<authentication-manager>  
+        <authentication-provider user-service-ref="myUserDetailsService">  
+            <password-encoder hash="plaintext">  
+        </password-encoder></authentication-provider>  
+    </authentication-manager>  
 </beans:beans>
