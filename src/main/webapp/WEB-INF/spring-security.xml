@@ -2,19 +2,22 @@
 <beans:beans xmlns="http://www.springframework.org/schema/security"
 	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+    http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
 	<http auto-config='true' use-expressions="false">
-		<intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-		<intercept-url pattern="/**" access="ROLE_USER" />
-		<form-login login-processing-url="/j_spring_security_check"
-			login-page="/login" authentication-failure-url="/login?login_error=t" />
+		<intercept-url pattern="/telecom/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+<!-- 		<intercept-url pattern="/resources*" access="IS_AUTHENTICATED_ANONYMOUSLY"/> -->
+		<intercept-url pattern="/telecom/*" access="ROLE_USER" />
+		<form-login login-processing-url="/telecom/j_spring_security_check"
+			login-page="/telecom/login" authentication-failure-url="/telecom/login?login_error=t" />
+		<logout logout-url="/telecom/j_spring_security_logout"/>
 	</http>
 
 	<authentication-manager>
 		<authentication-provider>
 			<user-service>
-				<user name="bob" password="bob" authorities="ROLE_USER" />
+				<user name="1" password="1" authorities="ROLE_USER" />
 			</user-service>
 		</authentication-provider>
 	</authentication-manager>

@@ -127,7 +127,7 @@
 	</build>
 	<properties>
 		<org.springframework.version>4.0.5.RELEASE</org.springframework.version>
-		<org.spring-security.version>4.0.3.RELEASE</org.spring-security.version>
+		<org.spring-security.version>3.2.3.RELEASE</org.spring-security.version>
 		<org.hibernate.version>4.3.5.Final</org.hibernate.version>
 		<mysql.version>5.1.37</mysql.version>
 	</properties>
