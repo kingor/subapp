@@ -14,8 +14,8 @@ import java.util.Date;
 /**
  *
  * @author ASUP8
- * @param id Уникальный номер лога
- * @param user Пользователь 
+ * @param id 
+ * @param user 
  */
 public class Log implements Serializable {
     private Long id;
