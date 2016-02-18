@@ -7,6 +7,8 @@ package by.telecom.subapp.dao;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import by.telecom.subapp.model.Subscriber;
 import by.telecom.subapp.model.Phone;
 
@@ -15,7 +17,7 @@ import by.telecom.subapp.model.Phone;
  * @author ASUP8
  */
 public interface PhoneDao extends GenericDao<Phone, Long>{
-	
+
     List<Phone> getBySubscriber(Subscriber subscriber);
     
     List<Phone> getByParameter(String number, String band, 

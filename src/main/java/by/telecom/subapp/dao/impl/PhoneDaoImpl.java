@@ -3,6 +3,7 @@ package by.telecom.subapp.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -22,8 +23,11 @@ public class PhoneDaoImpl extends GenericDaoImpl<Phone, Long> implements PhoneDa
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	private static final Logger logger = Logger.getLogger(Phone.class);
+	
 	public List<Phone> getBySubscriber(Subscriber subscriber) {
 		
+		logger.info("PHONEDAO Get all subscribers!");
 		Session session = sessionFactory.getCurrentSession();
 		List<Phone> phones = session.createCriteria(Phone.class)
                 .add(Restrictions.eq("subscriber", subscriber)).list();

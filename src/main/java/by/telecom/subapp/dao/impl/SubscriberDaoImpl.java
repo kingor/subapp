@@ -9,6 +9,7 @@ package by.telecom.subapp.dao.impl;
 import java.io.Serializable;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -32,12 +33,14 @@ public class SubscriberDaoImpl extends GenericDaoImpl<Subscriber, Long> implemen
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	private static final Logger logger = Logger.getLogger(Subscriber.class);
 	
 	public List<Subscriber> getByParameter(String name, String address,
 			String comment, String sort, String orderType) {
 		Session session = null;
         List<Subscriber> all = null;
         
+        logger.info("PHONEDAO Get all subscribers!");
         session = sessionFactory.getCurrentSession();
     	Order order = Order.asc(sort);
         if(orderType.equals("desc"))
