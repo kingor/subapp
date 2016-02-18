@@ -23,7 +23,6 @@ public class MyUserDetailsService  implements UserDetailsService  {
 
 	@Autowired
 	private UserDao userDao;
-	
 
 	public UserDetails loadUserByUsername(final String username) 
                throws UsernameNotFoundException {
@@ -42,36 +41,12 @@ public class MyUserDetailsService  implements UserDetailsService  {
 	            accountNonExpired, 
 	            credentialsNonExpired, 
 	            accountNonLocked,
-	            getAuthorities(0)
+	            getAuthorities(domainUser.getCategory())
 	    );
-		
+
 
 	}
 
-//	// Converts com.mkyong.users.model.User user to
-//	// org.springframework.security.core.userdetails.User
-//	private User buildUserForAuthentication(by.telecom.subapp.model.User user, 
-//		List<GrantedAuthority> authorities) {
-//		return new User(user.getLogin(), 
-//			user.getPassword(), true, 
-//                        true, true, true, authorities);
-//	}
-//
-//	private List<GrantedAuthority> buildUserAuthority(Set<UserRole> userRoles) {
-//
-//		Set<GrantedAuthority> setAuths = new HashSet<GrantedAuthority>();
-//
-//		// Build user's authorities
-//		for (UserRole userRole : userRoles) {
-//			setAuths.add(new SimpleGrantedAuthority(userRole.getRole()));
-//		}
-//
-//		List<GrantedAuthority> Result = new ArrayList<GrantedAuthority>(setAuths);
-//
-//		return Result;
-//	}
-	
-	
 	
 	public Collection<? extends GrantedAuthority> getAuthorities(Integer role) {
         List<GrantedAuthority> authList = getGrantedAuthorities(getRoles(role));
@@ -82,10 +57,17 @@ public class MyUserDetailsService  implements UserDetailsService  {
 		 
         List<String> roles = new ArrayList<String>();
  
-        roles.add("ROLE_USER");
+        if (role.intValue() == 2) {
+            roles.add("ROLE_ADMIN");
+        } else if (role.intValue() == 1) {
+            roles.add("ROLE_OPERATOR");
+        } else if (role.intValue() == 0) {
+            roles.add("ROLE_USER");
+        }
         
         return roles;
     }
+	
 	
 	public static List<GrantedAuthority> getGrantedAuthorities(List<String> roles) {
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();

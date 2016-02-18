@@ -29,7 +29,7 @@
                                     <table class="width753" cellspacing=0 cellpadding=20 border=0>
                                         <tr>
                                             <td class="content">
-                                                <center><img src="style/telecom1.jpg" height=320></center>
+                                                <center><img src="<c:url value="/resources/style/telecom1.jpg"/>" height=320></center>
                                             </td>
                                         </tr>
 
