@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -23,10 +24,12 @@ public class MyUserDetailsService  implements UserDetailsService  {
 
 	@Autowired
 	private UserDao userDao;
+	private static final Logger logger = Logger.getLogger(MyUserDetailsService.class);
 
 	public UserDetails loadUserByUsername(final String username) 
                throws UsernameNotFoundException {
-
+		
+		logger.info("Try to login with username = " + username);
 		by.telecom.subapp.model.User domainUser = userDao.getByLogin(username);
 
 		boolean enabled = true;
@@ -43,7 +46,6 @@ public class MyUserDetailsService  implements UserDetailsService  {
 	            accountNonLocked,
 	            getAuthorities(domainUser.getCategory())
 	    );
-
 
 	}
 

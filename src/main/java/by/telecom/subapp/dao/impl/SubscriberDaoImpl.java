@@ -26,21 +26,21 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author ASUP8
+ * @author kingor
  */
 @Repository
 public class SubscriberDaoImpl extends GenericDaoImpl<Subscriber, Long> implements SubscriberDao{
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	private static final Logger logger = Logger.getLogger(Subscriber.class);
+	private static final Logger logger = Logger.getLogger(SubscriberDao.class);
 	
 	public List<Subscriber> getByParameter(String name, String address,
 			String comment, String sort, String orderType) {
+		logger.info("Get by parameter sort = " + name + " order = " + orderType);
 		Session session = null;
         List<Subscriber> all = null;
         
-        logger.info("PHONEDAO Get all subscribers!");
         session = sessionFactory.getCurrentSession();
     	Order order = Order.asc(sort);
         if(orderType.equals("desc"))

@@ -12,6 +12,7 @@ import by.telecom.subapp.model.Subscriber;
 import java.io.Serializable;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -22,17 +23,19 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author ASUP8
- * @param <T>
- * @param <PK>
+ * @author kingor
+ * @param <T>	Entity class	
+ * @param <PK>	primary key of entity
  */
 @Repository
 public class GenericDaoImpl<T, PK extends Serializable> implements GenericDao<T, PK> {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	private static final Logger logger = Logger.getLogger(GenericDao.class);
 	
     public List<T> getAll(Class classT, String sort, String orderType) {
+     	logger.info("getAll entity with sort = " + sort + " order = " + orderType);
     	Session session = null;
         List<T> all = null;
         session = sessionFactory.getCurrentSession();
@@ -46,11 +49,13 @@ public class GenericDaoImpl<T, PK extends Serializable> implements GenericDao<T,
     }
 
 	public PK create(T newInstance) {
+		logger.info("create entity");
 		Session session = sessionFactory.getCurrentSession();
 		return (PK) session.save(newInstance);
 	}
 
 	public T read(Class<T> classT, PK id) {
+		logger.info("read entity with id = " + id);
 		Session session = sessionFactory.getCurrentSession();
 		T objectT = (T) session.createCriteria(classT)
                 .add(Restrictions.eq("id", id)).uniqueResult();
@@ -58,11 +63,13 @@ public class GenericDaoImpl<T, PK extends Serializable> implements GenericDao<T,
 	}
 
 	public void update(T transientObject) {
+		logger.info("update entity");
 		Session session = sessionFactory.getCurrentSession();
 		session.update(transientObject);	
 	}
 
 	public void delete(T persistentObject) {
+		logger.info("delete entity" + persistentObject);
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(persistentObject);		
 	}

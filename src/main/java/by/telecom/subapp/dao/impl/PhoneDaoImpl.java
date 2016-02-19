@@ -16,18 +16,19 @@ import by.telecom.subapp.dao.PhoneDao;
 import by.telecom.subapp.dao.SubscriberDao;
 import by.telecom.subapp.model.Phone;
 import by.telecom.subapp.model.Subscriber;
-
+/**
+ * @author kingor
+ */
 @Repository
 public class PhoneDaoImpl extends GenericDaoImpl<Phone, Long> implements PhoneDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	private static final Logger logger = Logger.getLogger(Phone.class);
+	private static final Logger logger = Logger.getLogger(PhoneDao.class);
 	
 	public List<Phone> getBySubscriber(Subscriber subscriber) {
 		
-		logger.info("PHONEDAO Get all subscribers!");
+		logger.info("Get PHONE by Subscriber " + subscriber.getName());
 		Session session = sessionFactory.getCurrentSession();
 		List<Phone> phones = session.createCriteria(Phone.class)
                 .add(Restrictions.eq("subscriber", subscriber)).list();
@@ -38,6 +39,7 @@ public class PhoneDaoImpl extends GenericDaoImpl<Phone, Long> implements PhoneDa
 			String security, String scv, String adsl, String name, String sort,
 			String orderType) {
 		
+		logger.info("Get PHONE by Parameter sort = " + sort + " order = " + orderType);
 		Session session = sessionFactory.getCurrentSession();
 		Criteria criteria = session.createCriteria(Phone.class)
                 .add(Restrictions.like("number", number + "%"))

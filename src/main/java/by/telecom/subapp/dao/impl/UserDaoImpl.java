@@ -9,6 +9,7 @@ package by.telecom.subapp.dao.impl;
 import java.io.Serializable;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -32,23 +33,10 @@ public class UserDaoImpl extends GenericDaoImpl<User, Long> implements UserDao{
     
 	@Autowired
 	private SessionFactory sessionFactory;
+	private static final Logger logger = Logger.getLogger(UserDao.class);
 	
     public User getByLogin(String login) {
-      /*  Session session = null;
-        List<User> all = null;
-        try {
-            session = sessionFactory.getCurrentSession();
-            session.beginTransaction();
-            all = session.createCriteria(User.class)
-                    .add(Restrictions.like("login", "%"+login+"%")).list();
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }*/
+    	logger.info("Get USER by login = " + login);
     	Session session = null;
         List<User> all = null;
         
@@ -64,8 +52,10 @@ public class UserDaoImpl extends GenericDaoImpl<User, Long> implements UserDao{
         
     }
 
-    public List<User> getByParameter(String login, String name, Integer category, String sort, String orderType) {
-        /*Session session = null;
+    public List<User> getByParameter(String login, String name, Integer category, 
+    		String sort, String orderType) {
+    	logger.info("Get USER by sort = " + sort + " order = " + orderType);
+    	/*Session session = null;
         List<User> all = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
