@@ -24,64 +24,6 @@ public class PhoneController {
 	@Autowired
 	private SubscriberService subscriberService;
 
-	@RequestMapping(value = "/phones", method = RequestMethod.GET)
-	public String getPhones(
-			@RequestParam(value = "order", required = false) String order,
-			@RequestParam(value = "sort", required = false) String sort, Model model) {
-			
-		if(!"number".equals(sort) && !"band".equals(sort) && !"security".equals(sort) 
-				&& !"scv".equals(sort) && !"adsl".equals(sort))
-			sort = "number";
-		if(!"asc".equals(order) && !"desc".equals(order))
-		    order = "asc";
-		List<Phone> phones = phoneService.getAll(Phone.class, sort, order);
-
-		model.addAttribute("phones", phones);
-
-		return "viewPhones";
-	}
 	
-	@RequestMapping(value = "/phoneSearch.do", method = RequestMethod.GET)
-	public String getPhoneSearch(
-			@RequestParam(value = "order", required = false) String order,
-			@RequestParam(value = "sort", required = false) String sort, 
-			@RequestParam(value = "number", required = false) String number,
-			@RequestParam(value = "band", required = false) String band,
-			@RequestParam(value = "security", required = false) String security,
-			@RequestParam(value = "scv", required = false) String scv,
-			@RequestParam(value = "adsl", required = false) String adsl,
-			@RequestParam(value = "name", required = false) String name,
-			Model model) {
-		if(!"number".equals(sort) && !"band".equals(sort) && !"security".equals(sort) 
-				&& !"scv".equals(sort) && !"adsl".equals(sort) && !"name".equals(sort))
-			sort = "number";
-        if(!"asc".equals(order) && !"desc".equals(order))
-            order = "asc";     
-        
-		List<Phone> phones = phoneService.getByParameter(number, band, security, scv, 
-				adsl, name, sort, order);
-
-		model.addAttribute("phoneSearch", phones);
-
-		return "viewPhoneSearch";
-	}
 	
-	@RequestMapping(value = "/createPhone", method = RequestMethod.POST)
-	public String createPhone(
-			@ModelAttribute("phoneAttr") Phone phone,
-			@RequestParam(value = "id_subscriber", required = false) Long subscriberId,Model model) {	
-		
-		phone.setSubscriber(subscriberService.read(Subscriber.class, subscriberId));
-		System.out.println("!!!!!!!!!!!!!!!!+++++++++" + phone.getSubscriber().getId() + "!!!!!!!!!!!!!");
-		phoneService.create(phone);
-		model.addAttribute("subscriber", phone.getSubscriber());
-		model.addAttribute("phone", phone);
-		return "createFull";
-	}
-	
-	@RequestMapping(value = "/phoneSearchEdit.do", method = RequestMethod.POST)
-	public String phoneSearchEdit(Model model) {	
-		
-		return "viewPhoneEdit";
-	}
 }

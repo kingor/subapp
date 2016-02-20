@@ -36,6 +36,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MainController {
 
 	 protected static Logger logger = Logger.getLogger(MainController.class);
+
+		
+		@RequestMapping(value = "/login", method = RequestMethod.GET)
+		public String getLogin(Model model) {
+			if (logger.isDebugEnabled()) {
+				logger.debug("Received request to show Login page");
+			}
+			return "login";
+		}
+	 
+
+		
+		
+	 
 	 
 	@Resource(name = "actorService")
 	private ActorService actorService;
@@ -49,21 +63,7 @@ public class MainController {
 		return "actorspage";
 	}
 	
-	
-	@RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
-	public String getIndex(Model model) {
-		logger.info("Received request to show Index page");
-		return "index";
-	}
-	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String getLogin(Model model) {
-		if (logger.isDebugEnabled()) {
-			logger.debug("Received request to show Login page");
-		}
-		return "login";
-	}
-	
+
 	@RequestMapping(value = "/actors/add", method = RequestMethod.GET)
 	public String getAdd(Model model) {
 		logger.debug("Received request to show Index page");

@@ -5,23 +5,17 @@
     http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
+	<global-method-security secured-annotations="enabled" />
+
 	<http access-denied-page="/telecom/login" auto-config='true' use-expressions="true">
 		<intercept-url pattern="/telecom/login*" access="isAnonymous()" />
 		<!-- <intercept-url pattern="/resources*" access="IS_AUTHENTICATED_ANONYMOUSLY"/> -->
-		<intercept-url pattern="/telecom/create*" access="hasRole('ROLE_ADMIN')" />
-		<intercept-url pattern="/telecom/*" access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')" />
+<!-- 		<intercept-url pattern="/telecom/create*" access="hasRole('ROLE_ADMIN')" /> -->
+<!-- 		<intercept-url pattern="/telecom/*" access="hasRole('ROLE_USER') or hasRole('ROLE_OPERATOR') or hasRole('ROLE_ADMIN')" /> -->
 		<form-login login-processing-url="/telecom/j_spring_security_check"
 			login-page="/telecom/login" authentication-failure-url="/telecom/login?login_error=t" />
 		<logout logout-url="/telecom/j_spring_security_logout" logout-success-url="/telecom/index"/>
 	</http>
-
-	<!-- <authentication-manager> -->
-	<!-- <authentication-provider> -->
-	<!-- <user-service> -->
-	<!-- <user name="1" password="1" authorities="ROLE_USER" /> -->
-	<!-- </user-service> -->
-	<!-- </authentication-provider> -->
-	<!-- </authentication-manager> -->
 
 	<authentication-manager>
 		<authentication-provider user-service-ref="myUserDetailsService">
