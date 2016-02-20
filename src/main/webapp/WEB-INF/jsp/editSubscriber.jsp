@@ -38,22 +38,22 @@
                                         <tr>
                                             <td class="content">
                                                 <center>
-                                                    <h2>Подробные данные:</h2>
+                                                    <h2>Изменение данных абонента:</h2>
                                                     <form:form modelAttribute="subscriberAttr" method="post" action="editSubscriber.do">
                                                     <!-- <form name="form5" method="post" action="editSubscriber.do"> -->
-                                                        <INPUT type="hidden" name="id" value="${subscriber.id}">
+                                                        <INPUT type="hidden" name="id" value="${subscriberAttr.id}">
                                                     <table class=AllWidth>
                                                         <tr>
                                                             <td width="20%">ФИО абонента:</td> 
-                                                            <td class="textBold"><INPUT type="text" name="name" value="${subscriber.name}" style="width:100%" ></td>
+                                                            <td class="textBold"><INPUT type="text" name="name" value="${subscriberAttr.name}" style="width:100%" ></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Адрес абонента:</td> 
-                                                            <td class="textBold"><INPUT type="text" name="address" value="${subscriber.address}" style="width:100%" ></td>
+                                                            <td class="textBold"><INPUT type="text" name="address" value="${subscriberAttr.address}" style="width:100%" ></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Примечание:</td> 
-                                                            <td class="textBold"><INPUT type="text" name="comment" value="${subscriber.comment}" style="width:100%" ></td>
+                                                            <td class="textBold"><INPUT type="text" name="comment" value="${subscriberAttr.comment}" style="width:100%" ></td>
                                                         </tr>
                                                         <th colspan="2" width="5%">
                                                                 <br>

@@ -55,7 +55,7 @@
 													
 													<table width="600">
 														<tr>
-															<td width="25%">Номер телефона:<INPUT type="text" name="id_subscriber"
+															<td width="25%">Номер телефона:<INPUT type="hidden" name="id_subscriber"
 																  value="${phoneAttr.getSubscriber().getId()}"  style="width: 100%" ></td>
 															<td><INPUT type="text" name="number"
 																style="width: 100%"></td>

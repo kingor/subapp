@@ -7,7 +7,7 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sakila?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">123456</property>-->
-    <property name="hibernate.show_sql">true</property>
+<!--     <property name="hibernate.show_sql">false</property> -->
         <!-- This will drop our existing database and re-create a new one.
       Existing data will be deleted! -->
     <property name="hbm2ddl.auto">update</property>

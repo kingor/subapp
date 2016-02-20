@@ -35,4 +35,10 @@ public class UserController {
 
 		return "viewUserEdit";
 	}
+	
+	@RequestMapping(value = "/createUser", method = RequestMethod.POST)
+	public String phoneSearchEdit(Model model) {	
+		
+		return "createUser";
+	}
 }

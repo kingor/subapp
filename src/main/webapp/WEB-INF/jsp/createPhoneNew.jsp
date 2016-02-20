@@ -33,56 +33,53 @@
                                     <table class="width753" cellspacing=0 cellpadding=20 border=0>
                                         <tr>
                                             <td class="content">
-                                                <form name="form5" method="get" action="subscriberSearchEdit.do">
+                                                <form name="form3" method="get" action="createPhoneNew">
                                                     <center>
-                                                        <h2>Поиск по фамилии:</h2>
+                                                        <h2>Поиск абонентов:</h2>
                                                     </center>
                                                     <table class="navu AllWidth">
                                                         <tr>
-                                                            <th class="width30">
-                                                                <a href="subscriberSearchEdit.do?sort=name&order=desc&name=${name}&address=${address}&comment=${comment}">↓</a>
+                                                            <th class="width40">
+                                                                <a href="createPhoneNew?sort=name&order=desc&name=${name}&address=${address}&comment=${comment}">↓</a>
                                                                 ФИО абонента
-                                                                <a href="subscriberSearchEdit.do?sort=name&order=asc&name=${name}&address=${address}&comment=${comment}">↑</a>
+                                                                <a href="createPhoneNew?sort=name&order=asc&name=${name}&address=${address}&comment=${comment}">↑</a>
                                                             </th>
-                                                            <th class="width30">
-                                                                <a href="subscriberSearchEdit.do?sort=address&order=desc&name=${name}&address=${address}&comment=${comment}">↓</a>            
-                                                                Адрес
-                                                                <a href="subscriberSearchEdit.do?sort=address&order=asc&name=${name}&address=${address}&comment=${comment}">↑</a>
+                                                            <th class="width35">
+                                                                <a href="createPhoneNew?sort=address&order=desc&name=${name}&address=${address}&comment=${comment}">↓</a>
+                                                                Адрес абонента
+                                                                <a href="createPhoneNew?sort=address&order=asc&name=${name}&address=${address}&comment=${comment}">↑</a>
                                                             </th>
-                                                            <th class="width20">
-                                                                <a href="subscriberSearchEdit.do?sort=comment&order=desc&name=${name}&address=${address}&comment=${comment}">↓</a>            
+                                                            <th class="width15">
+                                                                <a href="createPhoneNew?sort=comment&order=desc&name=${name}&address=${address}&comment=${comment}">↓</a>
                                                                 Примечание
-                                                                <a href="subscriberSearchEdit.do?sort=comment&order=asc&name=${name}&address=${address}&comment=${comment}">↑</a>
+                                                                <a href="createPhoneNew?sort=comment&order=asc&name=${name}&address=${address}&comment=${comment}">↑</a>
                                                             </th>
-                                                            <th class="width20"></th>
+                                                            <th class="width10"></th>
                                                         </tr>
                                                         <tr>        
                                                             <td><INPUT type="text" name="name" value="${name}" class="AllWidth"></td>
                                                             <td><INPUT type="text" name="address" value="${address}" class="AllWidth"></td>
                                                             <td><INPUT type="text" name="comment" value="${comment}" class="AllWidth"></td>
-                                                            <td class="width30"><INPUT type="submit" name="submit" value="Поиск" class="AllWidth"></td>
+                                                            <td class="but16"> 
+                                                                <INPUT type="submit" name="submit" value="Поиск" class="AllWidth">
+                                                             
+                                                            </td>
                                                         </tr>
                                                     </table>     
                                                 </form>
                                                 <center>
-                                                    <c:if test="${!subscriberSearchEdit.isEmpty()}">
+                                                    <c:if test="${!subscriberSearch.isEmpty()}">
                                                         <table class="AllWidth" border="1">
-                        
-                                                            <c:forEach var="subscriber" items="${subscriberSearchEdit}">
-                                                                <tr>
-                                                                    <td class="width30">${subscriber.name}</td>
-                                                                    <td class="width30">${subscriber.address}</td>
-                                                                    <td class="width20">${subscriber.comment}</td>
-                                                                    <td>
-                                                                        <form name="form5" method="post" action="editSubscriberView.do">
-                                                                            <input type="hidden" name="subscriberSelect" value="${subscriber.id}"/>
-                                                                            <INPUT type="submit" name="submit" value="Редактор" style="width:100%">
-                                                                        </form>
-                                                                    </td>
-                                                                    <td>
-                                                                        <form name="form7" method="post" action="deleteSubscriber.do">
-                                                                            <input type="hidden" name="subscriberSelect" value="${subscriber.id}"/>
-                                                                            <INPUT type="submit" name="submit" value="Удалить" onclick="return confirm('Вы уверены?') ? true : false;" style="width:100%">
+                                                            
+                                                            <c:forEach var="subscriber" items="${subscriberSearch}">
+                                                                <tr >
+                                                                    <td class="width40">${subscriber.name}</td>
+                                                                    <td class="width35">${subscriber.address}</td>
+                                                                    <td class="width15">${subscriber.comment}</td>
+                                                                    <td class="width10">
+                                                                        <form name="form7" method="post" action="createPhoneNew.do">
+                                                                            <input type="hidden" name="id_subscriber" value="${subscriber.id}">
+                                                                            <INPUT type="submit" name="submit" value="Новый тел." class="AllWidth">
                                                                         </form>
                                                                     </td>
                                                                 </tr>
@@ -90,6 +87,7 @@
                                                         </table>
                                                     </c:if>
                                                 </center>
+     
                                             </td>
                                         </tr>
                                     </table>

@@ -29,7 +29,8 @@ public class PhoneController {
 			@RequestParam(value = "order", required = false) String order,
 			@RequestParam(value = "sort", required = false) String sort, Model model) {
 			
-		if(!"number".equals(sort) && !"band".equals(sort) && !"security".equals(sort))
+		if(!"number".equals(sort) && !"band".equals(sort) && !"security".equals(sort) 
+				&& !"scv".equals(sort) && !"adsl".equals(sort))
 			sort = "number";
 		if(!"asc".equals(order) && !"desc".equals(order))
 		    order = "asc";
@@ -51,8 +52,9 @@ public class PhoneController {
 			@RequestParam(value = "adsl", required = false) String adsl,
 			@RequestParam(value = "name", required = false) String name,
 			Model model) {
-        if(!"name".equals(sort) && !"address".equals(sort) && !"comment".equals(sort))
-            sort = "name";
+		if(!"number".equals(sort) && !"band".equals(sort) && !"security".equals(sort) 
+				&& !"scv".equals(sort) && !"adsl".equals(sort) && !"name".equals(sort))
+			sort = "number";
         if(!"asc".equals(order) && !"desc".equals(order))
             order = "asc";     
         
@@ -75,5 +77,11 @@ public class PhoneController {
 		model.addAttribute("subscriber", phone.getSubscriber());
 		model.addAttribute("phone", phone);
 		return "createFull";
+	}
+	
+	@RequestMapping(value = "/phoneSearchEdit.do", method = RequestMethod.POST)
+	public String phoneSearchEdit(Model model) {	
+		
+		return "viewPhoneEdit";
 	}
 }

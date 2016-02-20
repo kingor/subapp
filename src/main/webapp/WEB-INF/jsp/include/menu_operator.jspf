@@ -39,7 +39,7 @@
                                 </tr>
                                 <tr >
                                     <td>
-                                        <form name="form5" method="post" action="createPhone1.jsp">
+                                        <form name="form5" method="get" action="createPhoneNew">
                                             <INPUT type="submit" name="submit" value="Новый телефон" style="width:100%">
                                         </form>
                                     </td>

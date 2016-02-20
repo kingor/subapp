@@ -25,7 +25,7 @@
                             <table width="100%">
                                 <tr >
                                     <td>
-                                        <form name="form5" method="post" action="createUser.jsp">
+                                        <form name="form5" method="get" action="createUser">
                                             <INPUT type="submit" name="submit" value="Новый пользователь" style="width:100%">
                                         </form>
                                     </td>
@@ -39,7 +39,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <form name="form6" method="post" action="logSearch.do">
+                                        <form name="form6" method="get" action="logSearch.do">
                                         <INPUT type="submit" name="submit" value="Журнал событий" style="width:100%">
                                         </form>
                                     </td>
