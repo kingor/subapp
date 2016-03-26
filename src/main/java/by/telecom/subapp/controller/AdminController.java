@@ -1,44 +1,114 @@
 package by.telecom.subapp.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import by.telecom.subapp.model.Log;
 import by.telecom.subapp.model.User;
+import by.telecom.subapp.service.LogService;
 import by.telecom.subapp.service.UserService;
 
 @Controller
 @Secured("ROLE_ADMIN")
 public class AdminController {
-	
+
 	@Autowired
 	private UserService userService;
-	
+
+	@Autowired
+	private LogService logService;
+
 	@RequestMapping(value = "/userSearchEdit.do", method = RequestMethod.GET)
-	public String getUsers(
-			@RequestParam(value = "order", required = false) String order,
+	public String getUsers(@RequestParam(value = "order", required = false) String order,
 			@RequestParam(value = "sort", required = false) String sort, Model model) {
-        if(!"name".equals(sort) && !"login".equals(sort))
-            sort = "name";
-        if(!"asc".equals(order) && !"desc".equals(order))
-            order = "asc";
-		List<User> users = userService.getAll(User.class, sort, order);
+		if (!"name".equals(sort) && !"login".equals(sort))
+			sort = "name";
+		if (!"asc".equals(order) && !"desc".equals(order))
+			order = "asc";
+		List<User> users = userService.getAll(sort, order);
 
 		model.addAttribute("userSearchEdit", users);
 
 		return "viewUserEdit";
 	}
-	
-	@RequestMapping(value = "/createUser", method = RequestMethod.POST)
-	public String phoneSearchEdit(Model model) {	
-		
+
+	/*
+	 * View Create User
+	 */
+	@RequestMapping(value = "/createUser", method = RequestMethod.GET)
+	public String phoneSearchEdit(Model model) {
+		model.addAttribute("user", new User());
 		return "createUser";
 	}
 
+	/*
+	 * Create Subscriber
+	 */
+	@RequestMapping(value = "/createUser.do", method = RequestMethod.POST)
+	public String createSubscriberPost(@ModelAttribute("user") User user, Model model) {
+
+		userService.create(user);
+		System.out.println("!!!!!!!!!!!!!!!!+++++++++" + user.getId() + "!!!!!!!!!!!!!");
+
+		return "index";
+	}
+
+	/*
+	 * Delete Subscriber
+	 */
+	@RequestMapping(value = "/deleteUser.do", method = RequestMethod.POST)
+	public String deleteUser(@RequestParam(value = "userSelect", required = false) Long userId,
+			Model model) {
+		User user = userService.read(userId);
+		userService.delete(user);
+		return "viewUserEdit";
+	}
+
+	/*
+	 * View Log page
+	 */
+	@RequestMapping(value = "/logSearch.do", method = RequestMethod.GET)
+	public String getLogSearch(@RequestParam(value = "order", required = false) String order,
+			@RequestParam(value = "sort", required = false) String sort,
+			@RequestParam(value = "name", required = false) String name,
+			@RequestParam(value = "dateStart", required = false) String dateStartParam,
+			@RequestParam(value = "dateEnd", required = false) String dateEndParam,
+			@RequestParam(value = "type", required = false) String type,
+			@RequestParam(value = "comment", required = false) String comment, Model model) {
+		if (!"date".equals(sort) && !"type".equals(sort) && !"comment".equals(sort))
+			sort = "name";
+		if (!"asc".equals(order) && !"desc".equals(order))
+			order = "asc";
+
+		Date dateStart;
+		Date dateEnd;
+
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			dateStart = formatter.parse(dateStartParam);
+		} catch (Exception ex) {
+			dateStart = new Date();
+		}
+
+		try {
+			dateEnd = formatter.parse(dateEndParam);
+		} catch (Exception ex) {
+			dateEnd = new Date();
+		}
+		List<Log> logList = logService.getByParameter(name, dateStart, dateEnd, type, comment,
+				sort, order);
+		model.addAttribute("logSearch", logList);
+
+		return "viewLogSearch";
+	}
 }

@@ -1,14 +1,10 @@
-<%-- 
-    Document   : Login
-    Created on : 14.03.2015, 13:24:46
-    Author     : Family_P
---%>
+<%@page import="java.util.List"%>
+<%@page import="by.telecom.subapp.model.Phone"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.Collection"%>
 <%@page import="by.telecom.subapp.model.Subscriber"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
     <head>
@@ -35,49 +31,57 @@
                                         <tr>
                                             <td class="content">
                                                 <center>
-                                                    <h2>Новый абонент:</h2>
+                                                    <h2>Редактор пользователей:</h2>
 
-                                                    <table width="500" >
-                                                        <form:form modelAttribute="user" method="post" action="createUser.do">
+                                                    <table class=AllWidth>
+                                                        <form name="form5" method="post" action="editUser.do">                                                  
                                                             <tr>
                                                                 <td width="25%">Логин:</td>
-                                                                <td ><INPUT type="text" name="login" style="width:100%"></td>
+
+                                                                <td width="75%" class="textBold">
+                                                                    <INPUT type="hidden" name="id" value="${userEdit.id}">
+                                                                    <INPUT type="text" name="login" value="${userEdit.login}" style="width:100%" >
+                                                                </td>
                                                             </tr>
                                                             <tr>
                                                                 <td >Пароль:</td>
-                                                                <td><INPUT type="text" name="password" style="width:100%"></td>
+                                                                <td class="textBold">
+                                                                    <INPUT type="text" name="password" value="${userEdit.password}" style="width:100%" >
+                                                                </td>
                                                             </tr>
                                                             <tr>
                                                                 <td >Имя:</td>
-                                                                <td><INPUT type="text" name="name" style="width:100%"></td>
+                                                                <td class="textBold">
+                                                                    <INPUT type="text" name="name" value="${userEdit.name}" style="width:100%" >
+                                                                </td>
                                                             </tr>
                                                             <tr>
                                                                 <td >Категория:</td>
                                                                 <td>
-                                                                    <select name="category" style="width:100%">                 
-                                                                        <option value="0">Пользователь</option>
+                                                                    <select name="category" style="width:100%" >                 
+                                                                        <option value="2">Пользователь</option>
                                                                         <option value="1">Оператор</option>
-                                                                        <option value="2">Администратор</option>
+                                                                        <option value="0">Администратор</option>
                                                                     </select>
                                                                 </td>
                                                             </tr>
-                                                            
                                                     </table>
                                                     <br>
                                                     <table>
                                                         <tr>
                                                             <td width="50%">
-
-                                                                <INPUT type="submit" name="submit" value="Сохранить" class="AllWidth">
+                                                                <INPUT  type="submit" name="submit" value="Сохранить" class="AllWidth">
                                                             </td>
-                                                            </form:form>
+                                                            </form>
+
 
                                                             <td width="50%">
-                                                                <form name="form5" method="post" action="index.jsp">
-                                                                    <INPUT type="submit" name="submit" value="Отмена" class="AllWidth">
+                                                                <form name="form5" method="post" action="userSearchEdit.do">
+                                                                    <INPUT type="submit" name="submit" value="Отмена" class="AllWidth">  
                                                                 </form>
-                                                            </td>                                                          
-                                                        </tr>                                                    
+                                                            </td>
+
+                                                        </tr>
                                                     </table>
                                                 </center>
                                             </td>

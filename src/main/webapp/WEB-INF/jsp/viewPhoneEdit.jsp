@@ -34,7 +34,7 @@
                                     <table class="width753" cellspacing=0 cellpadding=20 border=0>                          
                                         <tr>                                          
                                             <td class="content">
-                                                <form name="form5" method="post" action="phoneSearchEdit.do">
+                                                <form name="form5" method="get" action="phoneSearchEdit.do">
                                                     <center>
                                                         <h2>Поиск по техническим параметрам:</h2>
                                                     </center>

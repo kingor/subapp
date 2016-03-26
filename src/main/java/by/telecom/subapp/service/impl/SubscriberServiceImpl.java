@@ -9,54 +9,53 @@ import org.springframework.transaction.annotation.Transactional;
 
 import by.telecom.subapp.dao.SubscriberDao;
 import by.telecom.subapp.model.Subscriber;
-import by.telecom.subapp.model.User;
 import by.telecom.subapp.service.SubscriberService;
 
 @Service
 public class SubscriberServiceImpl implements SubscriberService {
-	
+
 	@Autowired
 	private SubscriberDao subscriberDao;
-	
+
 	private static final Logger logger = Logger.getLogger(SubscriberService.class);
-	
+
 	@Transactional
-	public List getAll(Class<Subscriber> clazz, String sort, String orderType) {
-		logger.info("SubscriberService Get all subscriber!");
+	public List<Subscriber> getAll(String sort, String orderType) {
+		logger.info("SERVICE - getAll()");
 		return subscriberDao.getAll(Subscriber.class, sort, orderType);
 	}
 
 	@Transactional
-	public List<Subscriber> getByParameter(String name, String address,
-			String comment, String sort, String orderType) {
-		logger.info("SubscriberService Get all subscriber with parameter!");
+	public List<Subscriber> getByParameter(String name, String address, String comment,
+			String sort, String orderType) {
+		logger.info("SERVICE - getByParameter()");
 		return subscriberDao.getByParameter(name, address, comment, sort, orderType);
 	}
-	
+
 	@Transactional
 	public Long create(Subscriber newInstanse) {
-		logger.info("create");
+		logger.info("SERVICE - create()");
 		return subscriberDao.create(newInstanse);
 	}
-	
+
 	@Transactional
-	public Subscriber read(Class<Subscriber> classT, Long id) {
-		logger.info("read");
-		return subscriberDao.read(classT, id);
+	public Subscriber read(Long id) {
+		logger.info("SERVICE - read()");
+		return subscriberDao.read(Subscriber.class, id);
 	}
-	
+
 	@Transactional
 	public void update(Subscriber transientObject) {
-		logger.info("update");
+		logger.info("SERVICE - update()");
 		subscriberDao.update(transientObject);
-		
+
 	}
-	
+
 	@Transactional
 	public void delete(Subscriber persistentObject) {
-		logger.info("delete");
+		logger.info("SERVICE - delete()");
 		subscriberDao.delete(persistentObject);
-		
+
 	}
 
 }

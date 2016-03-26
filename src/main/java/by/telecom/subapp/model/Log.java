@@ -3,11 +3,23 @@ package by.telecom.subapp.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Log implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue
 	private Long id;
+
+	@ManyToOne
+	@JoinColumn(name = "id_user")
 	private User user;
 	private Date date;
 	private String type;

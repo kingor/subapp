@@ -1,8 +1,3 @@
-<%-- 
-    Document   : Login
-    Created on : 14.03.2015, 13:24:46
-    Author     : Family_P
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.Collection"%>
@@ -15,7 +10,7 @@
         <title></title>
         <meta name="keywords" content="">
         <meta name="description" content="">
-        <META content="text/html; charset=windows-1251" http-equiv=Content-Type>
+<!--         <META content="text/html; charset=windows-1251" http-equiv=Content-Type> -->
         <LINK href="<c:url value="/resources/style/main3.css"/>" rel="stylesheet">
     </head>
     <body bgcolor="#e4e8ea">

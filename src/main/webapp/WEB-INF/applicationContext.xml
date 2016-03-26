@@ -32,10 +32,7 @@
  <!-- Load Hibernate related configuration -->
  <import resource="hibernate-context.xml" /> 
  
+ <!-- Load spring-security related configuration -->
  <import resource="spring-security.xml" /> 
        
-    <!--bean id="propertyConfigurer"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-          p:location="/WEB-INF/jdbc.properties" />-->
-
 </beans>

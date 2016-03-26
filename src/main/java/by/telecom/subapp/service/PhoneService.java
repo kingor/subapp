@@ -6,7 +6,7 @@ import by.telecom.subapp.model.Phone;
 import by.telecom.subapp.model.Subscriber;
 
 public interface PhoneService {
-	public List<Phone> getAll(Class<Phone> clazz, String sort, String orderType);
+	public List<Phone> getAll(String sort, String orderType);
 
 	public List<Phone> getBySubscriber(Subscriber subscriber);
 
@@ -15,7 +15,7 @@ public interface PhoneService {
 
 	Long create(Phone newInstance);
 
-	Phone read(Class<Phone> classT, Long id);
+	Phone read(Long id);
 
 	void update(Phone phone);
 

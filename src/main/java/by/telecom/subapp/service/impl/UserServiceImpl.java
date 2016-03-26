@@ -8,55 +8,54 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import by.telecom.subapp.dao.UserDao;
-import by.telecom.subapp.model.Subscriber;
 import by.telecom.subapp.model.User;
 import by.telecom.subapp.service.UserService;
+
 @Service
 public class UserServiceImpl implements UserService {
-	
+
 	@Autowired
 	private UserDao userDao;
-	
+
 	private static final Logger logger = Logger.getLogger(UserService.class);
-	
+
 	@Transactional
-	public List getAll(Class<User> clazz, String sort, String orderType) {
-		logger.info("get all user!");
+	public List<User> getAll(String sort, String orderType) {
+		logger.info("SERVICE - getAll()");
 		return userDao.getAll(User.class, sort, orderType);
 	}
 
 	@Transactional
-	public List<User> getByParameter(String login, String name, Integer category, 
-			String sort, String orderType) {
-		logger.info("get by parameter");
+	public List<User> getByParameter(String login, String name, Integer category, String sort,
+			String orderType) {
+		logger.info("SERVICE - getByParameter()");
 		return userDao.getByParameter(login, name, category, sort, orderType);
 	}
-	
+
 	@Transactional
 	public Long create(User newInstanse) {
-		logger.info("create");
+		logger.info("SERVICE - create()");
 		return userDao.create(newInstanse);
 	}
-	
+
 	@Transactional
-	public User read(Class<User> classT, Long id) {
-		logger.info("read");
-		return userDao.read(classT, id);
-	}
-	
-	@Transactional
-	public void update(User transientObject) {
-		logger.info("update");
-		userDao.update(transientObject);
-		
-	}
-	
-	@Transactional
-	public void delete(User persistentObject) {
-		logger.info("delete");
-		userDao.delete(persistentObject);
-		
+	public User read(Long id) {
+		logger.info("SERVICE - read()");
+		return userDao.read(User.class, id);
 	}
 
+	@Transactional
+	public void update(User transientObject) {
+		logger.info("SERVICE - update()");
+		userDao.update(transientObject);
+
+	}
+
+	@Transactional
+	public void delete(User persistentObject) {
+		logger.info("SERVICE - delete()");
+		userDao.delete(persistentObject);
+
+	}
 
 }

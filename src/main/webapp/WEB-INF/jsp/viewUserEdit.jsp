@@ -58,7 +58,7 @@
                                                         </tr>
                                                         
                                                         <tr> 
-                                                        <form name="form5" method="post" action="userSearchEdit.do">
+                                                        <form name="form5" method="get" action="userSearchEdit.do">
                                                             <td><INPUT type="text" name="login" value="${login}" class="AllWidth"></td>
                                                             <td><INPUT type="text" name="name" value="${name}" class="AllWidth"></td>
                                                             <td><INPUT type="text" name="category" value="${category}" class="AllWidth"></td>
