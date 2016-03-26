@@ -5,21 +5,11 @@
  */
 package by.telecom.subapp.controller;
 
-import by.telecom.subapp.model.Actor;
-import by.telecom.subapp.model.Phone;
-import by.telecom.subapp.model.Subscriber;
-import by.telecom.subapp.model.User;
-import by.telecom.subapp.service.ActorService;
-import by.telecom.subapp.service.PhoneService;
-import by.telecom.subapp.service.SubscriberService;
-import by.telecom.subapp.service.UserService;
-
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,30 +17,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import by.telecom.subapp.model.Actor;
+import by.telecom.subapp.service.ActorService;
+
 /**
  *
  * @author asup
  */
 @Controller
-//@RequestMapping("/telecom")
+// @RequestMapping("/telecom")
 public class MainController {
 
-	 protected static Logger logger = Logger.getLogger(MainController.class);
+	protected static Logger logger = Logger.getLogger(MainController.class);
 
-		
-		@RequestMapping(value = "/login", method = RequestMethod.GET)
-		public String getLogin(Model model) {
-			if (logger.isDebugEnabled()) {
-				logger.debug("Received request to show Login page");
-			}
-			return "login";
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String getLogin(Model model) {
+		if (logger.isDebugEnabled()) {
+			logger.debug("Received request to show Login page");
 		}
-	 
+		return "login";
+	}
 
-		
-		
-	 
-	 
 	@Resource(name = "actorService")
 	private ActorService actorService;
 
@@ -62,7 +49,6 @@ public class MainController {
 
 		return "actorspage";
 	}
-	
 
 	@RequestMapping(value = "/actors/add", method = RequestMethod.GET)
 	public String getAdd(Model model) {
@@ -77,8 +63,7 @@ public class MainController {
 	}
 
 	/**
-	 * Adds a new person by delegating the processing to PersonService. Displays
-	 * a confirmation JSP page
+	 * Adds a new person by delegating the processing to PersonService. Displays a confirmation JSP page
 	 *
 	 * @return the name of the JSP page
 	 */
@@ -98,14 +83,12 @@ public class MainController {
 	}
 
 	/**
-	 * Deletes an existing person by delegating the processing to PersonService.
-	 * Displays a confirmation JSP page
+	 * Deletes an existing person by delegating the processing to PersonService. Displays a confirmation JSP page
 	 *
 	 * @return the name of the JSP page
 	 */
 	@RequestMapping(value = "/actors/delete", method = RequestMethod.GET)
-	public String delete(
-			@RequestParam(value = "id", required = true) Integer id, Model model) {
+	public String delete(@RequestParam(value = "id", required = true) Integer id, Model model) {
 
 		logger.debug("Received request to delete existing person");
 
@@ -125,8 +108,7 @@ public class MainController {
 	 * @return the name of the JSP page
 	 */
 	@RequestMapping(value = "/actors/edit", method = RequestMethod.GET)
-	public String getEdit(
-			@RequestParam(value = "id", required = true) Integer id, Model model) {
+	public String getEdit(@RequestParam(value = "id", required = true) Integer id, Model model) {
 		logger.debug("Received request to show edit page");
 
 		// Retrieve existing Person and add to model
@@ -138,8 +120,7 @@ public class MainController {
 	}
 
 	/**
-	 * Edits an existing person by delegating the processing to PersonService.
-	 * Displays a confirmation JSP page
+	 * Edits an existing person by delegating the processing to PersonService. Displays a confirmation JSP page
 	 *
 	 * @return the name of the JSP page
 	 */

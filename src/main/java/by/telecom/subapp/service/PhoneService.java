@@ -4,20 +4,20 @@ import java.util.List;
 
 import by.telecom.subapp.model.Phone;
 import by.telecom.subapp.model.Subscriber;
-import by.telecom.subapp.model.User;
 
 public interface PhoneService {
-	public List getAll(Class<Phone> clazz, String sort, String orderType);
-	public List getBySubscriber(Subscriber subscriber);
-	public List getByParameter(String number, String band,
-			String security, String scv, String adsl, String name, String sort,
-			String orderType);
-	
+	public List<Phone> getAll(Class<Phone> clazz, String sort, String orderType);
+
+	public List<Phone> getBySubscriber(Subscriber subscriber);
+
+	public List<Phone> getByParameter(String number, String band, String security, String scv,
+			String adsl, String name, String sort, String orderType);
+
 	Long create(Phone newInstance);
-    
+
 	Phone read(Class<Phone> classT, Long id);
 
-    void update(Phone phone);
+	void update(Phone phone);
 
-    void delete(Phone phone);
+	void delete(Phone phone);
 }

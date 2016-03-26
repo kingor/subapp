@@ -4,16 +4,14 @@
 <log4j:configuration debug="false"
 	xmlns:log4j="http://jakarta.apache.org/log4j/">
 
-<!-- 	<appender name="dailyFile" class="org.apache.log4j.DailyRollingFileAppender"> -->
-<!-- 		<param name="File" value="dailyFile.log" /> -->
-<!-- 		<param name="Append" value="true" /> -->
-<!-- 		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" /> -->
-<!-- 		<param name="Encoding" value="UTF-8" /> -->
-<!-- 		<layout class="org.apache.log4j.PatternLayout"> -->
-<!-- 			<param name="ConversionPattern" value="%d{ISO8601} [%-5p][%-16.16t][%30c] - %m%n" /> -->
-<!-- 		</layout> -->
-<!-- 	</appender> -->
 
+	<appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<param name="Encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ISO8601} [%-5p][%-16.16t][%32.32c] - %m%n" />
+		</layout>
+	</appender>
+	
 	<appender name="application" class="org.apache.log4j.RollingFileAppender">
 		<param name="File" value="application.log" />
 		<param name="MaxFileSize" value="100MB" />
@@ -33,20 +31,32 @@
 			<param name="ConversionPattern" value="%d{ISO8601} [%-5p][%-16.16t][%30c{-2}] - %m%n" />
 		</layout>
 	</appender>
+	<appender name="orm" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="orm.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"/>
+        <param name="Encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.TTCCLayout">
+            <param name="DateFormat" value="ABSOLUTE"/>
+            <param name="ContextPrinting" value="false"/>
+        </layout>
+    </appender>
 
 	<logger name="by">
+		<level value="INFO" />
+		<appender-ref ref="application" />
+	</logger>
+<!-- 	<logger name="by.telecom.debugLogger"> -->
+<!-- 		<level value="DEBUG" /> -->
+<!-- 		<appender-ref ref="debagAppender" /> -->
+<!-- 	</logger> -->
+	<logger name="org.hibernate" additivity="false">
         <level value="INFO"/>
-        <appender-ref ref="application"/>
+        <appender-ref ref="orm"/>
     </logger>
-    <logger name="by.telecom.debugLogger">
-    	<level value="DEBUG"/>
-    	<appender-ref ref="debagAppender"/>
-    </logger>
-    
-<!--     <root> -->
-<!--         <priority value="WARN"/> -->
-<!--         <appender-ref ref="dailyFile"/> -->
-<!--     </root> -->
+	<root>
+        <priority value="WARN"/>
+        <appender-ref ref="ConsoleAppender" />
+    </root>
 
 
 </log4j:configuration>
