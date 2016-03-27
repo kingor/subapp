@@ -1,68 +1,11 @@
 <%-- any content can be specified here e.g.: --%>
-<%@ page pageEncoding="UTF-8" %>
-   
-    <table width=200 cellspacing=1 cellpadding=0 border=0>
-        <tr>
-            <td bgcolor="#aaaaaa">
-                <table width=200 border=0 cellpadding=0>
-                    <TR>
-                        <TD class=nav >&nbsp;
-                            <SPAN class=BigPrint >
-                                <b>Меню пользователя:</b>
-                            </SPAN>
-                        </TD>
-                    </TR>
-                </table>
-            </td>
-        </tr>
-    </table>
-    <table width=200 border=0 cellspacing=1 cellpadding=0>
-        <tr>
-            <td bgcolor="#aaaaaa">
-                <table width=200 border=0 cellpadding=5 >
-                    <tr>
-                        <td class="login">
-                            <table class="AllWidth">
-                                <tr >
-                                    <td>
-                                        <form name="form5" method="get" action="index">
-                                            <INPUT type="submit" name="submit" value="Главная страница" style="width: 100%">
-                                        </form>
-                                    </td>
-                                </tr>
-                                <tr >
-                                    <td>
-                                        <form name="form5" method="get" action="subscribers.do?sort=name&order=asc">
-                                            <INPUT type="submit" name="submit" value="Просмотр всех абонентов" style="width:100%">
-                                        </form>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td >
-                                        <form name="form6" method="get" action="subscriberSearch.do">
-                                        <INPUT type="submit" name="submit" value="    Поиск абонентов    " style="width:100%">
-                                        </form>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <form name="form6" method="get" action="phones.do">
-                                        <INPUT type="submit" name="submit" value="Просмотр тех. данных" style="width:100%">
-                                        </form>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <form name="form6" method="get" action="phoneSearch.do">
-                                        <INPUT type="submit" name="submit" value="Поиск по тех. данным" style="width:100%">
-                                        </form>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-    
+<%@ page pageEncoding="UTF-8"%>
+
+<ul class="nav nav-sidebar">
+	<li class="active"><a href="index"><i class="glyphicon glyphicon-home"></i> Главная</a></li>
+	<li><a href="subscribers.do?sort=name&order=asc"><i class="glyphicon glyphicon-info-sign"></i> Абоненты</a></li>
+	<li><a href="subscriberSearch.do"><i class="glyphicon glyphicon-search"></i> Поиск абонентов</a></li>
+	<li><a href="phones.do"><i class="glyphicon glyphicon-earphone"></i> Номера</a></li>
+	<li><a href="phoneSearch.do"><i class="glyphicon glyphicon-search"></i> Поиск номеров</a></li>
+</ul>
+

@@ -3,14 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
-
-<div class="col-xs-3 col-sm-3 col-md-2 sidebar">
-	<%@include file="menu_user.jspf"%>
-	<security:authorize
-		access="hasRole('ROLE_OPERATOR') or hasRole('ROLE_ADMIN')">
+<td width=200>
+	<%@include file="menu_name.jspf"%>
+	<%@include file="menu_user.jspf"%> 
+	<security:authorize	access="hasRole('ROLE_OPERATOR') or hasRole('ROLE_ADMIN')">
 		<%@include file="menu_operator.jspf"%>
-	</security:authorize>
+	</security:authorize> 
 	<security:authorize access="hasRole('ROLE_ADMIN')">
 		<%@include file="menu_admin.jspf"%>
 	</security:authorize>
-</div>
+</td>

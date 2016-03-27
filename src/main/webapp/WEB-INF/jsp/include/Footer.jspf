@@ -1,26 +1,17 @@
 <%-- any content can be specified here e.g.: --%>
-<%@ page pageEncoding="UTF-8" %>
-<c:url value="/resources/style/vline.gif" var="vline"/>
+<%@ page pageEncoding="UTF-8"%>
+<c:url value="/resources/style/vline.gif" var="vline" />
 
-<table width=960 cellspacing=0 cellpadding=0 border=0>
-    <tr>
-        <td bgcolor="#e4e8ea"><img src="${vline}" height=7>
-        </td>
-    </tr>
-</table>
-<table width=960 cellspacing=0 cellpadding=0 border=0>
-    <tr><td bgcolor="#e4e8ea"></td></tr>
-    <tr><td bgcolor="#e4e8ea"></td></tr>
-    <tr><td bgcolor="#e4e8ea"></td></tr>
-    <tr><td bgcolor="#e4e8ea"></td></tr>
-</table>
-<table width=960 border=0 cellspacing=0 cellpadding=5>
-    <tr>
-        <td  bgcolor="#e4e8ea" align="center">
-            <DIV class=Copyright><B>© 2015, SubscriberControl, All Rights Reserved
-                </B><br>Contact us. &nbsp&nbsp<A 
-                    href="mailto: login@domen.com">privalov_igor@hotmail.com</A>. </DIV>
+<footer class="col-xs-offset-3 col-sm-offset-3 col-md-offset-2 footer">
+	<p class="text-center">
+		© 2015, All Rights Reserved. Contact us. &nbsp&nbsp<A
+			href="mailto: login@domen.com">privalov_igor@hotmail.com</A>.
+	</p>
+</footer>
 
-        </td>
-    </tr>
-</table>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+<script src="<c:url value="/resources/js/docs.min.js"/>"></script>
