@@ -43,8 +43,10 @@
 					<table class="table table-condensed">
 						<thead>
 							<tr>
-								<th><a href="subscribers.do?sort=name&order=desc">↓</a> ФИО абонента 
-								<a href="subscribers.do?sort=name&order=asc">↑</a></th>
+								<th><a href="subscribers.do?sort=name&order=desc">
+								<i class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> ФИО абонента 
+								<a href="subscribers.do?sort=name&order=asc">
+								<i class="glyphicon glyphicon-sort-by-attributes"></i></a></th>
 								<th ><a href="subscribers.do?sort=address&order=desc">↓</a> Адрес абонента 
 								<a href="subscribers.do?sort=address&order=asc">↑</a>
 								</th>
@@ -64,7 +66,7 @@
 									<td>									
 									<div >	
 											<input type="hidden" name="subscriberSelect" value="${subscriber.id}">
-											<button type="submit" class="btn primary btn-sx"><i class="glyphicon glyphicon-share-alt"></i></button>	
+											<button type="submit" class="btn btn-primary btn-sx"><i class="glyphicon glyphicon-share-alt"></i></button>	
 									</div>														
 									</td>
 								</form>	
