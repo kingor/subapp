@@ -36,21 +36,27 @@
 		<div class="container-fluid ">
 			<div class="row">
 				<%@include file="include/menu.jspf"%>
-				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<div
+					class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
 					<h2 class="page-header">Просмотр абонентов в базе</h2>
 					<div class="table-responsive">
-						<table class="table table-condensed">
+						<table class="table table-condensed table-bordered">
 							<thead>
 								<tr>
-									<th><a href="subscribers.do?sort=name&order=desc"> <i
-											class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> ФИО
-										абонента <a href="subscribers.do?sort=name&order=asc"> <i
-											class="glyphicon glyphicon-sort-by-attributes"></i></a></th>
-									<th><a href="subscribers.do?sort=address&order=desc">↓</a>
-										Адрес абонента <a href="subscribers.do?sort=address&order=asc">↑</a>
+									<th><a href="subscribers.do?sort=name&order=desc"> 
+										<i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
+									</a> ФИО абонента <a href="subscribers.do?sort=name&order=asc">
+											<i class="glyphicon glyphicon-sort-by-attributes"></i>
+									</a></th>
+									<th><a href="subscribers.do?sort=address&order=desc">
+									<i class="glyphicon glyphicon-sort-by-attributes-alt"></i></a>
+										Адрес абонента <a href="subscribers.do?sort=address&order=asc">
+									<i class="glyphicon glyphicon-sort-by-attributes"></i></a>
 									</th>
-									<th><a href="subscribers.do?sort=comment&order=desc">↓</a>
-										Примечание <a href="subscribers.do?sort=comment&order=asc">↑</a>
+									<th><a href="subscribers.do?sort=comment&order=desc">
+									<i class="glyphicon glyphicon-sort-by-attributes-alt"></i></a>
+										Примечание <a href="subscribers.do?sort=comment&order=asc">
+									<i class="glyphicon glyphicon-sort-by-attributes"></i></a>
 									</th>
 									<th>Подробнее</th>
 								</tr>
@@ -62,7 +68,7 @@
 											<td>${subscriber.name}</td>
 											<td>${subscriber.address}</td>
 											<td>${subscriber.comment}</td>
-											<td>
+											<th>
 												<div>
 													<input type="hidden" name="subscriberSelect"
 														value="${subscriber.id}">
@@ -70,7 +76,7 @@
 														<i class="glyphicon glyphicon-share-alt"></i>
 													</button>
 												</div>
-											</td>
+											</th>
 										</form>
 									</tr>
 								</c:forEach>

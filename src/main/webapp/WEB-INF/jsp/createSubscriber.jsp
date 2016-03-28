@@ -1,72 +1,72 @@
+<!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.Collection"%>
 <%@page import="by.telecom.subapp.model.Subscriber"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-    <head>
-        <title></title>
-        <meta name="keywords" content="">
-        <meta name="description" content="">
-<!--         <META content="text/html; charset=windows-1251" http-equiv=Content-Type> -->
-        <LINK href="<c:url value="/resources/style/main3.css"/>" rel="stylesheet">
-    </head>
-    <body bgcolor="#e4e8ea">
-        <div align="center">
-            <%@include file="include/Header.jspf" %>
 
-            <table class="width960" cellspacing=0 cellpadding=0 border=0>
-                <tr>
-                    <%@include file="include/menu.jspf" %>
+<html lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-                    <td width=7 bgcolor="#e4e8ea"></td>
-                    <td class="width753"  align="center">
-                        <table width=653 cellspacing=0 cellpadding=1 border=0>
-                            <tr>
-                                <td bgcolor="#aaaaaa">
-                                    <table class="width753" cellspacing=0 cellpadding=20 border=0>
-                                        <tr>
-                                            <td class="content">
-                                                <center>
-                                                    <h2>Новый абонент:</h2>
-                                                    <form:form modelAttribute="subscriberAttr" method="post" action="createSubscriber.do">
-                                                        <table width="600" >
-                                                            <tr>
-                                                                <td width="25%">ФИО абонента:</td>
-                                                                <td ><INPUT type="text" name="name" style="width:100%"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td >Адрес:</td>
-                                                                <td><INPUT type="text" name="address" style="width:100%"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td >Примечание:</td>
-                                                                <td><INPUT type="text" name="comment" style="width:100%"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th colspan="2" width="5%">
-                                                                    <br>
-                                                                    <INPUT type="submit" name="submit" value="Сохранить" style="width:20%">
-                                                                </th>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon"
+	href="http://bootstrap-3.ru/assets/ico/favicon.ico">
 
-                                                            </tr>
-                                                        </table>
-                                                        </form:form>
-                                                </center>
-                                            </td>
-                                        </tr>
+<title>Система учета абонентов</title>
 
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-            <%@include file="include/Footer.jspf" %>
-        </div>
-        <br> 
-    </body>
+<!-- Bootstrap core CSS -->
+<LINK href="<c:url value="/resources/css/bootstrap.min.css"/>"
+	rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="<c:url value="/resources/css/dashboard.css"/>"
+	rel="stylesheet">
+
+<style id="holderjs-style" type="text/css"></style>
+</head>
+
+<body>
+	<div class=" wrapper">
+		<%@include file="include/Header.jspf"%>
+
+		<div class="container-fluid ">
+			<div class="row">
+				<%@include file="include/menu.jspf"%>
+				<div
+					class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
+					<h2 class="page-header">Новый абонент</h2>
+					<div class="col-sm-8 col-sm-offset-2">
+						<form:form class="form-horizontal" role="form" modelAttribute="subscriberAttr" method="post" action="createSubscriber.do">
+  <div class="form-group">
+    <label for="inputName3" >ФИО абонента:</label>
+       <input type="text" class="form-control" id="inputName3" name="name" placeholder="ФИО" required="" autofocus="">
+  </div>
+  <div class="form-group">
+    <label for="inputAddr3" >Адрес:</label>
+      <input type="text" class="form-control" id="inputAddr3" name="address" placeholder="Адрес" required="">
+  </div>
+  <div class="form-group">
+    <label for="inputCom3"  >Примечание:</label>
+      <input type="text" class="form-control" id="inputCom3" name="comment" placeholder="Примечание">
+  </div>
+   <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-8">
+      <button type="submit" class="btn btn-primary">Сохранить</button>
+    </div>
+  </div>
+</form:form>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="push"></div>
+	</div>
+	<%@include file="include/Footer.jspf"%>
+</body>
 </html>

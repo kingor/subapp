@@ -3,9 +3,9 @@
 
 <ul class="nav nav-sidebar">
 	<li class="active"><a href="index"><i class="glyphicon glyphicon-home"></i><span class="hidden-xs"> Главная</span> </a></li>
-	<li><a href="subscribers.do?sort=name&order=asc"><i class="glyphicon glyphicon-info-sign"></i><span class="hidden-xs">  Абоненты</span></a></li>
-	<li><a href="subscriberSearch.do"><i class="glyphicon glyphicon-search"></i><span class="hidden-xs">  Поиск абоненто</span>в</a></li>
-	<li><a href="phones.do"><i class="glyphicon glyphicon-earphone"></i><span class="hidden-xs">  Номера</span></a></li>
-	<li><a href="phoneSearch.do"><i class="glyphicon glyphicon-search"></i><span class="hidden-xs">  Поиск номеров</span></a></li>
+	<li><a href="subscribers.do?sort=name&order=asc"><i class="glyphicon glyphicon-info-sign"></i><span class="hidden-xs"> Абоненты</span></a></li>
+	<li><a href="subscriberSearch.do"><i class="glyphicon glyphicon-search"></i><span class="hidden-xs"> Поиск абонентов</span></a></li>
+	<li><a href="phones.do"><i class="glyphicon glyphicon-earphone"></i><span class="hidden-xs"> Номера</span></a></li>
+	<li><a href="phoneSearch.do"><i class="glyphicon glyphicon-search"></i><span class="hidden-xs"> Поиск номеров</span></a></li>
 </ul>
 

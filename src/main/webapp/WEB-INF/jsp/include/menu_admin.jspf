@@ -1,8 +1,8 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
  <ul class="nav nav-sidebar">
-	<li><a href="createUser"><i class="glyphicon glyphicon-plus"></i>Новый пользователь</a></li>
-	<li><a href="userSearchEdit.do"><i class="glyphicon glyphicon-cog"></i>Редактор пользователей</a></li>
-	<li><a href="logSearch.do"><i class="glyphicon glyphicon-list-alt"></i>Журнал событий</a></li>
+	<li><a href="createUser"><i class="glyphicon glyphicon-plus"></i><span class="hidden-xs"> Новый пользователь</span></a></li>
+	<li><a href="userSearchEdit.do"><i class="glyphicon glyphicon-cog"></i><span class="hidden-xs"> Редактор пользователей</span></a></li>
+	<li><a href="logSearch.do"><i class="glyphicon glyphicon-list-alt"></i><span class="hidden-xs"> Журнал событий</span></a></li>
 </ul>
     
