@@ -15,7 +15,7 @@
 				<a class="navbar-brand" href="index">Система учета абонентов</a>
 			</div>
 			<security:authentication property="principal.username" var="loginId"/>
-			<div class="navbar-collapse collapse in" style="height: auto;">
+			<div class="navbar-collapse collapse" style="height: auto;">
 
 				<c:url value="/telecom/j_spring_security_logout" var="logoutUrl" />	
 				<form class="navbar-form navbar-right" role="form" method="post" action="${logoutUrl}">		

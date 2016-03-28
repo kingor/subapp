@@ -4,7 +4,7 @@
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 
-<div class="col-xs-3 col-sm-3 col-md-2 sidebar">
+<div class="col-xs-3 col-sm-3 col-md-2 sidebar navbar-collapse collapse">
 	<%@include file="menu_user.jspf"%>
 	<security:authorize
 		access="hasRole('ROLE_OPERATOR') or hasRole('ROLE_ADMIN')">

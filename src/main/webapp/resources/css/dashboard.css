@@ -3,8 +3,8 @@
  */
 
 /* Move down content because we have a fixed navbar that is 50px tall */
-body {
-  padding-top: 50px;
+html, body {
+height: 100%;
 }
 
 /*
@@ -24,7 +24,7 @@ body {
 .sidebar {
   display: none;
 }
-@media (min-width: 768px) {
+@media (min-width: 100px) {
   .sidebar {
     position: fixed;
     top: 51px;
@@ -94,14 +94,15 @@ body {
 }
 
 .wrapper {
+	padding-top: 50px;
     min-height: 100%;
-    height: auto !important;
-    height: 100%;
+/*     height: auto !important; */
+/*     height: 100%; */
     margin: 0 auto -30px; /* the bottom margin is the negative value of the footer's height */
 }
 
 /* Set the fixed height of the footer here */
-.footer, .push {
+footer, .push {
 	padding-left: 40px;
     height: 30px; /* .push must be the same height as .footer */
 }
