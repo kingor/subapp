@@ -30,7 +30,6 @@
 <body>
 	<div class=" wrapper">
 		<%@include file="include/Header.jspf"%>
-
 		<div class="container-fluid ">
 			<div class="row">
 				<%@include file="include/menu.jspf"%>
@@ -38,26 +37,24 @@
 					<h2 class="page-header">Новый телефон</h2>
 					<div class="col-sm-8">
 						<form:form class="form-horizontal" role="form" modelAttribute="phoneAttr" method="post" action="createPhone">
+							<div class="alert alert-success">
+								<strong><i class="glyphicon glyphicon-ok"></i> Успешно! </strong>Абонент добавлен
+							</div>
 							<div class="panel-group">
 								<div class="panel panel-default">
-									<div class="panel-heading">Пользователь</div>
-									<div class="panel-body">
-										<div class="row">
-											<label class="col-sm-2 control-label" for="name">ФИО:</label>
-											<div class="col-sm-10">
-												<p class="form-control-static">${subscriber.name}</p>
-											</div>
-											<label class="col-sm-2 control-label" for="address">Адрес:</label>
-											<div class="col-sm-10">
-												<p class="form-control-static">${subscriber.address}</p>
-											</div>
-
-										</div>
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" href="#collapse1">${subscriber.name}</a>
+										</h4>
 									</div>
-
-
+									<div id="collapse1" class="panel-collapse collapse">
+										<ul class="list-group">
+											<li class="list-group-item"><strong>Адрес:</strong> ${subscriber.address}</li>
+											<li class="list-group-item"><strong>Примечание:</strong> ${subscriber.comment}</li>
+										</ul>
+									</div>
 								</div>
-
+<!-- 								<div class="alert alert-info">Добавьте телефон для этого абонента</div> -->
 								<div class="panel panel-default">
 									<div class="panel-heading">Параметры линии абонента</div>
 									<div class="panel-body">
@@ -93,7 +90,7 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<div class="col-sm-offset-2 col-sm-10">
+											<div class="col-sm-offset-5 col-sm-4">
 												<button type="submit" class="btn btn-primary">Сохранить</button>
 											</div>
 										</div>

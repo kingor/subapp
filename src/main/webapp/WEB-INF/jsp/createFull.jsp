@@ -30,64 +30,56 @@
 <body>
 	<div class=" wrapper">
 		<%@include file="include/Header.jspf"%>
-
 		<div class="container-fluid ">
 			<div class="row">
 				<%@include file="include/menu.jspf"%>
 				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
 					<h2 class="page-header">Новый телефон</h2>
 					<div class="col-sm-8">
-						<form class="form-horizontal" role="form" method="post" action="addPhone.do">
-<!-- 							<div class="row"> -->
-								<label class="col-sm-4 control-label" for="name">ФИО:</label>
-								<div class="col-sm-8">
-									<p class="form-control-static">${subscriber.name}</p>
-								</div>
-								</div>
-								<div class="col-sm-12">
-								<label class="col-sm-4 control-label" for="address">Адрес:</label>
-								<div class="col-sm-8">
-									<p class="form-control-static">${subscriber.address}</p>
-								</div>
-<!-- 							</div> -->
-							<h3 class="col-sm-8 col-sm-offset-4">Параметры линии абонента</h3>
-							<div class="form-group form-group-sm">
-								<label for="inputName3" class="col-sm-4 control-label">Номер:</label>
-								<div class="col-sm-8">
-									<p class="form-control-static">${phone.number}</p>
-								</div>
+						<form:form class="form-horizontal" role="form" method="post" action="addPhone.do">
+							<div class="alert alert-success">
+								<strong><i class="glyphicon glyphicon-ok"></i> Успешно! </strong>Телефон добавлен
 							</div>
-							<div class="form-group form-group-sm">
-								<label for="inputAddr3" class="col-sm-4 control-label">Гром полоса:</label>
-								<div class="col-sm-8">
-									<p class="form-control-static">${phone.band}</p>
+							<div class="panel-group">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" href="#collapse1"><strong>Абонент:</strong> ${subscriber.name}</a>
+										</h4>
+									</div>
+									<div id="collapse1" class="panel-collapse collapse">
+										<ul class="list-group">
+											<li class="list-group-item"><strong>Адрес:</strong> ${subscriber.address}</li>
+											<li class="list-group-item"><strong>Примечание:</strong> ${subscriber.comment}</li>
+										</ul>
+									</div>
 								</div>
-							</div>
-							<div class="form-group form-group-sm">
-								<label for="inputSecur" class="col-sm-4 control-label">Охрана:</label>
-								<div class="col-sm-8">
-									<p class="form-control-static">${phone.security}</p>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" href="#collapse2"><strong>Номер:</strong> ${phone.number}</a>
+										</h4>
+									</div>
+									<div id="collapse2" class="panel-collapse collapse">
+										<ul class="list-group">
+											<li class="list-group-item"><strong>Гром полоса:</strong> ${phone.band}</li>
+											<li class="list-group-item"><strong>Охрана:</strong> ${phone.security}</li>
+											<li class="list-group-item"><strong>СЦВ:</strong> ${phone.scv}</li>
+											<li class="list-group-item"><strong>ADSL:</strong> ${phone.adsl}</li>
+										</ul>
+									</div>
 								</div>
-							</div>
-							<div class="form-group form-group-sm">
-								<label for="inputScv" class="col-sm-4 control-label">СЦВ:</label>
-								<div class="col-sm-8">
-									<p class="form-control-static">${phone.scv}</p>
+</div>
+								<div class="form-group">
+									<div class="col-sm-offset-4 col-sm-4">
+										<input type="hidden" name="id" value="${subscriber.id}">
+										<button type="submit" class="btn btn-primary">Дабавить новый телефон</button>
+									</div>
 								</div>
-							</div>
-							<div class="form-group form-group-sm">
-								<label for="inputAdsl" class="col-sm-4 control-label">ADSL:</label>
-								<div class="col-sm-8">
-									<p class="form-control-static">${phone.adsl}</p>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-offset-4 col-sm-8">
-									<input type="hidden" name="id" value="${subscriber.id}">
-									<button type="submit" class="btn btn-primary">Добавить новый телефон</button>
-								</div>
-							</div>
-						</form>
+
+
+							
+						</form:form>
 					</div>
 				</div>
 			</div>
