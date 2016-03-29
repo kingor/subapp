@@ -37,8 +37,9 @@
 					<h2 class="page-header">Новый телефон</h2>
 					<div class="col-sm-8">
 						<form:form class="form-horizontal" role="form" modelAttribute="phoneAttr" method="post" action="createPhone">
-							<div class="alert alert-success">
-								<strong><i class="glyphicon glyphicon-ok"></i> Успешно! </strong>Абонент добавлен
+							<div class="alert alert-info">
+							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+								<i class="glyphicon glyphicon-info-sign"></i> Добавьте телефон абоненту
 							</div>
 							<div class="panel-group">
 								<div class="panel panel-default">

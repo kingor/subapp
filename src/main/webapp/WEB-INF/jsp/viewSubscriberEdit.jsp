@@ -37,7 +37,7 @@
 					<h2 class="page-header">Просмотр абонентов в базе</h2>
 					<div class="table-responsive">
 						<table class="table table-condensed table-bordered">
-
+<form name="form3" method="get" action="subscriberSearchEdit.do">
 							<thead>
 								<tr>
 									<th class="col-sm-4 col-md-4"><a href="subscriberSearchEdit.do?sort=name&order=desc&name=${name}&address=${address}&comment=${comment}"> <i
@@ -53,17 +53,21 @@
 									<th colspan="2" class="col-sm-1 col-md-1"></th>
 								</tr>
 								<tr>
-									<form name="form3" method="get" action="subscriberSearchEdit.do">
+									
 										<td><INPUT type="text" name="name" value="${name}" class="form-control"></td>
 										<td><INPUT type="text" name="address" value="${address}" class="form-control"></td>
 										<td><INPUT type="text" name="comment" value="${comment}" class="form-control"></td>
-										<th colspan="2"><button type="submit" class="btn btn-primary ">
+										<th colspan="2">
+										
+										<button type="submit" class="btn btn-primary ">
 												<i class="glyphicon glyphicon-search"></i>
-											</button></th>
-									</form>
+											</button>
+											
+											</th>
+									
 								</tr>
 							</thead>
-
+</form>
 							<c:if test="${!subscriberSearchEdit.isEmpty()}">
 								<tbody>
 									<c:forEach var="subscriber" items="${subscriberSearchEdit}">

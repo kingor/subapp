@@ -44,36 +44,35 @@
 						
 							<thead>
 								<tr>
-								<c:url value="phoneSearch.do?sort=adsl&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}" var="lUrl" />
-									<th class="col-sm-2 col-md-2"><a href="${lUrl}"> 
+									<th class="col-sm-2 col-md-2"><a href="phoneSearch.do?sort=number&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> 
 										<i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
-									</a> Номер <a href="${lUrl}">
+									</a> Номер <a href="phoneSearch.do?sort=number&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 											<i class="glyphicon glyphicon-sort-by-attributes"></i>
 									</a></th>
-									<th class="col-sm-2 col-md-2"><a href="${lUrl}">
+									<th class="col-sm-2 col-md-2"><a href="phoneSearch.do?sort=band&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes-alt"></i></a>
-										Громпол. <a href="${lUrl}">
+										Громпол. <a href="phoneSearch.do?sort=band&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes"></i></a>
 									</th>
-									<th class="col-sm-2 col-md-2"><a href="${lUrl}">
+									<th class="col-sm-2 col-md-2"><a href="phoneSearch.do?sort=security&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes-alt"></i></a>
-										Охрана <a href="${lUrl}">
+										Охрана <a href="phoneSearch.do?sort=security&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes"></i></a>
 									</th>
-									<th class="col-sm-1 col-md-1"><a href="${lUrl}">
+									<th class="col-sm-1 col-md-1"><a href="phoneSearch.do?sort=scv&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes-alt"></i></a>
-										СЦВ <a href="${lUrl}">
+										СЦВ <a href="phoneSearch.do?sort=scv&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes"></i></a>
 									</th>
-									<th class="col-sm-1 col-md-1"><a href="${lUrl}">
+									<th class="col-sm-1 col-md-1"><a href="phoneSearch.do?sort=adsl&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes-alt"></i></a>
-										Adsl <a href="${lUrl}">
+										Adsl <a href="phoneSearch.do?sort=adsl&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes"></i></a>
 									</th>
 									<th class="col-sm-4 col-md-4">
-									<a href="${lUrl}">
+									<a href="phoneSearch.do?sort=name&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes-alt"></i></a>
-										ФИО <a href="${lUrl}">
+										ФИО <a href="phoneSearch.do?sort=name&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes"></i></a>
 									</th>
 									

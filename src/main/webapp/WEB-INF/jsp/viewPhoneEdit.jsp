@@ -1,126 +1,133 @@
-<%-- 
-    Document   : Login
-    Created on : 14.03.2015, 13:24:46
-    Author     : Family_P
---%>
+<!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.Collection"%>
 <%@page import="by.telecom.subapp.model.Subscriber"%>
-<%@page import="by.telecom.subapp.model.Phone"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-    <head>
-        <title></title>
-        <meta name="keywords" content="">
-        <meta name="description" content="">
-        <META content="text/html; charset=windows-1251" http-equiv=Content-Type>
-        <LINK href="<c:url value="/resources/style/main3.css"/>" rel="stylesheet">
-    </head>
-    <body bgcolor="#e4e8ea">
-        <div align="center">
-            <%@include file="include/Header.jspf" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-            <table class="width960" cellspacing=0 cellpadding=0 border=0>
-                <tr>
-                    <%@include file="include/menu.jspf" %>
+<html lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-                    <td width=7 bgcolor="#e4e8ea"></td>
-                    <td class="width753"  align="center">
-                        <table class="width753" cellspacing=0 cellpadding=1 border=0>
-                            <tr>
-                                <td bgcolor="#aaaaaa">
-                                    <table class="width753" cellspacing=0 cellpadding=20 border=0>                          
-                                        <tr>                                          
-                                            <td class="content">
-                                                <form name="form5" method="get" action="phoneSearchEdit.do">
-                                                    <center>
-                                                        <h2>Поиск по техническим параметрам:</h2>
-                                                    </center>
-                                                    <table class="navu AllWidth">
-                                                        <tr>
-                                                            <th class="width10">
-                                                                <a href="phoneSearchEdit.do?sort=number&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">↓</a>
-                                                                Ном.
-                                                                <a href="phoneSearchEdit.do?sort=number&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">↑</a>
-                                                            </th>
-                                                            <th class="width15">
-                                                                <a href="phoneSearchEdit.do?sort=band&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">↓</a>
-                                                                Громпол.
-                                                                <a href="phoneSearchEdit.do?sort=band&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">↑</a>
-                                                            </th>
-                                                            <th class="width10">
-                                                                <a href="phoneSearchEdit.do?sort=security&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">↓</a>
-                                                                Охр.
-                                                                <a href="phoneSearchEdit.do?sort=security&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">↑</a>
-                                                            </th>
-                                                            <th class="width10">
-                                                                <a href="phoneSearchEdit.do?sort=scv&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">↓</a>
-                                                                СЦВ
-                                                                <a href="phoneSearchEdit.do?sort=scv&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">↑</a>
-                                                            </th>
-                                                            <th class="width10">
-                                                                <a href="phoneSearchEdit.do?sort=adsl&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">↓</a>
-                                                                Adsl
-                                                                <a href="phoneSearchEdit.do?sort=adsl&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">↑</a>
-                                                            </th>
-                                                            <th class="width25">
-                                                                <a href="phoneSearchEdit.do?sort=name&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">↓</a>
-                                                                ФИО
-                                                                <a href="phoneSearchEdit.do?sort=name&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">↑</a>
-                                                            </th>
-                                                            <th class="width20"></th>
-                                                        </tr>
-                                                        <tr>
-                                                            <td > <INPUT type="text" name="number" value="${number}" class="AllWidth"></td>
-                                                            <td > <INPUT type="text" name="band" value="${band}" class="AllWidth"></td>
-                                                            <td > <INPUT type="text" name="security" value="${security}" class="AllWidth"></td>
-                                                            <td > <INPUT type="text" name="scv" value="${scv}" class="AllWidth"></td>
-                                                            <td > <INPUT type="text" name="adsl" value="${adsl}" class="AllWidth"></td>
-                                                            <td > <INPUT type="text" name="name" value="${name}" class="AllWidth"></td>
-                                                            <td > <INPUT type="submit" name="submit" value="Поиск" class="AllWidth"></td>
-                                                        </tr>
-                                                    </table> 
-                                                </form>
-                                                    <c:if test="${!phoneSearchEdit.isEmpty()}">
-                                                        <table class="AllWidth" border="1">
-                                                            <c:forEach var="phone" items="${phoneSearchEdit}">
-                                                                <tr>
-                                                                    <td class="width10">${phone.number}</td>
-                                                                    <td class="width15">${phone.band}</td>
-                                                                    <td class="width10">${phone.security}</td>
-                                                                    <td class="width10">${phone.scv}</td>
-                                                                    <td class="width10">${phone.adsl}</td>
-                                                                    <td class="width25">${phone.subscriber.name}</td>
-                                                                    <td >
-                                                                        <form name="form5" method="post" action="editPhoneView.do">
-                                                                            <input type="hidden" name="phoneSelect" value="${phone.id}">               
-                                                                            <INPUT type="submit" name="submit" value="Редактор" class="AllWidth">
-                                                                        </form>
-                                                                    </td>
-                                                                    <td >
-                                                                        <form name="form7" method="post" action="deletePhone.do">
-                                                                            <input type="hidden" name="phoneSelect" value="${phone.id}">
-                                                                            <INPUT type="submit" name="submit" value="Удалить" class="AllWidth">
-                                                                        </form>
-                                                                    </td>
-                                                                </tr>
-                                                            </c:forEach>
-                                                        </table>
-                                                    </c:if>
-                                                
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-            <%@include file="include/Footer.jspf" %>
-        </div>
-        <br> 
-    </body>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" href="http://bootstrap-3.ru/assets/ico/favicon.ico">
+
+<title>Система учета абонентов</title>
+
+<!-- Bootstrap core CSS -->
+<LINK href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="<c:url value="/resources/css/dashboard.css"/>" rel="stylesheet">
+
+<style id="holderjs-style" type="text/css"></style>
+</head>
+
+<body>
+	<div class=" wrapper">
+		<%@include file="include/Header.jspf"%>
+
+		<div class="container-fluid ">
+			<div class="row">
+				<%@include file="include/menu.jspf"%>
+				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
+					<h2 class="page-header">Просмотр абонентов в базе</h2>
+					<div class="table-responsive">
+						<table class="table table-condensed table-bordered">
+
+							<thead>
+								<tr>
+									<th class="col-sm-2 col-md-2"><a href="phoneSearchEdit.do?sort=number&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i
+											class="glyphicon glyphicon-sort-by-attributes-alt"></i>
+									</a> Номер <a href="phoneSearchEdit.do?sort=number&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i
+											class="glyphicon glyphicon-sort-by-attributes"></i>
+									</a></th>
+									<th class="col-sm-2 col-md-2"><a href="phoneSearchEdit.do?sort=band&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i
+											class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> Громпол. <a
+										href="phoneSearchEdit.do?sort=band&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i class="glyphicon glyphicon-sort-by-attributes"></i></a>
+									</th>
+									<th class="col-sm-2 col-md-2"><a href="phoneSearchEdit.do?sort=security&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i
+											class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> Охрана <a
+										href="phoneSearchEdit.do?sort=security&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i class="glyphicon glyphicon-sort-by-attributes"></i></a>
+									</th>
+									<th class="col-sm-1 col-md-1"><a href="phoneSearchEdit.do?sort=scv&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i
+											class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> СЦВ <a
+										href="phoneSearchEdit.do?sort=scv&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i class="glyphicon glyphicon-sort-by-attributes"></i></a></th>
+									<th class="col-sm-1 col-md-1"><a href="phoneSearchEdit.do?sort=adsl&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i
+											class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> Adsl <a
+										href="phoneSearchEdit.do?sort=adsl&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i class="glyphicon glyphicon-sort-by-attributes"></i></a>
+									</th>
+									<th class="col-sm-4 col-md-4"><a href="phoneSearchEdit.do?sort=name&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i
+											class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> ФИО <a
+										href="phoneSearchEdit.do?sort=name&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i class="glyphicon glyphicon-sort-by-attributes"></i></a>
+									</th>
+									<th colspan="2" class="col-sm-1 col-md-1"></th>
+								</tr>
+								<tr>
+								<form name="form3" method="get" action="phoneSearchEdit.do">
+									<td><INPUT type="text" name="number" value="${number}" class="form-control"></td>
+									<td><INPUT type="text" name="band" value="${band}" class="form-control"></td>
+									<td><INPUT type="text" name="security" value="${security}" class="form-control"></td>
+									<td><INPUT type="text" name="scv" value="${scv}" class="form-control"></td>
+									<td><INPUT type="text" name="adsl" value="${adsl}" class="form-control"></td>
+									<td><INPUT type="text" name="name" value="${name}" class="form-control"></td>
+									<th colspan="2">
+										
+											<button type="submit" class="btn btn-primary ">
+												<i class="glyphicon glyphicon-search"></i>
+											</button>
+										
+									</th>
+									</form>
+								</tr>
+							</thead>
+
+							<c:if test="${!phoneSearchEdit.isEmpty()}">
+								<tbody>
+									<c:forEach var="phone" items="${phoneSearchEdit}">
+										<tr>
+
+											<td>${phone.number}</td>
+											<td>${phone.band}</td>
+											<td>${phone.security}</td>
+											<td>${phone.scv}</td>
+											<td>${phone.adsl}</td>
+											<td>${phone.subscriber.name}</td>
+											<th>
+
+												<form method="post" action="editPhoneView.do">
+													<input type="hidden" name="phoneSelect" value="${phone.id}">
+													<button type="submit" class="btn btn-primary btn-xs">
+														<i class="glyphicon glyphicon-pencil"></i>
+													</button>
+												</form>
+
+											</th>
+											<th>
+
+												<form method="post" action="deletePhone.do">
+													<input type="hidden" name="phoneSelect" value="${phone.id}">
+													<button type="submit" class="btn btn-primary btn-xs">
+														<i class="glyphicon glyphicon-trash"></i>
+													</button>
+												</form>
+
+											</th>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</c:if>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="push"></div>
+	</div>
+	<%@include file="include/Footer.jspf"%>
+</body>
 </html>

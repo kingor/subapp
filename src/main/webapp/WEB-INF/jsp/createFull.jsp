@@ -38,6 +38,7 @@
 					<div class="col-sm-8">
 						<form:form class="form-horizontal" role="form" method="post" action="addPhone.do">
 							<div class="alert alert-success">
+							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 								<strong><i class="glyphicon glyphicon-ok"></i> Успешно! </strong>Телефон добавлен
 							</div>
 							<div class="panel-group">
