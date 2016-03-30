@@ -32,52 +32,56 @@
 		<div class="container-fluid">
 			<div class="row">
 				<%@include file="include/menu.jspf"%>
-
+      
 				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
 					<h1 class="page-header">Главная часть документа</h1>
+					<img src="http://localhost:8080/subapp/telecom/resources/image/1.jpg" alt="...">ghfjhgjgh
 
-					<div class="row placeholders">
-						<div class="col-xs-6 col-sm-3 placeholder">
-							<h4>Label</h4>
-							<span class="text-muted">Something else</span>
-						</div>
-						<div class="col-xs-6 col-sm-3 placeholder">
-							<h4>Label</h4>
-							<span class="text-muted">Something else</span>
-						</div>
-					</div>
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                  <!-- Маркеры слайдов -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                  </ol>
+ 
+                  <!-- Содержимое слайдов -->
+                  <div class="carousel-inner">
+                    <div class="item active">
+                      <img src="/resources/1.jpg" alt="...">
+                      <div class="carousel-caption">
+                        <h3>Россия (Москва)</h3>
+                        <p>Где это видано, чтобы люди в Москве без прописки проживали.</p>
+                      </div>
+                    </div>
+                     
+                    <div class="item">
+                      <img src="<c:url value="/resources/image/2.jpg"/>" alt="...">
+                      <div class="carousel-caption">
+                        <h3>Осень</h3>
+                        <p>Осень — это вторая весна, когда каждый лист — цветок.</p>
+                      </div>
+                    </div>
+                     
+                    <div class="item">
+                      <img src="<c:url value="/resources/image/3.jpg"/>" alt="...">
+                      <div class="carousel-caption">
+                        <h3>Дождь</h3>
+                        <p>Осень опять идут дожди...</p>
+                      </div>
+                    </div>
+                  </div>
+ 
+                  <!-- Controls -->
+                  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                  </a>
+                </div>
 
-					<h2 class="sub-header">Section title</h2>
-					<div class="table-responsive">
-						<table class="table table-striped">
-							<thead>
-								<tr>
-									<th>#</th>
-									<th>Header</th>
-									<th>Header</th>
-									<th>Header</th>
-									<th>Header</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>1,001</td>
-									<td>Lorem апрапрапр</td>
-									<td>ipsum</td>
-									<td>dolor апрапрап апрапр</td>
-									<td>sit</td>
-								</tr>
-								<tr>
-									<td>1,002</td>
-									<td>amet</td>
-									<td>consectetur апрапр</td>
-									<td>adipiscing</td>
-									<td>elit</td>
-								</tr>
-
-							</tbody>
-						</table>
-					</div>
+					
 				</div>
 			</div>
 

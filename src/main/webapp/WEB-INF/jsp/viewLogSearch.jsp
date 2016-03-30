@@ -4,7 +4,7 @@
 <%@page import="java.util.Collection"%>
 <%@page import="by.telecom.subapp.model.Subscriber"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html lang="ru">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -40,22 +40,47 @@
 
 							<thead>
 								<tr>
-									<th class="col-sm-4 col-md-4"><a href="subscriberSearch.do?sort=name&order=desc&name=${name}&address=${address}&comment=${comment}"> <i
-											class="glyphicon glyphicon-sort-by-attributes-alt"></i>
-									</a> ФИО абонента <a href="subscriberSearch.do?sort=name&order=asc&name=${name}&address=${address}&comment=${comment}"> <i class="glyphicon glyphicon-sort-by-attributes"></i>
+									<th class="col-sm-2 col-md-2"><a
+										href="logSearch.do?sort=name&order=desc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
+											<i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
+									</a> Имя <a
+										href="logSearch.do?sort=name&order=asc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
+											<i class="glyphicon glyphicon-sort-by-attributes"></i>
 									</a></th>
-									<th class="col-sm-4 col-md-4"><a href="subscriberSearch.do?sort=address&order=desc&name=${name}&address=${address}&comment=${comment}"> <i
-											class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> Адрес абонента <a href="subscriberSearch.do?sort=address&order=asc&name=${name}&address=${address}&comment=${comment}"> <i
-											class="glyphicon glyphicon-sort-by-attributes"></i></a></th>
-									<th class="col-sm-3 col-md-3"><a href="subscriberSearch.do?sort=comment&order=desc&name=${name}&address=${address}&comment=${comment}"> <i
-											class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> Примечание <a href="subscriberSearch.do?sort=comment&order=asc&name=${name}&address=${address}&comment=${comment}"> <i
-											class="glyphicon glyphicon-sort-by-attributes"></i></a></th>
+									<th class="col-sm-4 col-md-4"><a
+										href="logSearch.do?sort=date&order=desc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
+											<i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
+									</a>Дата <a
+										href="logSearch.do?sort=date&order=asc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
+											<i class="glyphicon glyphicon-sort-by-attributes"></i>
+									</a></th>
+									<th class="col-sm-6 col-md-6"><a
+										href="logSearch.do?sort=comment&order=desc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
+											<i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
+									</a> Примечание <a
+										href="logSearch.do?sort=comment&order=asc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
+											<i class="glyphicon glyphicon-sort-by-attributes"></i>
+									</a></th>
 									<th class="col-sm-1 col-md-1"></th>
 								</tr>
 								<tr>
-									<form name="form3" method="get" action="subscriberSearch.do">
-										<td><INPUT type="text" name="name" value="${name}" class="form-control"></td>
-										<td><INPUT type="text" name="address" value="${address}" class="form-control"></td>
+									<form name="form3" method="get" action="logSearch.do">
+									<td>
+										
+										<INPUT type="text" name="name" value="${name}" class="form-control">
+										</td>
+										
+										
+										<td>
+										<div class="row">
+										<div class="col-sm-6">
+										<INPUT type="date" name="dateStart" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />" class="form-control">
+										</div> 
+										<div class="col-sm-6">
+										<INPUT type="date" name="dateEnd"  value="<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />" class="form-control" />
+										</div>
+											</div></td> 
+											<INPUT type="hidden" name="type" value="${type}" class="AllHeight">
 										<td><INPUT type="text" name="comment" value="${comment}" class="form-control"></td>
 										<th><button type="submit" class="btn btn-primary ">
 												<i class="glyphicon glyphicon-search"></i>
@@ -64,23 +89,15 @@
 								</tr>
 							</thead>
 
-							<c:if test="${!subscriberSearch.isEmpty()}">
+							<c:if test="${!logSearch.isEmpty()}">
 								<tbody>
-									<c:forEach var="subscriber" items="${subscriberSearch}">
+									<c:forEach var="log" items="${logSearch}">
 										<tr>
-											<form method="post" action="subscriberFull.do">
-												<td>${subscriber.name}</td>
-												<td>${subscriber.address}</td>
-												<td>${subscriber.comment}</td>
-												<th>
-													<div>
-														<input type="hidden" name="subscriberSelect" value="${subscriber.id}">
-														<button type="submit" class="btn btn-primary btn-xs">
-															<i class="glyphicon glyphicon-share-alt"></i>
-														</button>
-													</div>
-												</th>
-											</form>
+
+											<td>${log.user.name}</td>
+											<td><fmt:formatDate pattern="dd.MM.yyyy --- hh:mm" value="${log.date}" /></td>
+											<td>${log.comment}</td>
+
 										</tr>
 									</c:forEach>
 								</tbody>
