@@ -35,7 +35,7 @@
       
 				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
 					<h1 class="page-header">Главная часть документа</h1>
-					<img src="http://localhost:8080/subapp/telecom/resources/image/1.jpg" alt="...">ghfjhgjgh
+<!-- 					<img src="http://localhost:8080/subapp/telecom/resources/image/1.jpg" alt="...">ghfjhgjgh -->
 
 					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                   <!-- Маркеры слайдов -->
@@ -48,7 +48,7 @@
                   <!-- Содержимое слайдов -->
                   <div class="carousel-inner">
                     <div class="item active">
-                      <img src="/resources/1.jpg" alt="...">
+                      <img src="<c:url value="/resources/image/1.jpg"/>" alt="...">
                       <div class="carousel-caption">
                         <h3>Россия (Москва)</h3>
                         <p>Где это видано, чтобы люди в Москве без прописки проживали.</p>
