@@ -58,10 +58,11 @@ public class OperatorController {
 	/*
 	 * View edit Subscriber
 	 */
-	@RequestMapping(value = "/subscriberSearchEdit.do", method = RequestMethod.GET)
-	public String getSubscriberEdit(@RequestParam(value = "order", required = false) String order, @RequestParam(value = "sort", required = false) String sort,
-			@RequestParam(value = "name", required = false) String name, @RequestParam(value = "address", required = false) String address,
-			@RequestParam(value = "comment", required = false) String comment, Model model) {
+	@RequestMapping(value = "/subscriberSearchEdit.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String getSubscriberEdit(@RequestParam(value = "order", required = false) String order,
+			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "name", required = false) String name,
+			@RequestParam(value = "address", required = false) String address, @RequestParam(value = "comment", required = false) String comment,
+			Model model) {
 		if (!"name".equals(sort) && !"address".equals(sort) && !"comment".equals(sort))
 			sort = "name";
 		if (!"asc".equals(order) && !"desc".equals(order))
@@ -107,9 +108,10 @@ public class OperatorController {
 	 * View Create Phone
 	 */
 	@RequestMapping(value = "/createPhoneNew", method = RequestMethod.GET)
-	public String getCreatePhone(@RequestParam(value = "order", required = false) String order, @RequestParam(value = "sort", required = false) String sort,
-			@RequestParam(value = "name", required = false) String name, @RequestParam(value = "address", required = false) String address,
-			@RequestParam(value = "comment", required = false) String comment, Model model) {
+	public String getCreatePhone(@RequestParam(value = "order", required = false) String order,
+			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "name", required = false) String name,
+			@RequestParam(value = "address", required = false) String address, @RequestParam(value = "comment", required = false) String comment,
+			Model model) {
 		if (!"name".equals(sort) && !"address".equals(sort) && !"comment".equals(sort))
 			sort = "name";
 		if (!"asc".equals(order) && !"desc".equals(order))
@@ -141,7 +143,8 @@ public class OperatorController {
 	 * create Phone
 	 */
 	@RequestMapping(value = "/createPhone", method = RequestMethod.POST)
-	public String createPhone(@ModelAttribute("phoneAttr") Phone phone, @RequestParam(value = "id_subscriber", required = false) Long subscriberId, Model model) {
+	public String createPhone(@ModelAttribute("phoneAttr") Phone phone, @RequestParam(value = "id_subscriber", required = false) Long subscriberId,
+			Model model) {
 
 		phone.setSubscriber(subscriberService.read(subscriberId));
 		System.out.println("!!!!!!!!!!!!!!!!+++++++++" + phone.getSubscriber().getId() + "!!!!!!!!!!!!!");
@@ -152,11 +155,13 @@ public class OperatorController {
 	}
 
 	@RequestMapping(value = "/phoneSearchEdit.do", method = RequestMethod.GET)
-	public String phoneSearchEdit(@RequestParam(value = "order", required = false) String order, @RequestParam(value = "sort", required = false) String sort,
-			@RequestParam(value = "number", required = false) String number, @RequestParam(value = "band", required = false) String band,
-			@RequestParam(value = "security", required = false) String security, @RequestParam(value = "scv", required = false) String scv,
-			@RequestParam(value = "adsl", required = false) String adsl, @RequestParam(value = "name", required = false) String name, Model model) {
-		if (!"number".equals(sort) && !"band".equals(sort) && !"security".equals(sort) && !"scv".equals(sort) && !"adsl".equals(sort) && !"name".equals(sort))
+	public String phoneSearchEdit(@RequestParam(value = "order", required = false) String order,
+			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "number", required = false) String number,
+			@RequestParam(value = "band", required = false) String band, @RequestParam(value = "security", required = false) String security,
+			@RequestParam(value = "scv", required = false) String scv, @RequestParam(value = "adsl", required = false) String adsl,
+			@RequestParam(value = "name", required = false) String name, Model model) {
+		if (!"number".equals(sort) && !"band".equals(sort) && !"security".equals(sort) && !"scv".equals(sort) && !"adsl".equals(sort)
+				&& !"name".equals(sort))
 			sort = "number";
 		if (!"asc".equals(order) && !"desc".equals(order))
 			order = "asc";
@@ -182,7 +187,8 @@ public class OperatorController {
 	 * Edit Phone
 	 */
 	@RequestMapping(value = "/editPhone.do", method = RequestMethod.POST)
-	public String editPhoneDo(@ModelAttribute("phone") Phone phone, @RequestParam(value = "id_subscriber", required = false) Long subscriberId, Model model) {
+	public String editPhoneDo(@ModelAttribute("phone") Phone phone, @RequestParam(value = "id_subscriber", required = false) Long subscriberId,
+			Model model) {
 		phone.setSubscriber(subscriberService.read(subscriberId));
 		phoneService.update(phone);
 		return "index";

@@ -37,23 +37,36 @@
 				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
 					<h2 class="page-header">Новый абонент</h2>
 					<div class="col-sm-8">
-						<form:form class="form-horizontal" role="form" modelAttribute="subscriberAttr" method="post" action="editSubscriber.do">
-							<INPUT type="hidden" name="id" value="${subscriberAttr.id}">
-							<div class="form-group">
-								<label for="inputName3">ФИО абонента:</label> 
-								<input type="text" class="form-control" id="inputName3" name="name" value="${subscriberAttr.name}" placeholder="ФИО" required="" autofocus="">
-							</div>
-							<div class="form-group">
-								<label for="inputAddr3">Адрес:</label> 
-								<input type="text" class="form-control" id="inputAddr3" name="address" value="${subscriberAttr.address}" placeholder="Адрес" required="">
-							</div>
-							<div class="form-group">
-								<label for="inputCom3">Примечание:</label> 
-								<input type="text" class="form-control" id="inputCom3" name="comment" value="${subscriberAttr.comment}"  placeholder="Примечание">
-							</div>
-							<div class="form-group">
-								<div class="col-sm-offset-4 col-sm-8">
-									<button type="submit" class="btn btn-primary">Сохранить</button>
+						<form:form class="form-horizontal" role="form" modelAttribute="subscriberAttr" method="post" >
+							<div class="panel panel-default">
+								<div class="panel-heading">Данные абонента</div>
+								<div class="panel-body">
+									<INPUT type="hidden" name="id" value="${subscriberAttr.id}">
+									<div class="form-group">
+										<label for="inputName3" class="col-sm-2 control-label">ФИО:</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" id="inputName3" name="name" value="${subscriberAttr.name}" placeholder="ФИО" required="" autofocus="">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputAddr3" class="col-sm-2 control-label">Адрес:</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" id="inputAddr3" name="address" value="${subscriberAttr.address}" placeholder="Адрес" required="">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputCom3" class="col-sm-2 control-label">Примечание:</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" id="inputCom3" name="comment" value="${subscriberAttr.comment}" placeholder="Примечание">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-offset-5 col-sm-8">
+											<button type="submit" formaction="editSubscriber.do" class="btn btn-primary">Сохранить</button>
+
+											<button type="submit" formaction="subscriberSearchEdit.do" class="btn btn-primary">Отмена</button>
+										</div>
+									</div>
 								</div>
 							</div>
 						</form:form>

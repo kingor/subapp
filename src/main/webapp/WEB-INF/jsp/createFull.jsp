@@ -77,9 +77,6 @@
 										<button type="submit" class="btn btn-primary">Дабавить новый телефон</button>
 									</div>
 								</div>
-
-
-							
 						</form:form>
 					</div>
 				</div>

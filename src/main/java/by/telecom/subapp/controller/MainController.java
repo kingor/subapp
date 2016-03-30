@@ -30,7 +30,7 @@ public class MainController {
 
 	protected static Logger logger = Logger.getLogger(MainController.class);
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
 	public String getLogin(Model model) {
 		if (logger.isDebugEnabled()) {
 			logger.debug("Received request to show Login page");
@@ -125,8 +125,7 @@ public class MainController {
 	 * @return the name of the JSP page
 	 */
 	@RequestMapping(value = "/actors/edit", method = RequestMethod.POST)
-	public String saveEdit(@ModelAttribute("personAttribute") Actor actor,
-			@RequestParam(value = "id", required = true) Integer id, Model model) {
+	public String saveEdit(@ModelAttribute("personAttribute") Actor actor, @RequestParam(value = "id", required = true) Integer id, Model model) {
 		logger.debug("Received request to update person");
 
 		// The "personAttribute" model has been passed to the controller from
