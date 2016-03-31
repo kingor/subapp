@@ -28,16 +28,13 @@
 <body>
 	<div class=" wrapper">
 		<%@include file="include/Header.jspf"%>
-
-		<div class="container-fluid">
-			<div class="row">
-				<%@include file="include/menu.jspf"%>
-      
-				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
-					<h1 class="page-header">Главная часть документа</h1>
+<!-- Carousel -->
+<!-- <div class="row"> -->
+<!-- 				<div class="col-sm-10 col-sm-offset-2"> -->
+<!-- 					<h1 class="page-header">Главная часть документа</h1> -->
 <!-- 					<img src="http://localhost:8080/subapp/telecom/resources/image/1.jpg" alt="...">ghfjhgjgh -->
 
-					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					<div id="carousel-example-generic" class="carousel slide col-sm-offset-2" data-ride="carousel">
                   <!-- Маркеры слайдов -->
                   <ol class="carousel-indicators">
                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -50,24 +47,24 @@
                     <div class="item active">
                       <img src="<c:url value="/resources/image/1.jpg"/>" alt="...">
                       <div class="carousel-caption">
-                        <h3>Россия (Москва)</h3>
-                        <p>Где это видано, чтобы люди в Москве без прописки проживали.</p>
+                        <h3>Учет</h3>
+                        <p>Ведение базы данных абонентов компании</p>
                       </div>
                     </div>
                      
                     <div class="item">
                       <img src="<c:url value="/resources/image/2.jpg"/>" alt="...">
                       <div class="carousel-caption">
-                        <h3>Осень</h3>
-                        <p>Осень — это вторая весна, когда каждый лист — цветок.</p>
+                        <h3>Поиск</h3>
+                        <p>Возможность найти нужного абонента в кратчайшие сроки</p>
                       </div>
                     </div>
                      
                     <div class="item">
                       <img src="<c:url value="/resources/image/3.jpg"/>" alt="...">
                       <div class="carousel-caption">
-                        <h3>Дождь</h3>
-                        <p>Осень опять идут дожди...</p>
+                        <h3>Доступ</h3>
+                        <p>Разделение прав доступа по группам</p>
                       </div>
                     </div>
                   </div>
@@ -81,7 +78,17 @@
                   </a>
                 </div>
 
-					
+<!-- 			</div> -->
+<!-- 			</div> -->
+			<!-- Carousel -->
+			
+			
+		<div class="container-fluid">
+			<div class="row">
+				<%@include file="include/menu.jspf"%>
+      
+				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
+				
 				</div>
 			</div>
 
