@@ -30,8 +30,12 @@ public class AdminController {
 	private LogService logService;
 	private static Logger logger = Logger.getLogger(AdminController.class.getSimpleName());
 
-	@RequestMapping(value = "/userSearchEdit.do", method = RequestMethod.GET)
-	public String getUsers(@RequestParam(value = "order", required = false) String order, @RequestParam(value = "sort", required = false) String sort, Model model) {
+	/*
+	 * View edit User
+	 */
+	@RequestMapping(value = "/userSearchEdit.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String getUsers(@RequestParam(value = "order", required = false) String order,
+			@RequestParam(value = "sort", required = false) String sort, Model model) {
 		logger.info("CONTROLLER - caused /userSearchEdit.do");
 		if (!"name".equals(sort) && !"login".equals(sort))
 			sort = "name";
@@ -67,6 +71,27 @@ public class AdminController {
 	}
 
 	/*
+	 * View User edit page
+	 */
+	@RequestMapping(value = "/editUserView.do", method = RequestMethod.POST)
+	public String editUser(@RequestParam(value = "userSelect", required = false) Long userId, Model model) {
+		logger.info("CONTROLLER - caused /editUserView.do");
+		User user = userService.read(userId);
+		model.addAttribute("userAttr", user);
+		return "editUser";
+	}
+
+	/*
+	 * Edit of User
+	 */
+	@RequestMapping(value = "/editUser.do", method = RequestMethod.POST)
+	public String editSubscriberDo(@ModelAttribute("userAttr") User user, Model model) {
+		logger.info("CONTROLLER - caused /editUser.do");
+		userService.update(user);
+		return "index";
+	}
+
+	/*
 	 * Delete User
 	 */
 	@RequestMapping(value = "/deleteUser.do", method = RequestMethod.POST)
@@ -81,8 +106,9 @@ public class AdminController {
 	 * View Log page
 	 */
 	@RequestMapping(value = "/logSearch.do", method = RequestMethod.GET)
-	public String getLogSearch(@RequestParam(value = "order", required = false) String order, @RequestParam(value = "sort", required = false) String sort,
-			@RequestParam(value = "name", required = false) String name, @RequestParam(value = "dateStart", required = false) String dateStartParam,
+	public String getLogSearch(@RequestParam(value = "order", required = false) String order,
+			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "name", required = false) String name,
+			@RequestParam(value = "dateStart", required = false) String dateStartParam,
 			@RequestParam(value = "dateEnd", required = false) String dateEndParam, @RequestParam(value = "type", required = false) String type,
 			@RequestParam(value = "comment", required = false) String comment, Model model) {
 		logger.info("CONTROLLER - caused /logSearch.do");

@@ -65,36 +65,29 @@ public class Log implements Serializable {
 		comment = aComment;
 	}
 
-	public Log updateSubscriber(User user, String aName, String aNameNew, String aAddress,
-			String aAddressNew) {
+	public Log updateSubscriber(User user, String aName, String aNameNew, String aAddress, String aAddressNew) {
 		return this.logSubscriber(user, aName, aNameNew, aAddress, aAddressNew, "Update");
 	}
 
-	public Log updatePhone(User user, Subscriber subscriber, String aNumber, String aNumberNew,
-			String aBand, String aBandNew, String aSecurity, String aSecurityNew, String aAdsl,
-			String aAdslNew) {
-		return this.logPhone(user, subscriber, aNumber, aNumberNew, aBand, aBandNew, aSecurity,
-				aSecurityNew, aAdsl, aAdslNew, "Update");
+	public Log updatePhone(User user, Subscriber subscriber, String aNumber, String aNumberNew, String aBand, String aBandNew, String aSecurity,
+			String aSecurityNew, String aAdsl, String aAdslNew) {
+		return this.logPhone(user, subscriber, aNumber, aNumberNew, aBand, aBandNew, aSecurity, aSecurityNew, aAdsl, aAdslNew, "Update");
 	}
 
-	public Log updateUser(User user, String aLogin, String aLoginNew, String aPassword,
-			String aPasswordNew, String aName, String aNameNew, Integer aCategory,
-			Integer aCategoryNew) {
-		return this.logUser(user, aLogin, aLoginNew, aPassword, aPasswordNew, aName, aNameNew,
-				aCategory, aCategoryNew, "Update");
+	public Log updateUser(User user, String aLogin, String aLoginNew, String aPassword, String aPasswordNew, String aName, String aNameNew,
+			Integer aCategory, Integer aCategoryNew) {
+		return this.logUser(user, aLogin, aLoginNew, aPassword, aPasswordNew, aName, aNameNew, aCategory, aCategoryNew, "Update");
 	}
 
-	public Log logSubscriber(User user, String aName, String aNameNew, String aAddress,
-			String aAddressNew, String logType) {
+	public Log logSubscriber(User user, String aName, String aNameNew, String aAddress, String aAddressNew, String logType) {
 		this.createLog(user, logType);
-		comment = commentConcat(comment, "Ф�?О: ", aName, aNameNew);
+		comment = commentConcat(comment, "ФИО: ", aName, aNameNew);
 		comment = commentConcat(comment, "Адрес: ", aAddress, aAddressNew);
 		return this;
 	}
 
-	public Log logPhone(User user, Subscriber subscriber, String aNumber, String aNumberNew,
-			String aBand, String aBandNew, String aSecurity, String aSecurityNew, String aAdsl,
-			String aAdslNew, String logType) {
+	public Log logPhone(User user, Subscriber subscriber, String aNumber, String aNumberNew, String aBand, String aBandNew, String aSecurity,
+			String aSecurityNew, String aAdsl, String aAdslNew, String logType) {
 		this.createLog(user, logType);
 		comment = comment.concat(subscriber.getName());
 		comment = commentConcat(comment, " Номер: ", aNumber, aNumberNew);
@@ -104,15 +97,13 @@ public class Log implements Serializable {
 		return this;
 	}
 
-	public Log logUser(User user, String aLogin, String aLoginNew, String aPassword,
-			String aPasswordNew, String aName, String aNameNew, Integer aCategory,
-			Integer aCategoryNew, String logType) {
+	public Log logUser(User user, String aLogin, String aLoginNew, String aPassword, String aPasswordNew, String aName, String aNameNew,
+			Integer aCategory, Integer aCategoryNew, String logType) {
 		this.createLog(user, logType);
 		comment = commentConcat(comment, "Логин: ", aLogin, aLoginNew);
 		comment = commentConcat(comment, "Пароль: ", aPassword, aPasswordNew);
-		comment = commentConcat(comment, "�?мя: ", aName, aNameNew);
-		comment = commentConcat(comment, "Категория: ", aCategory.toString(),
-				aCategoryNew.toString());
+		comment = commentConcat(comment, "Имя: ", aName, aNameNew);
+		comment = commentConcat(comment, "Категория: ", aCategory.toString(), aCategoryNew.toString());
 		return this;
 	}
 
@@ -124,21 +115,17 @@ public class Log implements Serializable {
 		return this.logUser(user, aLogin, "   ", aName, "   ", "", "", -1, aCategory, "Create");
 	}
 
-	public Log createPhone(User user, Subscriber subscriber, String aNumber, String aBand,
-			String aSecurity, String aAdsl) {
-		return this.logPhone(user, subscriber, aNumber, "   ", aBand, "   ", aSecurity, "   ",
-				aAdsl, "   ", "Create");
+	public Log createPhone(User user, Subscriber subscriber, String aNumber, String aBand, String aSecurity, String aAdsl) {
+		return this.logPhone(user, subscriber, aNumber, "   ", aBand, "   ", aSecurity, "   ", aAdsl, "   ", "Create");
 	}
 
 	public Log deleteSubscriber(User user, String aName, String aAddress) {
 		return this.logSubscriber(user, aName, "   ", aAddress, "   ", "Delete");
 	}
 
-	public Log deletePhone(User user, Subscriber subscriber, String aNumber, String aBand,
-			String aSecurity, String aAdsl) {
+	public Log deletePhone(User user, Subscriber subscriber, String aNumber, String aBand, String aSecurity, String aAdsl) {
 
-		return this.logPhone(user, subscriber, aNumber, "   ", aBand, "   ", aSecurity, "   ",
-				aAdsl, "   ", "Delete");
+		return this.logPhone(user, subscriber, aNumber, "   ", aBand, "   ", aSecurity, "   ", aAdsl, "   ", "Delete");
 	}
 
 	public Log deleteUser(User user, String aLogin, String aName, Integer aCategory) {
@@ -166,8 +153,7 @@ public class Log implements Serializable {
 
 	private static String commentConcat(String aComment, String aType, String aName, String aNameNew) {
 		if (!aName.equals(aNameNew)) {
-			aComment = aComment.concat(aType).concat(aName).concat("--->").concat(aNameNew)
-					.concat("   ");
+			aComment = aComment.concat(aType).concat(aName).concat("--->").concat(aNameNew).concat("   ");
 		}
 		return aComment;
 	}
