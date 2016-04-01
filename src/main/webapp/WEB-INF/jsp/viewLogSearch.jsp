@@ -67,7 +67,7 @@
 									<form name="form3" method="get" action="logSearch.do">
 									<td>
 										
-										<INPUT type="text" name="name" value="${name}" class="form-control">
+										<INPUT type="text" name="user" value="${user}" class="form-control">
 										</td>
 										
 										
@@ -94,7 +94,7 @@
 									<c:forEach var="log" items="${logSearch}">
 										<tr>
 
-											<td>${log.user.name}</td>
+											<td>${log.user}</td>
 											<td><fmt:formatDate pattern="dd.MM.yyyy --- hh:mm" value="${log.date}" /></td>
 											<td>${log.comment}</td>
 

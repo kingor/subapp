@@ -28,23 +28,30 @@ public class AdminController {
 
 	@Autowired
 	private LogService logService;
-	private static Logger logger = Logger.getLogger(AdminController.class.getSimpleName());
+	private static Logger logger = Logger.getLogger(AdminController.class);
 
 	/*
 	 * View edit User
 	 */
 	@RequestMapping(value = "/userSearchEdit.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String getUsers(@RequestParam(value = "order", required = false) String order,
-			@RequestParam(value = "sort", required = false) String sort, Model model) {
+	public String getUsers(@RequestParam(value = "order", required = false) String orderType,
+			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "login", required = false) String login,
+			@RequestParam(value = "name", required = false) String name, @RequestParam(value = "category", required = false) Integer category,
+			Model model) {
 		logger.info("CONTROLLER - caused /userSearchEdit.do");
 		if (!"name".equals(sort) && !"login".equals(sort))
 			sort = "name";
-		if (!"asc".equals(order) && !"desc".equals(order))
-			order = "asc";
-		List<User> users = userService.getAll(sort, order);
+		if (!"asc".equals(orderType) && !"desc".equals(orderType))
+			orderType = "asc";
+		List<User> users = userService.getByParameter(login, name, 1, sort, orderType);
 
 		model.addAttribute("userSearchEdit", users);
-
+		/*
+		 * filled search fields
+		 */
+		model.addAttribute("login", login);
+		model.addAttribute("name", name);
+		model.addAttribute("category", category);
 		return "viewUserEdit";
 	}
 
@@ -107,7 +114,7 @@ public class AdminController {
 	 */
 	@RequestMapping(value = "/logSearch.do", method = RequestMethod.GET)
 	public String getLogSearch(@RequestParam(value = "order", required = false) String order,
-			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "name", required = false) String name,
+			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "user", required = false) String user,
 			@RequestParam(value = "dateStart", required = false) String dateStartParam,
 			@RequestParam(value = "dateEnd", required = false) String dateEndParam, @RequestParam(value = "type", required = false) String type,
 			@RequestParam(value = "comment", required = false) String comment, Model model) {
@@ -132,8 +139,16 @@ public class AdminController {
 		} catch (Exception ex) {
 			dateEnd = new Date();
 		}
-		List<Log> logList = logService.getByParameter(name, dateStart, dateEnd, type, comment, sort, order);
+		List<Log> logList = logService.getByParameter(user, dateStart, dateEnd, type, comment, sort, order);
 		model.addAttribute("logSearch", logList);
+
+		/*
+		 * filled search fields
+		 */
+		model.addAttribute("dateStart", dateStart);
+		model.addAttribute("dateEnd", dateEnd);
+		model.addAttribute("user", user);
+		model.addAttribute("comment", comment);
 
 		return "viewLogSearch";
 	}

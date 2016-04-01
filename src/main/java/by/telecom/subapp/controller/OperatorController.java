@@ -58,9 +58,10 @@ public class OperatorController {
 	 * View edit Subscriber
 	 */
 	@RequestMapping(value = "/subscriberSearchEdit.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String getSubscriberEdit(@RequestParam(value = "order", required = false) String order, @RequestParam(value = "sort", required = false) String sort,
-			@RequestParam(value = "name", required = false) String name, @RequestParam(value = "address", required = false) String address,
-			@RequestParam(value = "comment", required = false) String comment, Model model) {
+	public String getSubscriberEdit(@RequestParam(value = "order", required = false) String order,
+			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "name", required = false) String name,
+			@RequestParam(value = "address", required = false) String address, @RequestParam(value = "comment", required = false) String comment,
+			Model model) {
 		logger.info("CONTROLLER - caused /subscriberSearchEdit.do");
 		if (!"name".equals(sort) && !"address".equals(sort) && !"comment".equals(sort))
 			sort = "name";
@@ -70,6 +71,12 @@ public class OperatorController {
 		List<Subscriber> subscribers = subscriberService.getByParameter(name, address, comment, sort, order);
 		model.addAttribute("subscriberSearchEdit", subscribers);
 
+		/*
+		 * filled search fields
+		 */
+		model.addAttribute("name", name);
+		model.addAttribute("address", address);
+		model.addAttribute("comment", comment);
 		return "viewSubscriberEdit";
 	}
 
@@ -109,9 +116,10 @@ public class OperatorController {
 	 * View Create Phone
 	 */
 	@RequestMapping(value = "/createPhoneNew", method = RequestMethod.GET)
-	public String getCreatePhone(@RequestParam(value = "order", required = false) String order, @RequestParam(value = "sort", required = false) String sort,
-			@RequestParam(value = "name", required = false) String name, @RequestParam(value = "address", required = false) String address,
-			@RequestParam(value = "comment", required = false) String comment, Model model) {
+	public String getCreatePhone(@RequestParam(value = "order", required = false) String order,
+			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "name", required = false) String name,
+			@RequestParam(value = "address", required = false) String address, @RequestParam(value = "comment", required = false) String comment,
+			Model model) {
 		logger.info("CONTROLLER - caused /createPhoneNew");
 		if (!"name".equals(sort) && !"address".equals(sort) && !"comment".equals(sort))
 			sort = "name";
@@ -121,6 +129,12 @@ public class OperatorController {
 		List<Subscriber> subscribers = subscriberService.getByParameter(name, address, comment, sort, order);
 		model.addAttribute("subscriberSearch", subscribers);
 
+		/*
+		 * filled search fields
+		 */
+		model.addAttribute("name", name);
+		model.addAttribute("address", address);
+		model.addAttribute("comment", comment);
 		return "createPhoneNew";
 	}
 
@@ -143,7 +157,8 @@ public class OperatorController {
 	 * create Phone
 	 */
 	@RequestMapping(value = "/createPhone", method = RequestMethod.POST)
-	public String createPhone(@ModelAttribute("phoneAttr") Phone phone, @RequestParam(value = "id_subscriber", required = false) Long subscriberId, Model model) {
+	public String createPhone(@ModelAttribute("phoneAttr") Phone phone, @RequestParam(value = "id_subscriber", required = false) Long subscriberId,
+			Model model) {
 		logger.info("CONTROLLER - caused /createPhone");
 		phone.setSubscriber(subscriberService.read(subscriberId));
 		phoneService.create(phone);
@@ -153,12 +168,14 @@ public class OperatorController {
 	}
 
 	@RequestMapping(value = "/phoneSearchEdit.do", method = RequestMethod.GET)
-	public String phoneSearchEdit(@RequestParam(value = "order", required = false) String order, @RequestParam(value = "sort", required = false) String sort,
-			@RequestParam(value = "number", required = false) String number, @RequestParam(value = "band", required = false) String band,
-			@RequestParam(value = "security", required = false) String security, @RequestParam(value = "scv", required = false) String scv,
-			@RequestParam(value = "adsl", required = false) String adsl, @RequestParam(value = "name", required = false) String name, Model model) {
+	public String phoneSearchEdit(@RequestParam(value = "order", required = false) String order,
+			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "number", required = false) String number,
+			@RequestParam(value = "band", required = false) String band, @RequestParam(value = "security", required = false) String security,
+			@RequestParam(value = "scv", required = false) String scv, @RequestParam(value = "adsl", required = false) String adsl,
+			@RequestParam(value = "name", required = false) String name, Model model) {
 		logger.info("CONTROLLER - caused /phoneSearchEdit.do");
-		if (!"number".equals(sort) && !"band".equals(sort) && !"security".equals(sort) && !"scv".equals(sort) && !"adsl".equals(sort) && !"name".equals(sort))
+		if (!"number".equals(sort) && !"band".equals(sort) && !"security".equals(sort) && !"scv".equals(sort) && !"adsl".equals(sort)
+				&& !"name".equals(sort))
 			sort = "number";
 		if (!"asc".equals(order) && !"desc".equals(order))
 			order = "asc";
@@ -166,6 +183,15 @@ public class OperatorController {
 		List<Phone> phones = phoneService.getByParameter(number, band, security, scv, adsl, name, sort, order);
 
 		model.addAttribute("phoneSearchEdit", phones);
+		/*
+		 * filled search fields
+		 */
+		model.addAttribute("number", number);
+		model.addAttribute("band", band);
+		model.addAttribute("security", security);
+		model.addAttribute("scv", scv);
+		model.addAttribute("adsl", adsl);
+		model.addAttribute("name", name);
 		return "viewPhoneEdit";
 	}
 
@@ -185,7 +211,8 @@ public class OperatorController {
 	 * Edit Phone
 	 */
 	@RequestMapping(value = "/editPhone.do", method = RequestMethod.POST)
-	public String editPhoneDo(@ModelAttribute("phone") Phone phone, @RequestParam(value = "id_subscriber", required = false) Long subscriberId, Model model) {
+	public String editPhoneDo(@ModelAttribute("phone") Phone phone, @RequestParam(value = "id_subscriber", required = false) Long subscriberId,
+			Model model) {
 		logger.info("CONTROLLER - caused /editPhone.do");
 		phone.setSubscriber(subscriberService.read(subscriberId));
 		phoneService.update(phone);

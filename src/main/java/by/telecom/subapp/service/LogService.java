@@ -7,7 +7,6 @@ import by.telecom.subapp.model.Log;
 
 public interface LogService {
 
-	List<Log> getByParameter(String name, Date dateBegin, Date dateEnd, String type,
-			String comment, String sort, String orderType);
+	List<Log> getByParameter(String user, Date dateBegin, Date dateEnd, String type, String comment, String sort, String orderType);
 
 }

@@ -38,7 +38,8 @@ public class UserController {
 	 * All Subscribers
 	 */
 	@RequestMapping(value = "/subscribers.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String getSubscribers(@RequestParam(value = "order", required = false) String order, @RequestParam(value = "sort", required = false) String sort, Model model) {
+	public String getSubscribers(@RequestParam(value = "order", required = false) String order,
+			@RequestParam(value = "sort", required = false) String sort, Model model) {
 		logger.info("CONTROLLER - caused /subscriber.do");
 		if (!"address".equals(sort) && !"comment".equals(sort))
 			sort = "name";
@@ -55,9 +56,10 @@ public class UserController {
 	 * Search of Subscriber
 	 */
 	@RequestMapping(value = "/subscriberSearch.do", method = RequestMethod.GET)
-	public String getSubscriberSearch(@RequestParam(value = "order", required = false) String order, @RequestParam(value = "sort", required = false) String sort,
-			@RequestParam(value = "name", required = false) String name, @RequestParam(value = "address", required = false) String address,
-			@RequestParam(value = "comment", required = false) String comment, Model model) {
+	public String getSubscriberSearch(@RequestParam(value = "order", required = false) String order,
+			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "name", required = false) String name,
+			@RequestParam(value = "address", required = false) String address, @RequestParam(value = "comment", required = false) String comment,
+			Model model) {
 		logger.info("CONTROLLER - caused /subscriberSearch.do");
 		if (!"address".equals(sort) && !"comment".equals(sort))
 			sort = "name";
@@ -66,6 +68,13 @@ public class UserController {
 
 		List<Subscriber> subscribers = subscriberService.getByParameter(name, address, comment, sort, order);
 		model.addAttribute("subscriberSearch", subscribers);
+
+		/*
+		 * filled search fields
+		 */
+		model.addAttribute("name", name);
+		model.addAttribute("address", address);
+		model.addAttribute("comment", comment);
 
 		return "viewSubscriberSearch";
 	}
@@ -87,7 +96,8 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/phones", method = RequestMethod.GET)
-	public String getPhones(@RequestParam(value = "order", required = false) String order, @RequestParam(value = "sort", required = false) String sort, Model model) {
+	public String getPhones(@RequestParam(value = "order", required = false) String order,
+			@RequestParam(value = "sort", required = false) String sort, Model model) {
 		logger.info("CONTROLLER - caused /phones");
 		if (!"band".equals(sort) && !"security".equals(sort) && !"scv".equals(sort) && !"adsl".equals(sort))
 			sort = "number";
@@ -101,12 +111,14 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/phoneSearch.do", method = RequestMethod.GET)
-	public String getPhoneSearch(@RequestParam(value = "order", required = false) String order, @RequestParam(value = "sort", required = false) String sort,
-			@RequestParam(value = "number", required = false) String number, @RequestParam(value = "band", required = false) String band,
-			@RequestParam(value = "security", required = false) String security, @RequestParam(value = "scv", required = false) String scv,
-			@RequestParam(value = "adsl", required = false) String adsl, @RequestParam(value = "name", required = false) String name, Model model) {
+	public String getPhoneSearch(@RequestParam(value = "order", required = false) String order,
+			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "number", required = false) String number,
+			@RequestParam(value = "band", required = false) String band, @RequestParam(value = "security", required = false) String security,
+			@RequestParam(value = "scv", required = false) String scv, @RequestParam(value = "adsl", required = false) String adsl,
+			@RequestParam(value = "name", required = false) String name, Model model) {
 		logger.info("CONTROLLER - caused /phoneSearch.do");
-		if (!"number".equals(sort) && !"band".equals(sort) && !"security".equals(sort) && !"scv".equals(sort) && !"adsl".equals(sort) && !"name".equals(sort))
+		if (!"number".equals(sort) && !"band".equals(sort) && !"security".equals(sort) && !"scv".equals(sort) && !"adsl".equals(sort)
+				&& !"name".equals(sort))
 			sort = "number";
 		if (!"asc".equals(order) && !"desc".equals(order))
 			order = "asc";
@@ -115,6 +127,15 @@ public class UserController {
 
 		model.addAttribute("phoneSearch", phones);
 
+		/*
+		 * filled search fields
+		 */
+		model.addAttribute("number", number);
+		model.addAttribute("band", band);
+		model.addAttribute("security", security);
+		model.addAttribute("scv", scv);
+		model.addAttribute("adsl", adsl);
+		model.addAttribute("name", name);
 		return "viewPhoneSearch";
 	}
 

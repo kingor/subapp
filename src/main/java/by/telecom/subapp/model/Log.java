@@ -6,8 +6,6 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Log implements Serializable {
@@ -18,9 +16,7 @@ public class Log implements Serializable {
 	@GeneratedValue
 	private Long id;
 
-	@ManyToOne
-	@JoinColumn(name = "id_user")
-	private User user;
+	private String user;
 	private Date date;
 	private String type;
 	private String comment;
@@ -33,11 +29,11 @@ public class Log implements Serializable {
 		id = aId;
 	}
 
-	public User getUser() {
+	public String getUser() {
 		return user;
 	}
 
-	public void setUser(User aUser) {
+	public void setUser(String aUser) {
 		user = aUser;
 	}
 
@@ -65,28 +61,28 @@ public class Log implements Serializable {
 		comment = aComment;
 	}
 
-	public Log updateSubscriber(User user, String aName, String aNameNew, String aAddress, String aAddressNew) {
+	public Log updateSubscriber(String user, String aName, String aNameNew, String aAddress, String aAddressNew) {
 		return this.logSubscriber(user, aName, aNameNew, aAddress, aAddressNew, "Update");
 	}
 
-	public Log updatePhone(User user, Subscriber subscriber, String aNumber, String aNumberNew, String aBand, String aBandNew, String aSecurity,
+	public Log updatePhone(String user, Subscriber subscriber, String aNumber, String aNumberNew, String aBand, String aBandNew, String aSecurity,
 			String aSecurityNew, String aAdsl, String aAdslNew) {
 		return this.logPhone(user, subscriber, aNumber, aNumberNew, aBand, aBandNew, aSecurity, aSecurityNew, aAdsl, aAdslNew, "Update");
 	}
 
-	public Log updateUser(User user, String aLogin, String aLoginNew, String aPassword, String aPasswordNew, String aName, String aNameNew,
+	public Log updateUser(String user, String aLogin, String aLoginNew, String aPassword, String aPasswordNew, String aName, String aNameNew,
 			Integer aCategory, Integer aCategoryNew) {
 		return this.logUser(user, aLogin, aLoginNew, aPassword, aPasswordNew, aName, aNameNew, aCategory, aCategoryNew, "Update");
 	}
 
-	public Log logSubscriber(User user, String aName, String aNameNew, String aAddress, String aAddressNew, String logType) {
+	public Log logSubscriber(String user, String aName, String aNameNew, String aAddress, String aAddressNew, String logType) {
 		this.createLog(user, logType);
 		comment = commentConcat(comment, "ФИО: ", aName, aNameNew);
 		comment = commentConcat(comment, "Адрес: ", aAddress, aAddressNew);
 		return this;
 	}
 
-	public Log logPhone(User user, Subscriber subscriber, String aNumber, String aNumberNew, String aBand, String aBandNew, String aSecurity,
+	public Log logPhone(String user, Subscriber subscriber, String aNumber, String aNumberNew, String aBand, String aBandNew, String aSecurity,
 			String aSecurityNew, String aAdsl, String aAdslNew, String logType) {
 		this.createLog(user, logType);
 		comment = comment.concat(subscriber.getName());
@@ -97,7 +93,7 @@ public class Log implements Serializable {
 		return this;
 	}
 
-	public Log logUser(User user, String aLogin, String aLoginNew, String aPassword, String aPasswordNew, String aName, String aNameNew,
+	public Log logUser(String user, String aLogin, String aLoginNew, String aPassword, String aPasswordNew, String aName, String aNameNew,
 			Integer aCategory, Integer aCategoryNew, String logType) {
 		this.createLog(user, logType);
 		comment = commentConcat(comment, "Логин: ", aLogin, aLoginNew);
@@ -107,45 +103,45 @@ public class Log implements Serializable {
 		return this;
 	}
 
-	public Log createSubscriber(User user, String aName, String aAddress) {
+	public Log createSubscriber(String user, String aName, String aAddress) {
 		return this.logSubscriber(user, aName, "   ", aAddress, "   ", "Create");
 	}
 
-	public Log createUser(User user, String aLogin, String aName, Integer aCategory) {
+	public Log createUser(String user, String aLogin, String aName, Integer aCategory) {
 		return this.logUser(user, aLogin, "   ", aName, "   ", "", "", -1, aCategory, "Create");
 	}
 
-	public Log createPhone(User user, Subscriber subscriber, String aNumber, String aBand, String aSecurity, String aAdsl) {
+	public Log createPhone(String user, Subscriber subscriber, String aNumber, String aBand, String aSecurity, String aAdsl) {
 		return this.logPhone(user, subscriber, aNumber, "   ", aBand, "   ", aSecurity, "   ", aAdsl, "   ", "Create");
 	}
 
-	public Log deleteSubscriber(User user, String aName, String aAddress) {
+	public Log deleteSubscriber(String user, String aName, String aAddress) {
 		return this.logSubscriber(user, aName, "   ", aAddress, "   ", "Delete");
 	}
 
-	public Log deletePhone(User user, Subscriber subscriber, String aNumber, String aBand, String aSecurity, String aAdsl) {
+	public Log deletePhone(String user, Subscriber subscriber, String aNumber, String aBand, String aSecurity, String aAdsl) {
 
 		return this.logPhone(user, subscriber, aNumber, "   ", aBand, "   ", aSecurity, "   ", aAdsl, "   ", "Delete");
 	}
 
-	public Log deleteUser(User user, String aLogin, String aName, Integer aCategory) {
+	public Log deleteUser(String user, String aLogin, String aName, Integer aCategory) {
 
 		return this.logUser(user, aLogin, "   ", aName, "   ", "", "", -1, aCategory, "Delete");
 	}
 
-	public Log login(User user, String remoteAddr) {
+	public Log login(String user, String remoteAddr) {
 		this.createLog(user, "Login");
 		comment = commentConcat(comment, "Ip адрес: ", remoteAddr, "   ");
 		return this;
 	}
 
-	public Log logout(User user, String remoteAddr) {
+	public Log logout(String user, String remoteAddr) {
 		this.createLog(user, "Logout");
 		comment = commentConcat(comment, "Ip адрес: ", remoteAddr, "   ");
 		return this;
 	}
 
-	public Log loginError(User user, String remoteAddr) {
+	public Log loginError(String user, String remoteAddr) {
 		this.createLog(user, "Login Error");
 		comment = commentConcat(comment, "Ip адрес: ", remoteAddr, "   ");
 		return this;
@@ -158,7 +154,7 @@ public class Log implements Serializable {
 		return aComment;
 	}
 
-	public Log createLog(User aUser, String aType) {
+	public Log createLog(String aUser, String aType) {
 		user = aUser;
 		date = new Date();
 		type = aType;

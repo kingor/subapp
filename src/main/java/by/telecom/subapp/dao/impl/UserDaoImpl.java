@@ -25,8 +25,7 @@ public class UserDaoImpl extends GenericDaoImpl<User, Long> implements UserDao {
 		List<User> all = null;
 
 		session = sessionFactory.getCurrentSession();
-		all = session.createCriteria(User.class).add(Restrictions.like("login", "%" + login + "%"))
-				.list();
+		all = session.createCriteria(User.class).add(Restrictions.like("login", "%" + login + "%")).list();
 
 		if (all.size() > 0) {
 			return all.get(0);
@@ -36,15 +35,17 @@ public class UserDaoImpl extends GenericDaoImpl<User, Long> implements UserDao {
 
 	}
 
-	public List<User> getByParameter(String login, String name, Integer category, String sort,
-			String orderType) {
+	public List<User> getByParameter(String login, String name, Integer category, String sort, String orderType) {
 		logger.info("Get USER by sort = " + sort + " order = " + orderType);
-		/*
-		 * Session session = null; List<User> all = null; try { session = HibernateUtil.getSessionFactory().openSession(); session.beginTransaction(); Order order = Order.asc(sort); if(orderType.equals("desc")) order = Order.desc(sort); all = session.createCriteria(User.class)
-		 * .add(Restrictions.like("login", "%"+login+"%")) .add(Restrictions.like("name", "%"+name+"%")) .add(Restrictions.ge("category", category)) .addOrder(order).list(); session.getTransaction().commit(); } catch (Exception e) { e.printStackTrace(); } finally { if (session != null &&
-		 * session.isOpen()) { session.close(); } }
-		 */
-		return null;// all;
+
+		Session session = null;
+		List<User> userList = null;
+
+		session = sessionFactory.getCurrentSession();
+		userList = session.createCriteria(User.class).add(Restrictions.like("login", "%" + login + "%"))
+				.add(Restrictions.like("name", "%" + name + "%")).list();
+
+		return userList;// all;
 	}
 
 }

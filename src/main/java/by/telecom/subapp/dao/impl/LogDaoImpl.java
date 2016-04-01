@@ -23,24 +23,15 @@ public class LogDaoImpl extends GenericDaoImpl<Log, Long> implements LogDao {
 
 	private static final Logger logger = Logger.getLogger(LogDao.class);
 
-	public List<Log> getByParameter(String name, Date dateBegin, Date dateEnd, String type,
-			String comment, String sort, String orderType) {
+	public List<Log> getByParameter(String user, Date dateBegin, Date dateEnd, String type, String comment, String sort, String orderType) {
 		logger.info("DAO - Log by Parameter sort = " + sort + " order = " + orderType);
 		Session session = sessionFactory.getCurrentSession();
-		Criteria criteria = session.createCriteria(Log.class)
-				.add(Restrictions.ge("date", dateBegin)).add(Restrictions.le("date", dateEnd))
-				.add(Restrictions.like("type", "%" + type + "%"))
-				.add(Restrictions.like("comment", "%" + comment + "%"));
+		Criteria criteria = session.createCriteria(Log.class).add(Restrictions.ge("date", dateBegin)).add(Restrictions.le("date", dateEnd))
+				.add(Restrictions.like("type", "%" + type + "%")).add(Restrictions.like("comment", "%" + comment + "%"))
+				.add(Restrictions.like("user", "%" + user + "%"));
 		Order order = Order.asc(sort);
 		if (orderType.equals("desc"))
 			order = Order.desc(sort);
-		// if (sort.equals("name"))
-		// criteria = criteria.createCriteria("user")
-		// .add(Restrictions.like("name", "%" + name + "%")).addOrder(order);
-		// else
-		// criteria = criteria.addOrder(order).createCriteria("user")
-		// .add(Restrictions.like("name", "%" + name + "%"));
-
 		List<Log> logList = criteria.list();
 		return logList;
 	}

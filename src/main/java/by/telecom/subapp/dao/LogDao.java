@@ -7,7 +7,7 @@ import by.telecom.subapp.model.Log;
 
 public interface LogDao extends GenericDao<Log, Long> {
 
-	List<Log> getByParameter(String name, Date dateBegin, Date dateEnd, String type,
+	List<Log> getByParameter(String user, Date dateBegin, Date dateEnd, String type,
 			String comment, String sort, String orderType);
 
 }

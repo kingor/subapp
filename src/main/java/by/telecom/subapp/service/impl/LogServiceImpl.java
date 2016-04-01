@@ -18,9 +18,8 @@ public class LogServiceImpl implements LogService {
 	private LogDao logDao;
 
 	@Transactional
-	public List<Log> getByParameter(String name, Date dateBegin, Date dateEnd, String type,
-			String comment, String sort, String orderType) {
-		return logDao.getByParameter(name, dateBegin, dateEnd, type, comment, sort, orderType);
+	public List<Log> getByParameter(String user, Date dateBegin, Date dateEnd, String type, String comment, String sort, String orderType) {
+		return logDao.getByParameter(user, dateBegin, dateEnd, type, comment, sort, orderType);
 	}
 
 }
