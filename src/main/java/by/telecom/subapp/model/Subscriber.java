@@ -59,4 +59,17 @@ public class Subscriber implements Serializable {
 	public void setComment(String aComment) {
 		comment = aComment;
 	}
+
+	@Override
+	public String toString() {
+		String subscriberData = "";
+		subscriberData.concat("ФИО: ");
+		subscriberData.concat(name);
+		subscriberData.concat(" Адрес: ");
+		subscriberData.concat(address);
+		subscriberData.concat(" Примечание: ");
+		subscriberData.concat(comment);
+		return subscriberData;
+	}
+
 }

@@ -1,5 +1,7 @@
 package by.telecom.subapp.controller;
 
+import java.security.Principal;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -12,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import by.telecom.subapp.model.Log;
 import by.telecom.subapp.model.Phone;
 import by.telecom.subapp.model.Subscriber;
+import by.telecom.subapp.service.LogService;
 import by.telecom.subapp.service.PhoneService;
 import by.telecom.subapp.service.SubscriberService;
 
@@ -26,6 +30,9 @@ public class OperatorController {
 
 	@Autowired
 	PhoneService phoneService;
+
+	@Autowired
+	LogService logService;
 
 	private static Logger logger = Logger.getLogger(UserController.class.getSimpleName());
 
@@ -43,9 +50,15 @@ public class OperatorController {
 	 * Create Subscriber
 	 */
 	@RequestMapping(value = "/createSubscriber.do", method = RequestMethod.POST)
-	public String createSubscriberPost(@ModelAttribute("subscriberAttr") Subscriber subscriber, Model model) {
+	public String createSubscriberPost(@ModelAttribute("subscriberAttr") Subscriber subscriber, Model model, Principal principal) {
 		logger.info("CONTROLLER - caused /createSubscriber.do");
 		subscriberService.create(subscriber);
+		Log log = new Log();
+		log.setUser("1");
+		log.setType("2");
+		log.setDate(new Date());
+		log.setComment("3");
+		logService.create(log);
 		model.addAttribute("subscriber", subscriber);
 		Phone phone = new Phone();
 		phone.setSubscriber(subscriber);

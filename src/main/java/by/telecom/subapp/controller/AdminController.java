@@ -1,5 +1,6 @@
 package by.telecom.subapp.controller;
 
+import java.security.Principal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -37,7 +38,7 @@ public class AdminController {
 	public String getUsers(@RequestParam(value = "order", required = false) String orderType,
 			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "login", required = false) String login,
 			@RequestParam(value = "name", required = false) String name, @RequestParam(value = "category", required = false) Integer category,
-			Model model) {
+			Model model, Principal principal) {
 		logger.info("CONTROLLER - caused /userSearchEdit.do");
 		if (!"name".equals(sort) && !"login".equals(sort))
 			sort = "name";

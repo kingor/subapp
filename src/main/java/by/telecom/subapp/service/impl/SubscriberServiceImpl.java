@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import by.telecom.subapp.dao.LogDao;
 import by.telecom.subapp.dao.SubscriberDao;
 import by.telecom.subapp.model.Subscriber;
 import by.telecom.subapp.service.SubscriberService;
@@ -16,6 +17,8 @@ public class SubscriberServiceImpl implements SubscriberService {
 
 	@Autowired
 	private SubscriberDao subscriberDao;
+	@Autowired
+	private LogDao logDao;
 
 	private static final Logger logger = Logger.getLogger(SubscriberService.class);
 
@@ -26,8 +29,7 @@ public class SubscriberServiceImpl implements SubscriberService {
 	}
 
 	@Transactional
-	public List<Subscriber> getByParameter(String name, String address, String comment,
-			String sort, String orderType) {
+	public List<Subscriber> getByParameter(String name, String address, String comment, String sort, String orderType) {
 		logger.info("SERVICE - getByParameter()");
 		return subscriberDao.getByParameter(name, address, comment, sort, orderType);
 	}
