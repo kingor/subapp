@@ -3,6 +3,7 @@ package by.telecom.subapp.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,7 @@ public class LogServiceImpl implements LogService {
 
 	@Autowired
 	private LogDao logDao;
+	private static final Logger logger = Logger.getLogger(LogService.class);
 
 	@Transactional
 	public List<Log> getByParameter(String user, Date dateBegin, Date dateEnd, String type, String comment, String sort, String orderType) {
@@ -29,6 +31,7 @@ public class LogServiceImpl implements LogService {
 		newLog.setDate(new Date());
 		newLog.setType(type);
 		newLog.setComment(comment);
+		logger.info("SERVICE - create Log");
 		return logDao.create(newLog);
 	}
 

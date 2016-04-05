@@ -1,4 +1,4 @@
-package by.telecom.subapp.service;
+package by.telecom.subapp.service.impl;
 
 import java.util.List;
 

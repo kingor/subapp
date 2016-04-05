@@ -20,7 +20,7 @@ public class UserDaoImpl extends GenericDaoImpl<User, Long> implements UserDao {
 	private static final Logger logger = Logger.getLogger(UserDao.class);
 
 	public User getByLogin(String login) {
-		logger.info("Get USER by login = " + login);
+		logger.info("DAO - get USER by login = " + login);
 		Session session = null;
 		List<User> all = null;
 

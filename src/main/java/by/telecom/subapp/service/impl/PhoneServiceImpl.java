@@ -21,45 +21,44 @@ public class PhoneServiceImpl implements PhoneService {
 
 	@Transactional
 	public List<Phone> getAll(String sort, String orderType) {
-		logger.info("get all");
+		logger.info("SERVICE - get all Phones");
 		return phoneDao.getAll(Phone.class, sort, orderType);
 	}
 
 	@Transactional
 	public List<Phone> getBySubscriber(Subscriber subscriber) {
-		logger.info("get by subscriber");
+		logger.info("SERVICE - get Phones by subscriber");
 		return phoneDao.getBySubscriber(subscriber);
 	}
 
 	@Transactional
-	public List<Phone> getByParameter(String number, String band, String security, String scv,
-			String adsl, String name, String sort, String orderType) {
-		logger.info("get by parameter");
+	public List<Phone> getByParameter(String number, String band, String security, String scv, String adsl, String name, String sort, String orderType) {
+		logger.info("SERVICE - get Phones by parameter");
 		return phoneDao.getByParameter(number, band, security, scv, adsl, name, sort, orderType);
 	}
 
 	@Transactional
 	public Long create(Phone newInstance) {
-		logger.info("create");
+		logger.info("SERVICE - create Phone");
 		return phoneDao.create(newInstance);
 	}
 
 	@Transactional
 	public Phone read(Long id) {
-		logger.info("read");
+		logger.info("SERVICE - read Phone with id " + id);
 		return phoneDao.read(Phone.class, id);
 	}
 
 	@Transactional
-	public void update(Phone phone) {
-		logger.info("update");
-		phoneDao.update(phone);
+	public void update(Phone transientObject) {
+		logger.info("SERVICE - update Phone");
+		phoneDao.update(transientObject);
 	}
 
 	@Transactional
-	public void delete(Phone phone) {
-		logger.info("dalete");
-		phoneDao.delete(phone);
+	public void delete(Phone persistentObject) {
+		logger.info("SERVICE - delete Phone");
+		phoneDao.delete(persistentObject);
 	}
 
 }

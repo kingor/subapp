@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package by.telecom.subapp.dao.impl;
 
 import java.io.Serializable;
@@ -55,13 +49,12 @@ public class GenericDaoImpl<T, PK extends Serializable> implements GenericDao<T,
 	public T read(Class<T> classT, PK id) {
 		logger.info("DAO - caused read() with id = " + id);
 		Session session = sessionFactory.getCurrentSession();
-		T objectT = (T) session.createCriteria(classT).add(Restrictions.eq("id", id))
-				.uniqueResult();
+		T objectT = (T) session.createCriteria(classT).add(Restrictions.eq("id", id)).uniqueResult();
 		return objectT;
 	}
 
 	public void update(T transientObject) {
-		logger.info("DAO - caused read()");
+		logger.info("DAO - caused update()");
 		Session session = sessionFactory.getCurrentSession();
 		session.update(transientObject);
 	}

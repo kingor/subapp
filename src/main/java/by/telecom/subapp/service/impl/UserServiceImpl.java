@@ -21,39 +21,38 @@ public class UserServiceImpl implements UserService {
 
 	@Transactional
 	public List<User> getAll(String sort, String orderType) {
-		logger.info("SERVICE - getAll()");
+		logger.info("SERVICE - get all Users");
 		return userDao.getAll(User.class, sort, orderType);
 	}
 
 	@Transactional
-	public List<User> getByParameter(String login, String name, Integer category, String sort,
-			String orderType) {
-		logger.info("SERVICE - getByParameter()");
+	public List<User> getByParameter(String login, String name, Integer category, String sort, String orderType) {
+		logger.info("SERVICE - get Users by parameters");
 		return userDao.getByParameter(login, name, category, sort, orderType);
 	}
 
 	@Transactional
 	public Long create(User newInstanse) {
-		logger.info("SERVICE - create()");
+		logger.info("SERVICE - create User");
 		return userDao.create(newInstanse);
 	}
 
 	@Transactional
 	public User read(Long id) {
-		logger.info("SERVICE - read()");
+		logger.info("SERVICE - read User with id " + id);
 		return userDao.read(User.class, id);
 	}
 
 	@Transactional
 	public void update(User transientObject) {
-		logger.info("SERVICE - update()");
+		logger.info("SERVICE - update User");
 		userDao.update(transientObject);
 
 	}
 
 	@Transactional
 	public void delete(User persistentObject) {
-		logger.info("SERVICE - delete()");
+		logger.info("SERVICE - delete User");
 		userDao.delete(persistentObject);
 
 	}

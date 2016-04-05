@@ -20,9 +20,8 @@ public class SubscriberDaoImpl extends GenericDaoImpl<Subscriber, Long> implemen
 	private SessionFactory sessionFactory;
 	private static final Logger logger = Logger.getLogger(SubscriberDao.class);
 
-	public List<Subscriber> getByParameter(String name, String address, String comment,
-			String sort, String orderType) {
-		logger.info("Get by parameter sort = " + name + " order = " + orderType);
+	public List<Subscriber> getByParameter(String name, String address, String comment, String sort, String orderType) {
+		logger.info("DAO - get Subscriber by parameter sort = " + name + " order = " + orderType);
 		Session session = null;
 		List<Subscriber> all = null;
 
@@ -30,12 +29,9 @@ public class SubscriberDaoImpl extends GenericDaoImpl<Subscriber, Long> implemen
 		Order order = Order.asc(sort);
 		if (orderType.equals("desc"))
 			order = Order.desc(sort);
-		System.out.println("!!!!!!!!DEBAG name" + name + " address" + address + " comment"
-				+ comment);
-		all = session.createCriteria(Subscriber.class)
-				.add(Restrictions.like("name", "%" + name + "%"))
-				.add(Restrictions.like("address", "%" + address + "%"))
-				.add(Restrictions.like("comment", "%" + comment + "%")).addOrder(order).list();
+
+		all = session.createCriteria(Subscriber.class).add(Restrictions.like("name", "%" + name + "%"))
+				.add(Restrictions.like("address", "%" + address + "%")).add(Restrictions.like("comment", "%" + comment + "%")).addOrder(order).list();
 		return all;
 	}
 

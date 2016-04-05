@@ -24,38 +24,38 @@ public class SubscriberServiceImpl implements SubscriberService {
 
 	@Transactional
 	public List<Subscriber> getAll(String sort, String orderType) {
-		logger.info("SERVICE - getAll()");
+		logger.info("SERVICE - get all Subscribers");
 		return subscriberDao.getAll(Subscriber.class, sort, orderType);
 	}
 
 	@Transactional
 	public List<Subscriber> getByParameter(String name, String address, String comment, String sort, String orderType) {
-		logger.info("SERVICE - getByParameter()");
+		logger.info("SERVICE - get Subscribers by parameters");
 		return subscriberDao.getByParameter(name, address, comment, sort, orderType);
 	}
 
 	@Transactional
 	public Long create(Subscriber newInstanse) {
-		logger.info("SERVICE - create()");
+		logger.info("SERVICE - create Subscriber");
 		return subscriberDao.create(newInstanse);
 	}
 
 	@Transactional
 	public Subscriber read(Long id) {
-		logger.info("SERVICE - read()");
+		logger.info("SERVICE - read Subscriber with id " + id);
 		return subscriberDao.read(Subscriber.class, id);
 	}
 
 	@Transactional
 	public void update(Subscriber transientObject) {
-		logger.info("SERVICE - update()");
+		logger.info("SERVICE - update Subscriber");
 		subscriberDao.update(transientObject);
 
 	}
 
 	@Transactional
 	public void delete(Subscriber persistentObject) {
-		logger.info("SERVICE - delete()");
+		logger.info("SERVICE - delete Subscriber");
 		subscriberDao.delete(persistentObject);
 
 	}

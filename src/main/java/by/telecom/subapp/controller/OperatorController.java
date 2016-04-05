@@ -87,7 +87,7 @@ public class OperatorController {
 	}
 
 	/*
-	 * View Subscriber edit page
+	 * View editSubscriber page
 	 */
 	@RequestMapping(value = "/editSubscriberView.do", method = RequestMethod.POST)
 	public String editSubscriberView(@RequestParam(value = "subscriberSelect", required = false) Long subscriberId, Model model, Principal principal) {
@@ -102,7 +102,7 @@ public class OperatorController {
 	}
 
 	/*
-	 * Edit of Subscriber
+	 * Edit Subscriber
 	 */
 	@RequestMapping(value = "/editSubscriber.do", method = RequestMethod.POST)
 	public String editSubscriberDo(@ModelAttribute("subscriberAttr") Subscriber subscriber, Model model, Principal principal) {
@@ -111,7 +111,13 @@ public class OperatorController {
 
 		logService.create(principal.getName(), "After Update", subscriber.toString());
 
-		return "index";
+		/*
+		 * filled search fields
+		 */
+		model.addAttribute("name", subscriber.getName());
+		model.addAttribute("address", subscriber.getAddress());
+		model.addAttribute("comment", subscriber.getComment());
+		return "viewSubscriberEdit";
 	}
 
 	/*
@@ -156,7 +162,7 @@ public class OperatorController {
 	}
 
 	/*
-	 * View Create Phone
+	 * View CreatePhoneNew
 	 */
 	@RequestMapping(value = "/createPhoneNew.do", method = RequestMethod.POST)
 	public String getСreatePhoneNew(@RequestParam("id_subscriber") Long subscriberId, Model model) {
@@ -171,7 +177,7 @@ public class OperatorController {
 	}
 
 	/*
-	 * create Phone
+	 * Create Phone
 	 */
 	@RequestMapping(value = "/createPhone", method = RequestMethod.POST)
 	public String createPhone(@ModelAttribute("phoneAttr") Phone phone, @RequestParam(value = "id_subscriber", required = false) Long subscriberId,
@@ -243,7 +249,16 @@ public class OperatorController {
 
 		logService.create(principal.getName(), "After Update", phone.toString());
 
-		return "index";
+		/*
+		 * filled search fields
+		 */
+		model.addAttribute("number", phone.getNumber());
+		model.addAttribute("band", phone.getBand());
+		model.addAttribute("security", phone.getSecurity());
+		model.addAttribute("scv", phone.getScv());
+		model.addAttribute("adsl", phone.getAdsl());
+		model.addAttribute("name", phone.getSubscriber().getName());
+		return "viewPhoneEdit";
 	}
 
 	/*
