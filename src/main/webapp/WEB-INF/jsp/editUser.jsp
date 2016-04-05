@@ -44,7 +44,7 @@
 									<div class="form-group">
 										<INPUT type="hidden" name="id" value="${userAttr.id}"> <label for="inputName3" class="col-sm-2 control-label">Логин:</label>
 										<div class="col-sm-10">
-											<input type="text" class="form-control" id="inputName3" name="login" value="${userAttr.login}" required="" autofocus="" disabled>
+											<input type="text" class="form-control" id="inputName3" name="login" value="${userAttr.login}" required="" >
 										</div>
 									</div>
 									<div class="form-group">

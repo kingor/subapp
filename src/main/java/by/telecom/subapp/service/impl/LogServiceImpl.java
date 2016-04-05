@@ -23,17 +23,13 @@ public class LogServiceImpl implements LogService {
 	}
 
 	@Transactional
-	public Long create(Log log) {
-		return logDao.create(log);
+	public Long create(String user, String type, String comment) {
+		Log newLog = new Log();
+		newLog.setUser(user);
+		newLog.setDate(new Date());
+		newLog.setType(type);
+		newLog.setComment(comment);
+		return logDao.create(newLog);
 	}
-
-	// @Transactional
-	// public Long create(String user, String message) {
-	// Log log = new Log();
-	// log.setUser(user);
-	// log.setComment(message);
-	//
-	// return logDao.create(log);
-	// }
 
 }

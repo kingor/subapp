@@ -10,6 +10,6 @@ public interface LogService {
 	List<Log> getByParameter(String user, Date dateBegin, Date dateEnd, String type, String comment, String sort, String orderType);
 
 	// Long create(String user, String message);
-	Long create(Log log);
+	Long create(String user, String type, String comment);
 
 }

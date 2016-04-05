@@ -40,21 +40,28 @@
 
 							<thead>
 								<tr>
-									<th class="col-sm-2 col-md-2"><a
+									<th class="col-sm-1 col-md-1"><a
 										href="logSearch.do?sort=name&order=desc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
 											<i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
 									</a> Имя <a
 										href="logSearch.do?sort=name&order=asc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
 											<i class="glyphicon glyphicon-sort-by-attributes"></i>
 									</a></th>
-									<th class="col-sm-4 col-md-4"><a
+									<th class="col-sm-3 col-md-3"><a
 										href="logSearch.do?sort=date&order=desc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
 											<i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
 									</a>Дата <a
 										href="logSearch.do?sort=date&order=asc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
 											<i class="glyphicon glyphicon-sort-by-attributes"></i>
 									</a></th>
-									<th class="col-sm-6 col-md-6"><a
+									<th class="col-sm-1 col-md-1"><a
+										href="logSearch.do?sort=type&order=desc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
+											<i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
+									</a> Тип <a
+										href="logSearch.do?sort=type&order=asc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
+											<i class="glyphicon glyphicon-sort-by-attributes"></i>
+									</a></th>
+									<th class="col-sm-7 col-md-7"><a
 										href="logSearch.do?sort=comment&order=desc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
 											<i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
 									</a> Примечание <a
@@ -65,22 +72,18 @@
 								</tr>
 								<tr>
 									<form name="form3" method="get" action="logSearch.do">
-									<td>
-										
-										<INPUT type="text" name="user" value="${user}" class="form-control">
-										</td>
-										
-										
+										<td><INPUT type="text" name="user" value="${user}" class="form-control"></td>
 										<td>
-										<div class="row">
-										<div class="col-sm-6">
-										<INPUT type="date" name="dateStart" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />" class="form-control">
-										</div> 
-										<div class="col-sm-6">
-										<INPUT type="date" name="dateEnd"  value="<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />" class="form-control" />
-										</div>
-											</div></td> 
-											<INPUT type="hidden" name="type" value="${type}" class="AllHeight">
+											<div class="row">
+												<div class="col-sm-6">
+													<INPUT type="date" name="dateStart" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />" class="form-control">
+												</div>
+												<div class="col-sm-6">
+													<INPUT type="date" name="dateEnd" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />" class="form-control" />
+												</div>
+											</div>
+										</td> 
+										<td><INPUT type="text" name="type" value="${type}" class="form-control"></td>
 										<td><INPUT type="text" name="comment" value="${comment}" class="form-control"></td>
 										<th><button type="submit" class="btn btn-primary ">
 												<i class="glyphicon glyphicon-search"></i>
@@ -93,11 +96,10 @@
 								<tbody>
 									<c:forEach var="log" items="${logSearch}">
 										<tr>
-
 											<td>${log.user}</td>
 											<td><fmt:formatDate pattern="dd.MM.yyyy --- hh:mm" value="${log.date}" /></td>
+											<td>${log.type}</td>
 											<td>${log.comment}</td>
-
 										</tr>
 									</c:forEach>
 								</tbody>

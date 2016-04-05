@@ -82,4 +82,14 @@ public class Phone implements Serializable {
 	public void setSubscriber(Subscriber aSubscriber) {
 		subscriber = aSubscriber;
 	}
+
+	@Override
+	public String toString() {
+		String phoneData = "";
+
+		return phoneData.concat("id: ").concat(String.valueOf(id)).concat(" --- ФИО: ").concat(subscriber.getName()).concat(" --- Номер: ")
+				.concat(number).concat(" --- Громпол: ").concat(band).concat(" --- Охрана: ").concat(security).concat(" --- СЦВ: ").concat(scv)
+				.concat(" --- ADSL: ").concat(adsl);
+	}
+
 }

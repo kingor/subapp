@@ -29,10 +29,6 @@ public class User implements Serializable {
 
 	private Integer category;
 
-	private String UserName = "";
-	private String ErrorText = "";
-	private boolean LoginFlag = false;
-
 	public User() {
 
 	}
@@ -77,32 +73,11 @@ public class User implements Serializable {
 		category = aCategory;
 	}
 
-	public String GetUser() {
-		return UserName;
+	@Override
+	public String toString() {
+		String userData = "";
+		return userData.concat("id: ").concat(String.valueOf(id)).concat(" --- Логин: ").concat(login).concat(" --- Имя:").concat(name)
+				.concat(" --- Категория").concat(String.valueOf(category));
 	}
 
-	public void Login(String TheUserName) {
-		LoginFlag = true;
-		ErrorText = "";
-		UserName = TheUserName;
-	}
-
-	public void SetError(String TheText) {
-		ErrorText = TheText;
-	}
-
-	public String GetError() {
-		return ErrorText;
-	}
-
-	public boolean IsLogin() {
-		if (LoginFlag)
-			return true;
-		return false;
-	}
-
-	public void Logout() {
-		LoginFlag = false;
-		ErrorText = "";
-	}
 }

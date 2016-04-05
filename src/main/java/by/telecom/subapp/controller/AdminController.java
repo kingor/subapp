@@ -35,7 +35,7 @@ public class AdminController {
 	 * View edit User
 	 */
 	@RequestMapping(value = "/userSearchEdit.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String getUsers(@RequestParam(value = "order", required = false) String orderType,
+	public String getUserSearchEdit(@RequestParam(value = "order", required = false) String orderType,
 			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "login", required = false) String login,
 			@RequestParam(value = "name", required = false) String name, @RequestParam(value = "category", required = false) Integer category,
 			Model model, Principal principal) {
@@ -60,7 +60,7 @@ public class AdminController {
 	 * View Create User
 	 */
 	@RequestMapping(value = "/createUser", method = RequestMethod.GET)
-	public String phoneSearchEdit(Model model) {
+	public String createUser(Model model) {
 		logger.info("CONTROLLER - caused /createUser");
 		model.addAttribute("user", new User());
 
@@ -71,9 +71,11 @@ public class AdminController {
 	 * Create User
 	 */
 	@RequestMapping(value = "/createUser.do", method = RequestMethod.POST)
-	public String createSubscriberPost(@ModelAttribute("user") User user, Model model) {
+	public String createUserDo(@ModelAttribute("user") User user, Model model, Principal principal) {
 		logger.info("CONTROLLER - caused /createUser.do");
 		userService.create(user);
+
+		logService.create(principal.getName(), "Insert", user.toString());
 
 		return "index";
 	}
@@ -82,10 +84,13 @@ public class AdminController {
 	 * View User edit page
 	 */
 	@RequestMapping(value = "/editUserView.do", method = RequestMethod.POST)
-	public String editUser(@RequestParam(value = "userSelect", required = false) Long userId, Model model) {
+	public String getEditUserView(@RequestParam(value = "userSelect", required = false) Long userId, Model model, Principal principal) {
 		logger.info("CONTROLLER - caused /editUserView.do");
 		User user = userService.read(userId);
 		model.addAttribute("userAttr", user);
+
+		logService.create(principal.getName(), "Before Update", user.toString());
+
 		return "editUser";
 	}
 
@@ -93,9 +98,12 @@ public class AdminController {
 	 * Edit of User
 	 */
 	@RequestMapping(value = "/editUser.do", method = RequestMethod.POST)
-	public String editSubscriberDo(@ModelAttribute("userAttr") User user, Model model) {
+	public String editUser(@ModelAttribute("userAttr") User user, Model model, Principal principal) {
 		logger.info("CONTROLLER - caused /editUser.do");
 		userService.update(user);
+
+		logService.create(principal.getName(), "After Update", user.toString());
+
 		return "index";
 	}
 
@@ -103,10 +111,13 @@ public class AdminController {
 	 * Delete User
 	 */
 	@RequestMapping(value = "/deleteUser.do", method = RequestMethod.POST)
-	public String deleteUser(@RequestParam(value = "userSelect", required = false) Long userId, Model model) {
+	public String deleteUser(@RequestParam(value = "userSelect", required = false) Long userId, Model model, Principal principal) {
 		logger.info("CONTROLLER - caused /deleteUser.do");
 		User user = userService.read(userId);
 		userService.delete(user);
+
+		logService.create(principal.getName(), "Delete", user.toString());
+
 		return "viewUserEdit";
 	}
 
@@ -149,6 +160,7 @@ public class AdminController {
 		model.addAttribute("dateStart", dateStart);
 		model.addAttribute("dateEnd", dateEnd);
 		model.addAttribute("user", user);
+		model.addAttribute("type", type);
 		model.addAttribute("comment", comment);
 
 		return "viewLogSearch";
