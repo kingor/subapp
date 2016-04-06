@@ -12,15 +12,15 @@ import org.springframework.stereotype.Service;
 
 import by.telecom.subapp.model.User;
 
-@Service("userService")
+@Service("userService333")
 @Transactional
 public class UserService1 {
-	
+
 	@Resource(name = "sessionFactory")
 	private SessionFactory sessionFactory;
-	
+
 	public List<User> getAll() {
-	//	 logger.debug("get all Actors");
+		// logger.debug("get all Actors");
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("FROM User");
 
@@ -28,10 +28,10 @@ public class UserService1 {
 	}
 
 	public User get(Integer id) {
-	//	logger.debug("get User");
+		// logger.debug("get User");
 		Session session = sessionFactory.getCurrentSession();
 		User user = (User) session.get(User.class, id);
-		
+
 		return user;
 	}
 

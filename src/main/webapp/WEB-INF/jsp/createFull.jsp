@@ -36,7 +36,7 @@
 				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
 					<h2 class="page-header">Новый телефон</h2>
 					<div class="col-sm-8">
-						<form:form class="form-horizontal" role="form" method="post" action="addPhone.do">
+						<form:form class="form-horizontal" role="form" method="post" action="createPhoneNew.do">
 							<div class="alert alert-success">
 							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 								<strong><i class="glyphicon glyphicon-ok"></i> Успешно! </strong>Телефон добавлен
@@ -73,7 +73,7 @@
 </div>
 								<div class="form-group">
 									<div class="col-sm-offset-4 col-sm-4">
-										<input type="hidden" name="id" value="${subscriber.id}">
+										<input type="hidden" name="id_subscriber" value="${subscriber.id}">
 										<button type="submit" class="btn btn-primary">Дабавить новый телефон</button>
 									</div>
 								</div>
