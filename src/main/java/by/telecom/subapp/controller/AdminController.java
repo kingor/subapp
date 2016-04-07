@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import by.telecom.subapp.model.Log;
 import by.telecom.subapp.model.User;
 import by.telecom.subapp.service.LogService;
+import by.telecom.subapp.service.ReportService;
 import by.telecom.subapp.service.UserService;
 
 @Controller
@@ -29,6 +30,10 @@ public class AdminController {
 
 	@Autowired
 	private LogService logService;
+
+	@Autowired
+	private ReportService reportService;
+
 	private static Logger logger = Logger.getLogger(AdminController.class);
 
 	/*
@@ -47,6 +52,12 @@ public class AdminController {
 		List<User> users = userService.getByParameter(login, name, 1, sort, orderType);
 
 		model.addAttribute("userSearchEdit", users);
+
+		String pathForSaving = "D:\\TestResult.pdf";
+		String pathForPattern = "D:\\first_template.jrxml";
+
+		reportService.create(pathForSaving, pathForPattern, users);
+
 		/*
 		 * filled search fields
 		 */
