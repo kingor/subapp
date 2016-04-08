@@ -2,7 +2,7 @@ package by.telecom.subapp.report;
 
 import java.util.List;
 
-public interface Report {
+public interface Report<T> {
 
-	<T> void create(String pathForSaving, String pathForPattern, List<T> dataList);
+	void create(String pathForSaving, String pathForPattern, List<T> dataList);
 }
