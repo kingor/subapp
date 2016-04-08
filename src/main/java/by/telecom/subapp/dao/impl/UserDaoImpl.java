@@ -36,7 +36,7 @@ public class UserDaoImpl extends GenericDaoImpl<User, Long> implements UserDao {
 	}
 
 	public List<User> getByParameter(String login, String name, Integer category, String sort, String orderType) {
-		logger.info("Get USER by sort = " + sort + " order = " + orderType);
+		logger.info("DAO - get USER by sort = " + sort + " order = " + orderType);
 
 		Session session = null;
 		List<User> userList = null;
@@ -45,7 +45,7 @@ public class UserDaoImpl extends GenericDaoImpl<User, Long> implements UserDao {
 		userList = session.createCriteria(User.class).add(Restrictions.like("login", "%" + login + "%"))
 				.add(Restrictions.like("name", "%" + name + "%")).list();
 
-		return userList;// all;
+		return userList;
 	}
 
 }

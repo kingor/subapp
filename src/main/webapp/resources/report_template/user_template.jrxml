@@ -3,11 +3,10 @@
     <property name="ireport.zoom" value="1.0"/> 
     <property name="ireport.x" value="0"/> 
     <property name="ireport.y" value="0"/> 
-    <style name="Default" isDefault="true" pdfEncoding="Cp1251" pdfFontName="./font/ARIAL.TTF"/> 
-    <parameter name="DATE" class="java.util.Date"/> 
+     <parameter name="DATE" class="java.util.Date"/> 
     <field name="name" class="java.lang.String"/> 
-    <field name="discipline" class="java.lang.String"/> 
-    <field name="absence" class="java.lang.Integer"/> 
+    <field name="login" class="java.lang.String"/> 
+    <field name="category" class="java.lang.Integer"/> 
     <title> 
         <band height="20" splitType="Stretch"> 
             <textField> 
@@ -27,7 +26,7 @@
                     <bottomPen lineWidth="1.0"/> 
                     <rightPen lineWidth="1.0"/> 
                 </box> 
-                <textFieldExpression><![CDATA[$F{discipline}]]></textFieldExpression> 
+                <textFieldExpression><![CDATA[$F{login}]]></textFieldExpression> 
             </textField> 
             <textField> 
                 <reportElement x="0" y="0" width="213" height="20" uuid="2f5d59ad-6924-492a-b5c4-f9705cc23650"/> 
@@ -47,7 +46,7 @@
                     <bottomPen lineWidth="1.0"/> 
                     <rightPen lineWidth="1.0"/> 
                 </box> 
-                <textFieldExpression><![CDATA[$F{absence}]]></textFieldExpression> 
+                <textFieldExpression><![CDATA[$F{category}]]></textFieldExpression> 
             </textField> 
         </band> 
     </detail> 

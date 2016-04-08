@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
@@ -17,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import by.telecom.subapp.model.Log;
 import by.telecom.subapp.model.User;
+import by.telecom.subapp.report.Report;
 import by.telecom.subapp.service.LogService;
-import by.telecom.subapp.service.ReportService;
 import by.telecom.subapp.service.UserService;
 
 @Controller
@@ -32,7 +34,7 @@ public class AdminController {
 	private LogService logService;
 
 	@Autowired
-	private ReportService reportService;
+	private Report report;
 
 	private static Logger logger = Logger.getLogger(AdminController.class);
 
@@ -43,7 +45,7 @@ public class AdminController {
 	public String getUserSearchEdit(@RequestParam(value = "order", required = false) String orderType,
 			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "login", required = false) String login,
 			@RequestParam(value = "name", required = false) String name, @RequestParam(value = "category", required = false) Integer category,
-			Model model, Principal principal) {
+			Model model, Principal principal, HttpServletRequest request) {
 		logger.info("CONTROLLER - caused /userSearchEdit.do");
 		if (!"name".equals(sort) && !"login".equals(sort))
 			sort = "name";
@@ -53,10 +55,10 @@ public class AdminController {
 
 		model.addAttribute("userSearchEdit", users);
 
-		String pathForSaving = "D:\\TestResult.pdf";
-		String pathForPattern = "D:\\first_template.jrxml";
+		String pathForSaving = request.getServletContext().getRealPath("resources/reports/User_report.pdf");
+		String pathForPattern = request.getServletContext().getRealPath("resources/report_template/user_template.jrxml");
 
-		reportService.create(pathForSaving, pathForPattern, users);
+		report.create(pathForSaving, pathForPattern, users);
 
 		/*
 		 * filled search fields

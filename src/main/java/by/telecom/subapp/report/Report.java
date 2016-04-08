@@ -1,8 +1,8 @@
-package by.telecom.subapp.service;
+package by.telecom.subapp.report;
 
 import java.util.List;
 
-public interface ReportService {
+public interface Report {
 
 	<T> void create(String pathForSaving, String pathForPattern, List<T> dataList);
 }

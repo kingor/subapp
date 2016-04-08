@@ -1,4 +1,4 @@
-package by.telecom.subapp.service.impl;
+package by.telecom.subapp.report;
 
 import java.io.File;
 import java.util.Date;
@@ -18,12 +18,10 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
-import by.telecom.subapp.service.ReportService;
-
 @Component
-public class ReportServiceImpl implements ReportService {
+public class GenericReport implements Report {
 
-	private static Logger logger = Logger.getLogger(ReportService.class);
+	private static Logger logger = Logger.getLogger(Report.class);
 
 	@Override
 	public <T> void create(String pathForSaving, String pathForPattern, List<T> dataList) {
@@ -36,9 +34,9 @@ public class ReportServiceImpl implements ReportService {
 			JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, beanColDataSource);
 			JasperExportManager.exportReportToPdfFile(jasperPrint, pathForSaving);
-			logger.info("SERVICE - Report was generated");
+			logger.info("REPORT - Report was generated");
 		} catch (Exception e) {
-			logger.error("SERVICE - Report was not be generated! There are some errors: " + e);
+			logger.error("REPORT - Report was not be generated! There are some errors: " + e);
 		}
 	}
 
