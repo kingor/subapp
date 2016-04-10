@@ -35,8 +35,11 @@ public class GenericReport<T> implements Report<T> {
 			// JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile(pathForPattern);
 			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, beanColDataSource);
 
-			// JRReportFont font = new JRDesignReportFont();
+			// JRFont font = new JRDesignFont();
 			// font.setPdfFontName(this.getServletContext().getRealPath("/") + "actions/arial.ttf");
+			// font.setPdfEncoding("UTF-8");
+			// font.setPdfEmbedded(true);
+			// jasperPrint.setDefaultFont(font);
 			JasperExportManager.exportReportToPdfFile(jasperPrint, pathForSaving);
 			logger.info("REPORT - Report was generated");
 		} catch (Exception e) {
