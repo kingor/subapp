@@ -3,7 +3,9 @@ package by.telecom.subapp.controller;
 import java.security.Principal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,7 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import by.telecom.subapp.model.Log;
 import by.telecom.subapp.model.User;
-import by.telecom.subapp.report.Report;
+import by.telecom.subapp.report.LogReport;
+import by.telecom.subapp.report.UserReport;
 import by.telecom.subapp.service.LogService;
 import by.telecom.subapp.service.UserService;
 
@@ -34,8 +37,15 @@ public class AdminController {
 	private LogService logService;
 
 	@Autowired
-	private Report report;
+	private UserReport userReport;
 
+	@Autowired
+	private LogReport logReport;
+
+	private static final String TYPE_INSERT = "Insert";
+	private static final String TYPE_BEFORE_IUPDATE = "Before Update";
+	private static final String TYPE_AFTER_UPDATE = "After Update";
+	private static final String TYPE_DELETE = "Dalete";
 	private static Logger logger = Logger.getLogger(AdminController.class);
 
 	/*
@@ -55,10 +65,15 @@ public class AdminController {
 
 		model.addAttribute("userSearchEdit", users);
 
+		/*
+		 * Generation of report
+		 */
 		String pathForSaving = request.getServletContext().getRealPath("resources/reports/User_report.pdf");
 		String pathForPattern = request.getServletContext().getRealPath("resources/report_template/user_template.jrxml");
 
-		report.create(pathForSaving, pathForPattern, users);
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("date", new Date());
+		userReport.create(pathForSaving, pathForPattern, users, parameters);
 
 		/*
 		 * filled search fields
@@ -68,22 +83,6 @@ public class AdminController {
 		model.addAttribute("category", category);
 		return "viewUserEdit";
 	}
-
-	// @RequestMapping(value = "/pdf", method = RequestMethod.GET)
-	// @ResponseBody
-	// public Object fullReport(HttpServletResponse response){
-	//
-	// JRPdfExporter exporter = JasperFillManager.fillReport(jasperReport, parameters, customDataSource; //the function prepares the PDF repport
-	//
-	// response.setContentType("application/x-pdf");
-	// response.setHeader("Content-disposition", "attachment; filename=" + "111" + ".pdf");
-	//
-	// final OutputStream outStream = response.getOutputStream();
-	// exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, outStream);
-	// exporter.exportReport();
-	//
-	// return null;
-	// }
 
 	/*
 	 * View Create User
@@ -104,7 +103,7 @@ public class AdminController {
 		logger.info("CONTROLLER - caused /createUser.do");
 		userService.create(user);
 
-		logService.create(principal.getName(), "Insert", user.toString());
+		logService.create(principal.getName(), TYPE_INSERT, user.toString());
 
 		return "index";
 	}
@@ -118,7 +117,7 @@ public class AdminController {
 		User user = userService.read(userId);
 		model.addAttribute("userAttr", user);
 
-		logService.create(principal.getName(), "Before Update", user.toString());
+		logService.create(principal.getName(), TYPE_BEFORE_IUPDATE, user.toString());
 
 		return "editUser";
 	}
@@ -131,7 +130,7 @@ public class AdminController {
 		logger.info("CONTROLLER - caused /editUser.do");
 		userService.update(user);
 
-		logService.create(principal.getName(), "After Update", user.toString());
+		logService.create(principal.getName(), TYPE_AFTER_UPDATE, user.toString());
 
 		return "index";
 	}
@@ -145,7 +144,7 @@ public class AdminController {
 		User user = userService.read(userId);
 		userService.delete(user);
 
-		logService.create(principal.getName(), "Delete", user.toString());
+		logService.create(principal.getName(), TYPE_DELETE, user.toString());
 
 		return "viewUserEdit";
 	}
@@ -158,7 +157,7 @@ public class AdminController {
 			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "user", required = false) String user,
 			@RequestParam(value = "dateStart", required = false) String dateStartParam,
 			@RequestParam(value = "dateEnd", required = false) String dateEndParam, @RequestParam(value = "type", required = false) String type,
-			@RequestParam(value = "comment", required = false) String comment, Model model) {
+			@RequestParam(value = "comment", required = false) String comment, Model model, HttpServletRequest request) {
 		logger.info("CONTROLLER - caused /logSearch.do");
 		if (!"date".equals(sort) && !"type".equals(sort) && !"comment".equals(sort))
 			sort = "name";
@@ -183,6 +182,13 @@ public class AdminController {
 		List<Log> logList = logService.getByParameter(user, dateStart, dateEnd, type, comment, sort, order);
 		model.addAttribute("logSearch", logList);
 
+		String pathForSaving = request.getServletContext().getRealPath("resources/reports/Log_report.pdf");
+		String pathForPattern = request.getServletContext().getRealPath("resources/report_template/log_template.jrxml");
+
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("dateStart", dateStart);
+		parameters.put("dateEnd", dateEnd);
+		logReport.create(pathForSaving, pathForPattern, logList, parameters);
 		/*
 		 * filled search fields
 		 */

@@ -35,9 +35,10 @@
 				<%@include file="include/menu.jspf"%>
 				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
 					<h2 class="page-header">Просмотр абонентов в базе</h2>
+
+					
 					<div class="table-responsive">
 						<table class="table table-condensed table-bordered">
-
 							<thead>
 								<tr>
 									<th class="col-sm-1 col-md-1"><a
@@ -82,12 +83,14 @@
 													<INPUT type="date" name="dateEnd" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />" class="form-control" />
 												</div>
 											</div>
-										</td> 
+										</td>
 										<td><INPUT type="text" name="type" value="${type}" class="form-control"></td>
 										<td><INPUT type="text" name="comment" value="${comment}" class="form-control"></td>
-										<th><button type="submit" class="btn btn-primary ">
+										<th>
+											<button type="submit" class="btn btn-primary ">
 												<i class="glyphicon glyphicon-search"></i>
-											</button></th>
+											</button>
+										</th>
 									</form>
 								</tr>
 							</thead>
@@ -105,6 +108,18 @@
 								</tbody>
 							</c:if>
 						</table>
+					</div>
+					<!-- Single button -->
+					<div class="btn-group">
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+							<span class="glyphicon glyphicon-download"></span>
+							Скачать отчет<!-- <span class="caret"></span> -->
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">PDF</a></li>
+							<li><a href="#">XLS</a></li>
+							<li><a href="#">HTML</a></li>
+						</ul>
 					</div>
 				</div>
 			</div>

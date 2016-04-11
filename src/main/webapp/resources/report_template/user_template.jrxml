@@ -73,7 +73,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="20" splitType="Stretch">
+		<band height="21" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="213" height="20" uuid="e13fc458-99ca-4943-8947-c412a9a29a0c"/>
 				<box leftPadding="3">
@@ -107,7 +107,7 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch">
+		<band height="12" splitType="Stretch">
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="c3f39298-08be-4d9e-bf1a-f895216159a6"/>
 				<graphicElement>
@@ -121,7 +121,7 @@
 			<textField pattern="EEEEE dd MMMMM yyyy">
 				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="19ed3874-5d67-499c-8baf-509195499b64"/>
 				<textElement>
-					<font size="10" isBold="false"/>
+					<font fontName="DejaVu Sans" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>

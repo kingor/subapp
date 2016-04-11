@@ -1,8 +1,6 @@
-package by.telecom.subapp.report;
+package by.telecom.subapp.report.impl;
 
 import java.io.File;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,30 +14,22 @@ import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
 
-@Component
+import by.telecom.subapp.report.Report;
+
 public class GenericReport<T> implements Report<T> {
 
 	private static Logger logger = Logger.getLogger(Report.class);
 
 	@Override
-	public void create(String pathForSaving, String pathForPattern, List<T> dataList) {
+	public void create(String pathForSaving, String pathForPattern, List<T> dataList, Map<String, Object> parameters) {
 		try {
 			JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(dataList);
-			Map<String, Object> parameters = new HashMap<String, Object>();
-			parameters.put("DATE", new Date());
 			File reportPattern = new File(pathForPattern);
 			JasperDesign jasperDesign = JRXmlLoader.load(reportPattern);
 			JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
-			// JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile(pathForPattern);
 			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, beanColDataSource);
 
-			// JRFont font = new JRDesignFont();
-			// font.setPdfFontName(this.getServletContext().getRealPath("/") + "actions/arial.ttf");
-			// font.setPdfEncoding("UTF-8");
-			// font.setPdfEmbedded(true);
-			// jasperPrint.setDefaultFont(font);
 			JasperExportManager.exportReportToPdfFile(jasperPrint, pathForSaving);
 			logger.info("REPORT - Report was generated");
 		} catch (Exception e) {
