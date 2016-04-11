@@ -116,9 +116,9 @@
 							Скачать отчет<!-- <span class="caret"></span> -->
 						</button>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">PDF</a></li>
-							<li><a href="#">XLS</a></li>
-							<li><a href="#">HTML</a></li>
+							<li><a href="download/pdf">PDF</a></li>
+							<li><a href="download/xls">XLS</a></li>
+							<li><a href="download/html">HTML</a></li>
 						</ul>
 					</div>
 				</div>

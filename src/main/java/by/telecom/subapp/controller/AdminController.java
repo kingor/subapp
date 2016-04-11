@@ -9,6 +9,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import by.telecom.subapp.model.Log;
 import by.telecom.subapp.model.User;
@@ -200,4 +203,89 @@ public class AdminController {
 
 		return "viewLogSearch";
 	}
+
+	/**
+	 * Retrieves the download file in XLS format
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/download/pdf", method = RequestMethod.GET)
+	public ModelAndView doSalesReportPDF(ModelAndView modelAndView) {
+		logger.info("Received request to download PDF report");
+
+		// Retrieve our data from a custom data provider
+		List<Log> logList = logService.getByParameter("", new Date(110, 0, 1), new Date(2016, 10, 10), "", "", "", "");
+
+		// Assign the datasource to an instance of JRDataSource
+		JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(logList);
+
+		// We are required to pass our datasource as a map parameter
+		// parameterMap is the Model of our application
+		Map<String, Object> parameterMap = new HashMap<String, Object>();
+		parameterMap.put("datasource", beanColDataSource);
+
+		// pdfReport is the View of our application
+		// This is declared inside the /WEB-INF/jasper-views.xml
+		modelAndView = new ModelAndView("pdfReport", parameterMap);
+
+		// Return the View and the Model combined
+		return modelAndView;
+	}
+
+	/**
+	 * Retrieves the download file in XLS format
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/download/xls", method = RequestMethod.GET)
+	public ModelAndView doSalesReportXLS(ModelAndView modelAndView) {
+		logger.info("Received request to download XLS report");
+
+		// Retrieve our data from a custom data provider
+		List<Log> logList = logService.getByParameter("", new Date(110, 0, 1), new Date(2016, 10, 10), "", "", "", "");
+
+		// Assign the datasource to an instance of JRDataSource
+		JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(logList);
+
+		// We are required to pass our datasource as a map parameter
+		// parameterMap is the Model of our application
+		Map<String, Object> parameterMap = new HashMap<String, Object>();
+		parameterMap.put("datasource", beanColDataSource);
+
+		// pdfReport is the View of our application
+		// This is declared inside the /WEB-INF/jasper-views.xml
+		modelAndView = new ModelAndView("xlsReport", parameterMap);
+
+		// Return the View and the Model combined
+		return modelAndView;
+	}
+
+	/**
+	 * Retrieves the download file in XLS format
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/download/html", method = RequestMethod.GET)
+	public ModelAndView doSalesReportHtml(ModelAndView modelAndView) {
+		logger.info("Received request to download Html report");
+
+		// Retrieve our data from a custom data provider
+		List<Log> logList = logService.getByParameter("", new Date(110, 0, 1), new Date(2016, 10, 10), "", "", "", "");
+
+		// Assign the datasource to an instance of JRDataSource
+		JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(logList);
+
+		// We are required to pass our datasource as a map parameter
+		// parameterMap is the Model of our application
+		Map<String, Object> parameterMap = new HashMap<String, Object>();
+		parameterMap.put("datasource", beanColDataSource);
+
+		// pdfReport is the View of our application
+		// This is declared inside the /WEB-INF/jasper-views.xml
+		modelAndView = new ModelAndView("htmlReport", parameterMap);
+
+		// Return the View and the Model combined
+		return modelAndView;
+	}
+
 }

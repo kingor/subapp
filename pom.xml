@@ -76,6 +76,11 @@
 			<version>${org.springframework.version}</version>
 		</dependency>
 
+		<dependency> <!-- must have for Jasper report -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
 		<!-- Spring Security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>

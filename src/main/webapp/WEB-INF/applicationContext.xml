@@ -31,8 +31,13 @@
   
  <!-- Load Hibernate related configuration -->
  <import resource="hibernate-context.xml" /> 
+
+ <!-- Load Jasper views related configuration -->
+ <import resource="jasper-views.xml" />
  
  <!-- Load spring-security related configuration -->
  <import resource="spring-security.xml" /> 
+ 
+ 
        
 </beans>
