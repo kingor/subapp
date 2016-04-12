@@ -71,12 +71,12 @@ public class AdminController {
 		/*
 		 * Generation of report
 		 */
-		String pathForSaving = request.getServletContext().getRealPath("resources/reports/User_report.pdf");
-		String pathForPattern = request.getServletContext().getRealPath("resources/report_template/user_template.jrxml");
-
-		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("date", new Date());
-		userReport.create(pathForSaving, pathForPattern, users, parameters);
+		// String pathForSaving = request.getServletContext().getRealPath("resources/reports/User_report.pdf");
+		// String pathForPattern = request.getServletContext().getRealPath("resources/report_template/user_template.jrxml");
+		//
+		// Map<String, Object> parameters = new HashMap<String, Object>();
+		// parameters.put("date", new Date());
+		// userReport.create(pathForSaving, pathForPattern, users, parameters);
 
 		/*
 		 * filled search fields
@@ -162,10 +162,9 @@ public class AdminController {
 			@RequestParam(value = "dateEnd", required = false) String dateEndParam, @RequestParam(value = "type", required = false) String type,
 			@RequestParam(value = "comment", required = false) String comment, Model model, HttpServletRequest request) {
 		logger.info("CONTROLLER - caused /logSearch.do");
-		if (!"date".equals(sort) && !"type".equals(sort) && !"comment".equals(sort))
-			sort = "name";
-		if (!"asc".equals(order) && !"desc".equals(order))
-			order = "asc";
+
+		sort = "name";
+		order = "asc";
 
 		Date dateStart;
 		Date dateEnd;
@@ -188,10 +187,10 @@ public class AdminController {
 		String pathForSaving = request.getServletContext().getRealPath("resources/reports/Log_report.pdf");
 		String pathForPattern = request.getServletContext().getRealPath("resources/report_template/log_template.jrxml");
 
-		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("dateStart", dateStart);
-		parameters.put("dateEnd", dateEnd);
-		logReport.create(pathForSaving, pathForPattern, logList, parameters);
+		// Map<String, Object> parameters = new HashMap<String, Object>();
+		// parameters.put("dateStart", dateStart);
+		// parameters.put("dateEnd", dateEnd);
+		// logReport.create(pathForSaving, pathForPattern, logList, parameters);
 		/*
 		 * filled search fields
 		 */
@@ -205,28 +204,21 @@ public class AdminController {
 	}
 
 	/**
-	 * Retrieves the download file in XLS format
+	 * Retrieves the download file in PDF format
 	 * 
-	 * @return
+	 * @return modelAndView
 	 */
 	@RequestMapping(value = "/download/pdf", method = RequestMethod.GET)
-	public ModelAndView doSalesReportPDF(ModelAndView modelAndView) {
+	public ModelAndView doSalesReportPDF(@RequestParam(value = "user", required = false) String user,
+			@RequestParam(value = "dateStart", required = false) String dateStartParam,
+			@RequestParam(value = "dateEnd", required = false) String dateEndParam, @RequestParam(value = "type", required = false) String type,
+			@RequestParam(value = "comment", required = false) String comment, ModelAndView modelAndView) {
+
 		logger.info("Received request to download PDF report");
-
-		// Retrieve our data from a custom data provider
-		List<Log> logList = logService.getByParameter("", new Date(110, 0, 1), new Date(2016, 10, 10), "", "", "", "");
-
-		// Assign the datasource to an instance of JRDataSource
-		JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(logList);
-
-		// We are required to pass our datasource as a map parameter
-		// parameterMap is the Model of our application
-		Map<String, Object> parameterMap = new HashMap<String, Object>();
-		parameterMap.put("datasource", beanColDataSource);
 
 		// pdfReport is the View of our application
 		// This is declared inside the /WEB-INF/jasper-views.xml
-		modelAndView = new ModelAndView("pdfReport", parameterMap);
+		modelAndView = new ModelAndView("pdfReport", getReportParam(user, dateStartParam, dateEndParam, type, comment));
 
 		// Return the View and the Model combined
 		return modelAndView;
@@ -238,23 +230,15 @@ public class AdminController {
 	 * @return
 	 */
 	@RequestMapping(value = "/download/xls", method = RequestMethod.GET)
-	public ModelAndView doSalesReportXLS(ModelAndView modelAndView) {
+	public ModelAndView doSalesReportXLS(@RequestParam(value = "user", required = false) String user,
+			@RequestParam(value = "dateStart", required = false) String dateStartParam,
+			@RequestParam(value = "dateEnd", required = false) String dateEndParam, @RequestParam(value = "type", required = false) String type,
+			@RequestParam(value = "comment", required = false) String comment, ModelAndView modelAndView) {
 		logger.info("Received request to download XLS report");
-
-		// Retrieve our data from a custom data provider
-		List<Log> logList = logService.getByParameter("", new Date(110, 0, 1), new Date(2016, 10, 10), "", "", "", "");
-
-		// Assign the datasource to an instance of JRDataSource
-		JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(logList);
-
-		// We are required to pass our datasource as a map parameter
-		// parameterMap is the Model of our application
-		Map<String, Object> parameterMap = new HashMap<String, Object>();
-		parameterMap.put("datasource", beanColDataSource);
 
 		// pdfReport is the View of our application
 		// This is declared inside the /WEB-INF/jasper-views.xml
-		modelAndView = new ModelAndView("xlsReport", parameterMap);
+		modelAndView = new ModelAndView("xlsReport", getReportParam(user, dateStartParam, dateEndParam, type, comment));
 
 		// Return the View and the Model combined
 		return modelAndView;
@@ -266,11 +250,40 @@ public class AdminController {
 	 * @return
 	 */
 	@RequestMapping(value = "/download/html", method = RequestMethod.GET)
-	public ModelAndView doSalesReportHtml(ModelAndView modelAndView) {
+	public ModelAndView doSalesReportHtml(@RequestParam(value = "user", required = false) String user,
+			@RequestParam(value = "dateStart", required = false) String dateStartParam,
+			@RequestParam(value = "dateEnd", required = false) String dateEndParam, @RequestParam(value = "type", required = false) String type,
+			@RequestParam(value = "comment", required = false) String comment, ModelAndView modelAndView) {
 		logger.info("Received request to download Html report");
 
-		// Retrieve our data from a custom data provider
-		List<Log> logList = logService.getByParameter("", new Date(110, 0, 1), new Date(2016, 10, 10), "", "", "", "");
+		// pdfReport is the View of our application
+		// This is declared inside the /WEB-INF/jasper-views.xml
+		modelAndView = new ModelAndView("htmlReport", getReportParam(user, dateStartParam, dateEndParam, type, comment));
+
+		// Return the View and the Model combined
+		return modelAndView;
+	}
+
+	public Map<String, Object> getReportParam(String user, String dateStartParam, String dateEndParam, String type, String comment) {
+
+		String sort = "name";
+		String order = "asc";
+
+		Date dateStart;
+		Date dateEnd;
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			dateStart = formatter.parse(dateStartParam);
+		} catch (Exception ex) {
+			dateStart = new Date();
+		}
+
+		try {
+			dateEnd = formatter.parse(dateEndParam);
+		} catch (Exception ex) {
+			dateEnd = new Date();
+		}
+		List<Log> logList = logService.getByParameter(user, dateStart, dateEnd, type, comment, sort, order);
 
 		// Assign the datasource to an instance of JRDataSource
 		JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(logList);
@@ -279,13 +292,9 @@ public class AdminController {
 		// parameterMap is the Model of our application
 		Map<String, Object> parameterMap = new HashMap<String, Object>();
 		parameterMap.put("datasource", beanColDataSource);
+		parameterMap.put("dateStart", dateStart);
+		parameterMap.put("dateEnd", dateEnd);
 
-		// pdfReport is the View of our application
-		// This is declared inside the /WEB-INF/jasper-views.xml
-		modelAndView = new ModelAndView("htmlReport", parameterMap);
-
-		// Return the View and the Model combined
-		return modelAndView;
+		return parameterMap;
 	}
-
 }

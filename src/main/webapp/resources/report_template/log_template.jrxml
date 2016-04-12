@@ -92,8 +92,8 @@
 	</columnHeader>
 	<detail>
 		<band height="20" splitType="Stretch">
-			<textField>
-				<reportElement x="0" y="0" width="110" height="20" uuid="e13fc458-99ca-4943-8947-c412a9a29a0c"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="110" height="20" uuid="e13fc458-99ca-4943-8947-c412a9a29a0c"/>
 				<box leftPadding="3">
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -102,8 +102,8 @@
 				</box>
 				<textFieldExpression><![CDATA[$F{user}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="221" y="0" width="85" height="20" uuid="f72563d9-24e5-45a9-a6d2-190a493382c0"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="221" y="0" width="85" height="20" uuid="f72563d9-24e5-45a9-a6d2-190a493382c0"/>
 				<box leftPadding="3">
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -112,18 +112,19 @@
 				</box>
 				<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="306" y="0" width="249" height="20" uuid="d66a2c7d-c155-4884-8e49-acfa3dcef671"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="306" y="0" width="249" height="20" uuid="d66a2c7d-c155-4884-8e49-acfa3dcef671"/>
 				<box leftPadding="3">
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
+				<textElement rotation="None"/>
 				<textFieldExpression><![CDATA[$F{comment}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="110" y="0" width="111" height="20" uuid="20f29642-8f09-4757-9b37-d1bebceb1942"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="110" y="0" width="111" height="20" uuid="20f29642-8f09-4757-9b37-d1bebceb1942"/>
 				<box leftPadding="3">
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>

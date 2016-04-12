@@ -79,8 +79,7 @@
 								</tr>
 								<tr>
 								<form name="form3" method="get" action="phoneSearch.do">
-								
-									
+	
 									<td > <INPUT type="text" name="number" value="${number}" class="form-control"></td>
                                     <td > <INPUT type="text" name="band" value="${band}" class="form-control"></td>
                                     <td > <INPUT type="text" name="security" value="${security}" class="form-control"></td>

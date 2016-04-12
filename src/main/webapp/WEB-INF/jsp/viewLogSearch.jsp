@@ -35,44 +35,18 @@
 				<%@include file="include/menu.jspf"%>
 				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
 					<h2 class="page-header">Просмотр абонентов в базе</h2>
-
-					
 					<div class="table-responsive">
-						<table class="table table-condensed table-bordered">
-							<thead>
-								<tr>
-									<th class="col-sm-1 col-md-1"><a
-										href="logSearch.do?sort=name&order=desc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
-											<i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
-									</a> Имя <a
-										href="logSearch.do?sort=name&order=asc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
-											<i class="glyphicon glyphicon-sort-by-attributes"></i>
-									</a></th>
-									<th class="col-sm-3 col-md-3"><a
-										href="logSearch.do?sort=date&order=desc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
-											<i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
-									</a>Дата <a
-										href="logSearch.do?sort=date&order=asc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
-											<i class="glyphicon glyphicon-sort-by-attributes"></i>
-									</a></th>
-									<th class="col-sm-1 col-md-1"><a
-										href="logSearch.do?sort=type&order=desc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
-											<i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
-									</a> Тип <a
-										href="logSearch.do?sort=type&order=asc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
-											<i class="glyphicon glyphicon-sort-by-attributes"></i>
-									</a></th>
-									<th class="col-sm-7 col-md-7"><a
-										href="logSearch.do?sort=comment&order=desc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
-											<i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
-									</a> Примечание <a
-										href="logSearch.do?sort=comment&order=asc&name=${name}&dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&type=${type}&comment=${comment}">
-											<i class="glyphicon glyphicon-sort-by-attributes"></i>
-									</a></th>
-									<th class="col-sm-1 col-md-1"></th>
-								</tr>
-								<tr>
-									<form name="form3" method="get" action="logSearch.do">
+						<form name="form3" id="form3" method="get" action="logSearch.do">
+							<table class="table table-condensed table-bordered">
+								<thead>
+									<tr>
+										<th class="col-sm-1 col-md-1">Имя</th>
+										<th class="col-sm-3 col-md-3">Дата</th>
+										<th class="col-sm-1 col-md-1">Тип</th>
+										<th class="col-sm-7 col-md-7">Примечание</th>
+										<th class="col-sm-1 col-md-1"></th>
+									</tr>
+									<tr>
 										<td><INPUT type="text" name="user" value="${user}" class="form-control"></td>
 										<td>
 											<div class="row">
@@ -91,39 +65,39 @@
 												<i class="glyphicon glyphicon-search"></i>
 											</button>
 										</th>
-									</form>
-								</tr>
-							</thead>
+									</tr>
+								</thead>
 
-							<c:if test="${!logSearch.isEmpty()}">
-								<tbody>
-									<c:forEach var="log" items="${logSearch}">
-										<tr>
-											<td>${log.user}</td>
-											<td><fmt:formatDate pattern="dd.MM.yyyy --- hh:mm" value="${log.date}" /></td>
-											<td>${log.type}</td>
-											<td>${log.comment}</td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</c:if>
-						</table>
+								<c:if test="${!logSearch.isEmpty()}">
+									<tbody>
+										<c:forEach var="log" items="${logSearch}">
+											<tr>
+												<td>${log.user}</td>
+												<td><fmt:formatDate pattern="dd.MM.yyyy --- hh:mm" value="${log.date}" /></td>
+												<td>${log.type}</td>
+												<td>${log.comment}</td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</c:if>
+							</table>
+						</form>
 					</div>
 					<!-- Single button -->
 					<div class="btn-group">
 						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-							<span class="glyphicon glyphicon-download"></span>
-							Скачать отчет<!-- <span class="caret"></span> -->
+							<span class="glyphicon glyphicon-download"></span> Скачать отчет
 						</button>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="download/pdf">PDF</a></li>
+							<li><a href="download/pdf?dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&user=${user}
+							&type=${type}&comment=${comment}">PDF</a></li>
 							<li><a href="download/xls">XLS</a></li>
 							<li><a href="download/html">HTML</a></li>
 						</ul>
 					</div>
+
 				</div>
 			</div>
-
 		</div>
 		<div class="push"></div>
 	</div>
