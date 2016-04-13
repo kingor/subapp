@@ -22,6 +22,10 @@ public class PhoneServiceImpl implements PhoneService {
 	@Transactional
 	public List<Phone> getAll(String sort, String orderType) {
 		logger.info("SERVICE - get all Phones");
+		if (!"band".equals(sort) && !"security".equals(sort) && !"scv".equals(sort) && !"adsl".equals(sort))
+			sort = "number";
+		if (!"asc".equals(orderType) && !"desc".equals(orderType))
+			orderType = "asc";
 		return phoneDao.getAll(Phone.class, sort, orderType);
 	}
 
@@ -34,6 +38,10 @@ public class PhoneServiceImpl implements PhoneService {
 	@Transactional
 	public List<Phone> getByParameter(String number, String band, String security, String scv, String adsl, String name, String sort, String orderType) {
 		logger.info("SERVICE - get Phones by parameter");
+		if (!"band".equals(sort) && !"security".equals(sort) && !"scv".equals(sort) && !"adsl".equals(sort))
+			sort = "number";
+		if (!"asc".equals(orderType) && !"desc".equals(orderType))
+			orderType = "asc";
 		return phoneDao.getByParameter(number, band, security, scv, adsl, name, sort, orderType);
 	}
 

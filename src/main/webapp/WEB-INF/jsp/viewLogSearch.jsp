@@ -84,6 +84,7 @@
 						</form>
 					</div>
 					<!-- Single button -->
+					<c:if test="${!logSearch.isEmpty()}">
 					<div class="btn-group">
 						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 							<span class="glyphicon glyphicon-download"></span> Скачать отчет
@@ -95,7 +96,7 @@
 							<li><a href="download/html">HTML</a></li>
 						</ul>
 					</div>
-
+					</c:if>
 				</div>
 			</div>
 		</div>

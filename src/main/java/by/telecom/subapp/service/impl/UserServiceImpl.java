@@ -28,6 +28,10 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	public List<User> getByParameter(String login, String name, Integer category, String sort, String orderType) {
 		logger.info("SERVICE - get Users by parameters");
+		if (!"name".equals(sort) && !"login".equals(sort))
+			sort = "name";
+		if (!"asc".equals(orderType) && !"desc".equals(orderType))
+			orderType = "asc";
 		return userDao.getByParameter(login, name, category, sort, orderType);
 	}
 

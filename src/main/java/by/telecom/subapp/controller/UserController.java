@@ -41,12 +41,8 @@ public class UserController {
 	public String getSubscribers(@RequestParam(value = "order", required = false) String order,
 			@RequestParam(value = "sort", required = false) String sort, Model model) {
 		logger.info("CONTROLLER - caused /subscriber.do");
-		if (!"address".equals(sort) && !"comment".equals(sort))
-			sort = "name";
-		if (!"asc".equals(order) && !"desc".equals(order))
-			order = "asc";
-		List<Subscriber> subscribers = subscriberService.getAll(sort, order);
 
+		List<Subscriber> subscribers = subscriberService.getAll(sort, order);
 		model.addAttribute("subscribers", subscribers);
 
 		return "viewSubscribers";
@@ -61,10 +57,6 @@ public class UserController {
 			@RequestParam(value = "address", required = false) String address, @RequestParam(value = "comment", required = false) String comment,
 			Model model) {
 		logger.info("CONTROLLER - caused /subscriberSearch.do");
-		if (!"address".equals(sort) && !"comment".equals(sort))
-			sort = "name";
-		if (!"asc".equals(order) && !"desc".equals(order))
-			order = "asc";
 
 		List<Subscriber> subscribers = subscriberService.getByParameter(name, address, comment, sort, order);
 		model.addAttribute("subscriberSearch", subscribers);
@@ -99,10 +91,6 @@ public class UserController {
 	public String getPhones(@RequestParam(value = "order", required = false) String order,
 			@RequestParam(value = "sort", required = false) String sort, Model model) {
 		logger.info("CONTROLLER - caused /phones");
-		if (!"band".equals(sort) && !"security".equals(sort) && !"scv".equals(sort) && !"adsl".equals(sort))
-			sort = "number";
-		if (!"asc".equals(order) && !"desc".equals(order))
-			order = "asc";
 		List<Phone> phones = phoneService.getAll(sort, order);
 
 		model.addAttribute("phones", phones);
@@ -117,14 +105,8 @@ public class UserController {
 			@RequestParam(value = "scv", required = false) String scv, @RequestParam(value = "adsl", required = false) String adsl,
 			@RequestParam(value = "name", required = false) String name, Model model) {
 		logger.info("CONTROLLER - caused /phoneSearch.do");
-		if (!"number".equals(sort) && !"band".equals(sort) && !"security".equals(sort) && !"scv".equals(sort) && !"adsl".equals(sort)
-				&& !"name".equals(sort))
-			sort = "number";
-		if (!"asc".equals(order) && !"desc".equals(order))
-			order = "asc";
 
 		List<Phone> phones = phoneService.getByParameter(number, band, security, scv, adsl, name, sort, order);
-
 		model.addAttribute("phoneSearch", phones);
 
 		/*

@@ -69,10 +69,6 @@ public class OperatorController {
 			@RequestParam(value = "address", required = false) String address, @RequestParam(value = "comment", required = false) String comment,
 			Model model) {
 		logger.info("CONTROLLER - caused /subscriberSearchEdit.do");
-		if (!"name".equals(sort) && !"address".equals(sort) && !"comment".equals(sort))
-			sort = "name";
-		if (!"asc".equals(order) && !"desc".equals(order))
-			order = "asc";
 
 		List<Subscriber> subscribers = subscriberService.getByParameter(name, address, comment, sort, order);
 		model.addAttribute("subscriberSearchEdit", subscribers);
@@ -143,10 +139,6 @@ public class OperatorController {
 			@RequestParam(value = "address", required = false) String address, @RequestParam(value = "comment", required = false) String comment,
 			Model model) {
 		logger.info("CONTROLLER - caused /createPhoneNew");
-		if (!"name".equals(sort) && !"address".equals(sort) && !"comment".equals(sort))
-			sort = "name";
-		if (!"asc".equals(order) && !"desc".equals(order))
-			order = "asc";
 
 		List<Subscriber> subscribers = subscriberService.getByParameter(name, address, comment, sort, order);
 		model.addAttribute("subscriberSearch", subscribers);
@@ -185,7 +177,6 @@ public class OperatorController {
 		logger.info("CONTROLLER - caused /createPhone");
 		phone.setSubscriber(subscriberService.read(subscriberId));
 		phoneService.create(phone);
-
 		model.addAttribute("subscriber", phone.getSubscriber());
 		model.addAttribute("phone", phone);
 
@@ -201,12 +192,6 @@ public class OperatorController {
 			@RequestParam(value = "scv", required = false) String scv, @RequestParam(value = "adsl", required = false) String adsl,
 			@RequestParam(value = "name", required = false) String name, Model model) {
 		logger.info("CONTROLLER - caused /phoneSearchEdit.do");
-		if (!"number".equals(sort) && !"band".equals(sort) && !"security".equals(sort) && !"scv".equals(sort) && !"adsl".equals(sort)
-				&& !"name".equals(sort))
-			sort = "number";
-		if (!"asc".equals(order) && !"desc".equals(order))
-			order = "asc";
-
 		List<Phone> phones = phoneService.getByParameter(number, band, security, scv, adsl, name, sort, order);
 
 		model.addAttribute("phoneSearchEdit", phones);

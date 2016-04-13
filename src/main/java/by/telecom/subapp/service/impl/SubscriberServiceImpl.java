@@ -25,12 +25,20 @@ public class SubscriberServiceImpl implements SubscriberService {
 	@Transactional
 	public List<Subscriber> getAll(String sort, String orderType) {
 		logger.info("SERVICE - get all Subscribers");
+		if (!"address".equals(sort) && !"comment".equals(sort))
+			sort = "name";
+		if (!"asc".equals(orderType) && !"desc".equals(orderType))
+			orderType = "asc";
 		return subscriberDao.getAll(Subscriber.class, sort, orderType);
 	}
 
 	@Transactional
 	public List<Subscriber> getByParameter(String name, String address, String comment, String sort, String orderType) {
 		logger.info("SERVICE - get Subscribers by parameters");
+		if (!"address".equals(sort) && !"comment".equals(sort))
+			sort = "name";
+		if (!"asc".equals(orderType) && !"desc".equals(orderType))
+			orderType = "asc";
 		return subscriberDao.getByParameter(name, address, comment, sort, orderType);
 	}
 

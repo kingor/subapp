@@ -24,8 +24,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import by.telecom.subapp.model.Log;
 import by.telecom.subapp.model.User;
-import by.telecom.subapp.report.LogReport;
-import by.telecom.subapp.report.UserReport;
 import by.telecom.subapp.service.LogService;
 import by.telecom.subapp.service.UserService;
 
@@ -39,20 +37,16 @@ public class AdminController {
 	@Autowired
 	private LogService logService;
 
-	@Autowired
-	private UserReport userReport;
-
-	@Autowired
-	private LogReport logReport;
-
 	private static final String TYPE_INSERT = "Insert";
 	private static final String TYPE_BEFORE_IUPDATE = "Before Update";
 	private static final String TYPE_AFTER_UPDATE = "After Update";
 	private static final String TYPE_DELETE = "Dalete";
 	private static Logger logger = Logger.getLogger(AdminController.class);
 
-	/*
-	 * View edit User
+	/**
+	 * Getting the viewUserEdit.jsp
+	 * 
+	 * @return viewUserEdit is name of jsp
 	 */
 	@RequestMapping(value = "/userSearchEdit.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String getUserSearchEdit(@RequestParam(value = "order", required = false) String orderType,
@@ -60,23 +54,8 @@ public class AdminController {
 			@RequestParam(value = "name", required = false) String name, @RequestParam(value = "category", required = false) Integer category,
 			Model model, Principal principal, HttpServletRequest request) {
 		logger.info("CONTROLLER - caused /userSearchEdit.do");
-		if (!"name".equals(sort) && !"login".equals(sort))
-			sort = "name";
-		if (!"asc".equals(orderType) && !"desc".equals(orderType))
-			orderType = "asc";
 		List<User> users = userService.getByParameter(login, name, 1, sort, orderType);
-
 		model.addAttribute("userSearchEdit", users);
-
-		/*
-		 * Generation of report
-		 */
-		// String pathForSaving = request.getServletContext().getRealPath("resources/reports/User_report.pdf");
-		// String pathForPattern = request.getServletContext().getRealPath("resources/report_template/user_template.jrxml");
-		//
-		// Map<String, Object> parameters = new HashMap<String, Object>();
-		// parameters.put("date", new Date());
-		// userReport.create(pathForSaving, pathForPattern, users, parameters);
 
 		/*
 		 * filled search fields
@@ -87,8 +66,10 @@ public class AdminController {
 		return "viewUserEdit";
 	}
 
-	/*
-	 * View Create User
+	/**
+	 * Getting the createUser.jsp
+	 * 
+	 * @return createUser is name of jsp
 	 */
 	@RequestMapping(value = "/createUser", method = RequestMethod.GET)
 	public String createUser(Model model) {
@@ -98,7 +79,7 @@ public class AdminController {
 		return "createUser";
 	}
 
-	/*
+	/**
 	 * Create User
 	 */
 	@RequestMapping(value = "/createUser.do", method = RequestMethod.POST)
@@ -111,7 +92,7 @@ public class AdminController {
 		return "index";
 	}
 
-	/*
+	/**
 	 * View User edit page
 	 */
 	@RequestMapping(value = "/editUserView.do", method = RequestMethod.POST)
@@ -125,7 +106,7 @@ public class AdminController {
 		return "editUser";
 	}
 
-	/*
+	/**
 	 * Edit of User
 	 */
 	@RequestMapping(value = "/editUser.do", method = RequestMethod.POST)
@@ -138,8 +119,10 @@ public class AdminController {
 		return "index";
 	}
 
-	/*
+	/**
 	 * Delete User
+	 * 
+	 * @return viewUserEdit is name of JSP
 	 */
 	@RequestMapping(value = "/deleteUser.do", method = RequestMethod.POST)
 	public String deleteUser(@RequestParam(value = "userSelect", required = false) Long userId, Model model, Principal principal) {
@@ -152,7 +135,7 @@ public class AdminController {
 		return "viewUserEdit";
 	}
 
-	/*
+	/**
 	 * View Log page
 	 */
 	@RequestMapping(value = "/logSearch.do", method = RequestMethod.GET)
@@ -181,16 +164,9 @@ public class AdminController {
 		} catch (Exception ex) {
 			dateEnd = new Date();
 		}
-		List<Log> logList = logService.getByParameter(user, dateStart, dateEnd, type, comment, sort, order);
+		List<Log> logList = logService.getByParameter(user, dateStart, dateEnd, type, comment);
 		model.addAttribute("logSearch", logList);
 
-		// String pathForSaving = request.getServletContext().getRealPath("resources/reports/Log_report.pdf");
-		// String pathForPattern = request.getServletContext().getRealPath("resources/report_template/log_template.jrxml");
-
-		// Map<String, Object> parameters = new HashMap<String, Object>();
-		// parameters.put("dateStart", dateStart);
-		// parameters.put("dateEnd", dateEnd);
-		// logReport.create(pathForSaving, pathForPattern, logList, parameters);
 		/*
 		 * filled search fields
 		 */
@@ -204,9 +180,9 @@ public class AdminController {
 	}
 
 	/**
-	 * Retrieves the download file in PDF format
+	 * Retrieves the download file in PDF format.
 	 * 
-	 * @return modelAndView
+	 * @return the View and the Model combined
 	 */
 	@RequestMapping(value = "/download/pdf", method = RequestMethod.GET)
 	public ModelAndView doSalesReportPDF(@RequestParam(value = "user", required = false) String user,
@@ -220,14 +196,13 @@ public class AdminController {
 		// This is declared inside the /WEB-INF/jasper-views.xml
 		modelAndView = new ModelAndView("pdfReport", getReportParam(user, dateStartParam, dateEndParam, type, comment));
 
-		// Return the View and the Model combined
 		return modelAndView;
 	}
 
 	/**
 	 * Retrieves the download file in XLS format
 	 * 
-	 * @return
+	 * @return modelAndView
 	 */
 	@RequestMapping(value = "/download/xls", method = RequestMethod.GET)
 	public ModelAndView doSalesReportXLS(@RequestParam(value = "user", required = false) String user,
@@ -245,9 +220,9 @@ public class AdminController {
 	}
 
 	/**
-	 * Retrieves the download file in XLS format
+	 * Retrieves the download file in html format
 	 * 
-	 * @return
+	 * @return modelAndView
 	 */
 	@RequestMapping(value = "/download/html", method = RequestMethod.GET)
 	public ModelAndView doSalesReportHtml(@RequestParam(value = "user", required = false) String user,
@@ -264,6 +239,11 @@ public class AdminController {
 		return modelAndView;
 	}
 
+	/**
+	 * Getting report parameters
+	 * 
+	 * @return map with datasource, dateStart, dateEnd
+	 */
 	public Map<String, Object> getReportParam(String user, String dateStartParam, String dateEndParam, String type, String comment) {
 
 		String sort = "date";
@@ -283,7 +263,7 @@ public class AdminController {
 		} catch (Exception ex) {
 			dateEnd = new Date();
 		}
-		List<Log> logList = logService.getByParameter(user, dateStart, dateEnd, type, comment, sort, order);
+		List<Log> logList = logService.getByParameter(user, dateStart, dateEnd, type, comment);
 
 		// Assign the datasource to an instance of JRDataSource
 		JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(logList);
