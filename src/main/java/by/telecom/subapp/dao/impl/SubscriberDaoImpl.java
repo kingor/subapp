@@ -20,19 +20,18 @@ public class SubscriberDaoImpl extends GenericDaoImpl<Subscriber, Long> implemen
 	private SessionFactory sessionFactory;
 	private static final Logger logger = Logger.getLogger(SubscriberDao.class);
 
+	@SuppressWarnings("unchecked")
 	public List<Subscriber> getByParameter(String name, String address, String comment, String sort, String orderType) {
 		logger.info("DAO - get Subscriber by parameter sort = " + name + " order = " + orderType);
-		Session session = null;
-		List<Subscriber> all = null;
-
-		session = sessionFactory.getCurrentSession();
+		Session session = sessionFactory.getCurrentSession();
 		Order order = Order.asc(sort);
 		if (orderType.equals("desc"))
 			order = Order.desc(sort);
 
-		all = session.createCriteria(Subscriber.class).add(Restrictions.like("name", "%" + name + "%"))
-				.add(Restrictions.like("address", "%" + address + "%")).add(Restrictions.like("comment", "%" + comment + "%")).addOrder(order).list();
-		return all;
+		List<Subscriber> listSuscrtiber = (List<Subscriber>) session.createCriteria(Subscriber.class)
+				.add(Restrictions.like("name", "%" + name + "%")).add(Restrictions.like("address", "%" + address + "%"))
+				.add(Restrictions.like("comment", "%" + comment + "%")).addOrder(order).list();
+		return listSuscrtiber;
 	}
 
 }

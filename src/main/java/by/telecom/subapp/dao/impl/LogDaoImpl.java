@@ -23,6 +23,7 @@ public class LogDaoImpl extends GenericDaoImpl<Log, Long> implements LogDao {
 
 	private static final Logger logger = Logger.getLogger(LogDao.class);
 
+	@SuppressWarnings("unchecked")
 	public List<Log> getByParameter(String user, Date dateBegin, Date dateEnd, String type, String comment, String sort, String orderType) {
 		logger.info("DAO - Log by Parameter sort = " + sort + " order = " + orderType);
 		Session session = sessionFactory.getCurrentSession();
@@ -32,7 +33,7 @@ public class LogDaoImpl extends GenericDaoImpl<Log, Long> implements LogDao {
 		Order order = Order.asc(sort);
 		if (orderType.equals("desc"))
 			order = Order.desc(sort);
-		List<Log> logList = criteria.list();
+		List<Log> logList = (List<Log>) criteria.addOrder(order).list();
 		return logList;
 	}
 

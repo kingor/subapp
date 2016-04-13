@@ -27,25 +27,25 @@ public class GenericDaoImpl<T, PK extends Serializable> implements GenericDao<T,
 	private SessionFactory sessionFactory;
 	private static final Logger logger = Logger.getLogger(GenericDao.class);
 
+	@SuppressWarnings("unchecked")
 	public List<T> getAll(Class<T> classT, String sort, String orderType) {
 		logger.info("DAO - caused getAll() with sort = " + sort + " order = " + orderType);
-		Session session = null;
-		List<T> all = null;
-		session = sessionFactory.getCurrentSession();
-
+		Session session = sessionFactory.getCurrentSession();
 		Order order = Order.asc(sort);
 		if (orderType.equals("desc"))
 			order = Order.desc(sort);
-		all = session.createCriteria(classT).addOrder(order).list();
+		List<T> all = (List<T>) session.createCriteria(classT).addOrder(order).list();
 		return all;
 	}
 
+	@SuppressWarnings("unchecked")
 	public PK create(T newInstance) {
 		logger.info("DAO - caused create()");
 		Session session = sessionFactory.getCurrentSession();
 		return (PK) session.save(newInstance);
 	}
 
+	@SuppressWarnings("unchecked")
 	public T read(Class<T> classT, PK id) {
 		logger.info("DAO - caused read() with id = " + id);
 		Session session = sessionFactory.getCurrentSession();

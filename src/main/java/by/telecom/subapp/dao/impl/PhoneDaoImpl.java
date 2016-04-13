@@ -22,14 +22,16 @@ public class PhoneDaoImpl extends GenericDaoImpl<Phone, Long> implements PhoneDa
 	private SessionFactory sessionFactory;
 	private static final Logger logger = Logger.getLogger(PhoneDao.class);
 
+	@SuppressWarnings("unchecked")
 	public List<Phone> getBySubscriber(Subscriber subscriber) {
 
 		logger.info("DAO - get PHONE by Subscriber " + subscriber.getName());
 		Session session = sessionFactory.getCurrentSession();
-		List<Phone> phones = session.createCriteria(Phone.class).add(Restrictions.eq("subscriber", subscriber)).list();
+		List<Phone> phones = (List<Phone>) session.createCriteria(Phone.class).add(Restrictions.eq("subscriber", subscriber)).list();
 		return phones;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Phone> getByParameter(String number, String band, String security, String scv, String adsl, String name, String sort, String orderType) {
 
 		logger.info("DAO - get PHONE by parameter sort = " + sort + " order = " + orderType);
@@ -45,7 +47,7 @@ public class PhoneDaoImpl extends GenericDaoImpl<Phone, Long> implements PhoneDa
 		else
 			criteria = criteria.addOrder(order).createCriteria("subscriber").add(Restrictions.like("name", "%" + name + "%"));
 
-		List<Phone> phones = criteria.list();
+		List<Phone> phones = (List<Phone>) criteria.list();
 		return phones;
 	}
 

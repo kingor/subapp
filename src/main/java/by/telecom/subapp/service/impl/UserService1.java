@@ -19,6 +19,7 @@ public class UserService1 {
 	@Resource(name = "sessionFactory")
 	private SessionFactory sessionFactory;
 
+	@SuppressWarnings("unchecked")
 	public List<User> getAll() {
 		// logger.debug("get all Actors");
 		Session session = sessionFactory.getCurrentSession();

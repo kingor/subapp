@@ -19,30 +19,27 @@ public class UserDaoImpl extends GenericDaoImpl<User, Long> implements UserDao {
 	private SessionFactory sessionFactory;
 	private static final Logger logger = Logger.getLogger(UserDao.class);
 
+	@SuppressWarnings("unchecked")
 	public User getByLogin(String login) {
 		logger.info("DAO - get USER by login = " + login);
-		Session session = null;
-		List<User> all = null;
 
-		session = sessionFactory.getCurrentSession();
-		all = session.createCriteria(User.class).add(Restrictions.like("login", "%" + login + "%")).list();
+		Session session = sessionFactory.getCurrentSession();
+		List<User> userList = (List<User>) session.createCriteria(User.class).add(Restrictions.like("login", "%" + login + "%")).list();
 
-		if (all.size() > 0) {
-			return all.get(0);
+		if (userList.size() > 0) {
+			return userList.get(0);
 		} else {
 			return null;
 		}
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<User> getByParameter(String login, String name, Integer category, String sort, String orderType) {
 		logger.info("DAO - get USER by sort = " + sort + " order = " + orderType);
 
-		Session session = null;
-		List<User> userList = null;
-
-		session = sessionFactory.getCurrentSession();
-		userList = session.createCriteria(User.class).add(Restrictions.like("login", "%" + login + "%"))
+		Session session = sessionFactory.getCurrentSession();
+		List<User> userList = (List<User>) session.createCriteria(User.class).add(Restrictions.like("login", "%" + login + "%"))
 				.add(Restrictions.like("name", "%" + name + "%")).list();
 
 		return userList;

@@ -163,7 +163,7 @@ public class AdminController {
 			@RequestParam(value = "comment", required = false) String comment, Model model, HttpServletRequest request) {
 		logger.info("CONTROLLER - caused /logSearch.do");
 
-		sort = "name";
+		sort = "date";
 		order = "asc";
 
 		Date dateStart;
@@ -184,8 +184,8 @@ public class AdminController {
 		List<Log> logList = logService.getByParameter(user, dateStart, dateEnd, type, comment, sort, order);
 		model.addAttribute("logSearch", logList);
 
-		String pathForSaving = request.getServletContext().getRealPath("resources/reports/Log_report.pdf");
-		String pathForPattern = request.getServletContext().getRealPath("resources/report_template/log_template.jrxml");
+		// String pathForSaving = request.getServletContext().getRealPath("resources/reports/Log_report.pdf");
+		// String pathForPattern = request.getServletContext().getRealPath("resources/report_template/log_template.jrxml");
 
 		// Map<String, Object> parameters = new HashMap<String, Object>();
 		// parameters.put("dateStart", dateStart);
@@ -266,7 +266,7 @@ public class AdminController {
 
 	public Map<String, Object> getReportParam(String user, String dateStartParam, String dateEndParam, String type, String comment) {
 
-		String sort = "name";
+		String sort = "date";
 		String order = "asc";
 
 		Date dateStart;
