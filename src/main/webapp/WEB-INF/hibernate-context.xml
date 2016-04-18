@@ -11,6 +11,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
+	<!-- Declare location of hibernate properties -->
 	<context:property-placeholder location="classpath:hibernate.properties" />
 
 	<!-- Enable annotation style of managing transactions -->
