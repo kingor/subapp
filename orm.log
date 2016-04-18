@@ -1,0 +1,124 @@
+10:02:43,098 [main] INFO org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+10:02:43,114 [main] INFO org.hibernate.Version - HHH000412: Hibernate Core {4.3.5.Final}
+10:02:43,114 [main] INFO org.hibernate.cfg.Environment - HHH000205: Loaded properties from resource hibernate.properties: {app.jdbc.driverClassName=com.mysql.jdbc.Driver, app.jdbc.username=root, app.jdbc.url=jdbc:mysql://localhost:3306/subscriber_db?zeroDateTimeBehavior=convertToNull, hibernate.bytecode.use_reflection_optimizer=false, app.jdbc.password=123456, hibernate.config=classpath:hibernate.cfg.xml}
+10:02:43,114 [main] INFO org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+10:02:43,207 [main] INFO org.hibernate.cfg.Configuration - HHH000044: Configuring from URL: file:/D:/JAVA/workspace/subapp/target/classes/hibernate.cfg.xml
+10:02:43,425 [main] WARN org.hibernate.internal.util.xml.DTDEntityResolver - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+10:02:43,456 [main] INFO org.hibernate.cfg.Configuration - HHH000041: Configured SessionFactory: null
+10:02:45,477 [main] INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+10:02:45,493 [main] INFO org.hibernate.engine.jdbc.internal.LobCreatorBuilder - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+10:02:45,936 [main] INFO org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - HHH000399: Using default transaction strategy (direct JDBC transactions)
+10:02:45,936 [main] INFO org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+10:02:46,815 [main] INFO org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+10:02:46,815 [main] INFO org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000102: Fetching database metadata
+10:02:46,824 [main] INFO org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000396: Updating schema
+10:02:47,153 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000261: Table found: subscriber_db.log
+10:02:47,153 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000037: Columns: [date, comment, id, id_user, type, user]
+10:02:47,153 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000108: Foreign keys: []
+10:02:47,153 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000126: Indexes: [primary]
+10:02:47,208 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000261: Table found: subscriber_db.phone
+10:02:47,208 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000037: Columns: [id_subscriber, number, adsl, security, scv, id, band]
+10:02:47,208 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000108: Foreign keys: [fk5]
+10:02:47,208 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000126: Indexes: [fk5_idx, primary]
+10:02:47,256 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000261: Table found: subscriber_db.subscriber
+10:02:47,256 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000037: Columns: [address, name, comment, id]
+10:02:47,256 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000108: Foreign keys: []
+10:02:47,256 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000126: Indexes: [primary]
+10:02:47,314 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000261: Table found: subscriber_db.user
+10:02:47,314 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000037: Columns: [password, errortext, name, id, loginflag, login, category, username]
+10:02:47,314 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000108: Foreign keys: []
+10:02:47,314 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000126: Indexes: [primary]
+10:02:47,314 [main] INFO org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000232: Schema update complete
+10:03:34,154 [main] INFO org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+10:03:34,169 [main] INFO org.hibernate.Version - HHH000412: Hibernate Core {4.3.5.Final}
+10:03:34,176 [main] INFO org.hibernate.cfg.Environment - HHH000205: Loaded properties from resource hibernate.properties: {app.jdbc.driverClassName=com.mysql.jdbc.Driver, app.jdbc.username=root, app.jdbc.url=jdbc:mysql://localhost:3306/subscriber_db?zeroDateTimeBehavior=convertToNull, hibernate.bytecode.use_reflection_optimizer=false, app.jdbc.password=123456, hibernate.config=classpath:hibernate.cfg.xml}
+10:03:34,177 [main] INFO org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+10:03:34,269 [main] INFO org.hibernate.cfg.Configuration - HHH000044: Configuring from URL: file:/D:/JAVA/workspace/subapp/target/classes/hibernate.cfg.xml
+10:03:34,333 [main] WARN org.hibernate.internal.util.xml.DTDEntityResolver - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+10:03:34,373 [main] INFO org.hibernate.cfg.Configuration - HHH000041: Configured SessionFactory: null
+10:03:35,651 [main] INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+10:03:35,682 [main] INFO org.hibernate.engine.jdbc.internal.LobCreatorBuilder - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+10:03:36,004 [main] INFO org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - HHH000399: Using default transaction strategy (direct JDBC transactions)
+10:03:36,015 [main] INFO org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+10:03:36,750 [main] INFO org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+10:03:36,750 [main] INFO org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000102: Fetching database metadata
+10:03:36,759 [main] INFO org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000396: Updating schema
+10:03:36,807 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000261: Table found: subscriber_db.log
+10:03:36,807 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000037: Columns: [date, comment, id, id_user, type, user]
+10:03:36,807 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000108: Foreign keys: []
+10:03:36,807 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000126: Indexes: [primary]
+10:03:36,828 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000261: Table found: subscriber_db.phone
+10:03:36,828 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000037: Columns: [id_subscriber, number, adsl, security, scv, id, band]
+10:03:36,828 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000108: Foreign keys: [fk5]
+10:03:36,829 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000126: Indexes: [fk5_idx, primary]
+10:03:36,846 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000261: Table found: subscriber_db.subscriber
+10:03:36,846 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000037: Columns: [address, name, comment, id]
+10:03:36,847 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000108: Foreign keys: []
+10:03:36,847 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000126: Indexes: [primary]
+10:03:36,867 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000261: Table found: subscriber_db.user
+10:03:36,867 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000037: Columns: [password, errortext, name, id, loginflag, login, category, username]
+10:03:36,867 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000108: Foreign keys: []
+10:03:36,867 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000126: Indexes: [primary]
+10:03:36,868 [main] INFO org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000232: Schema update complete
+10:11:30,112 [main] INFO org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+10:11:30,127 [main] INFO org.hibernate.Version - HHH000412: Hibernate Core {4.3.5.Final}
+10:11:30,142 [main] INFO org.hibernate.cfg.Environment - HHH000205: Loaded properties from resource hibernate.properties: {app.jdbc.driverClassName=com.mysql.jdbc.Driver, app.jdbc.username=root, app.jdbc.url=jdbc:mysql://localhost:3306/subscriber_db?zeroDateTimeBehavior=convertToNull, hibernate.bytecode.use_reflection_optimizer=false, app.jdbc.password=123456, hibernate.config=classpath:hibernate.cfg.xml}
+10:11:30,142 [main] INFO org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+10:11:30,219 [main] INFO org.hibernate.cfg.Configuration - HHH000044: Configuring from URL: file:/D:/JAVA/workspace/subapp/target/classes/hibernate.cfg.xml
+10:11:30,280 [main] WARN org.hibernate.internal.util.xml.DTDEntityResolver - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+10:11:30,310 [main] INFO org.hibernate.cfg.Configuration - HHH000041: Configured SessionFactory: null
+10:11:31,471 [main] INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+10:11:31,486 [main] INFO org.hibernate.engine.jdbc.internal.LobCreatorBuilder - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+10:11:31,791 [main] INFO org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - HHH000399: Using default transaction strategy (direct JDBC transactions)
+10:11:31,806 [main] INFO org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+10:11:32,463 [main] INFO org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+10:11:32,463 [main] INFO org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000102: Fetching database metadata
+10:11:32,478 [main] INFO org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000396: Updating schema
+10:11:32,539 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000261: Table found: subscriber_db.log
+10:11:32,539 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000037: Columns: [date, comment, id, id_user, type, user]
+10:11:32,539 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000108: Foreign keys: []
+10:11:32,539 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000126: Indexes: [primary]
+10:11:32,555 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000261: Table found: subscriber_db.phone
+10:11:32,555 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000037: Columns: [id_subscriber, number, adsl, security, scv, id, band]
+10:11:32,555 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000108: Foreign keys: [fk5]
+10:11:32,555 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000126: Indexes: [fk5_idx, primary]
+10:11:32,570 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000261: Table found: subscriber_db.subscriber
+10:11:32,570 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000037: Columns: [address, name, comment, id]
+10:11:32,570 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000108: Foreign keys: []
+10:11:32,570 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000126: Indexes: [primary]
+10:11:32,631 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000261: Table found: subscriber_db.user
+10:11:32,631 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000037: Columns: [password, errortext, name, id, loginflag, login, category, username]
+10:11:32,631 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000108: Foreign keys: []
+10:11:32,631 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000126: Indexes: [primary]
+10:11:32,631 [main] INFO org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000232: Schema update complete
+10:57:48,591 [main] INFO org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+10:57:48,664 [main] INFO org.hibernate.Version - HHH000412: Hibernate Core {4.3.5.Final}
+10:57:48,677 [main] INFO org.hibernate.cfg.Environment - HHH000205: Loaded properties from resource hibernate.properties: {hibernate.config=classpath:hibernate.cfg.xml, app.jdbc.url=jdbc:mysql://localhost:3306/subscriber_db?zeroDateTimeBehavior=convertToNull, app.jdbc.driverClassName=com.mysql.jdbc.Driver, hibernate.dialect=org.hibernate.dialect.MySQLDialect, app.jdbc.username=root, hibernate.hbm2ddl.auto=update, app.jdbc.password=123456, hibernate.bytecode.use_reflection_optimizer=false, hibernate.show_sql=false}
+10:57:48,678 [main] INFO org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+10:57:48,782 [main] INFO org.hibernate.cfg.Configuration - HHH000044: Configuring from URL: file:/D:/JAVA/workspace/subapp/target/classes/hibernate.cfg.xml
+10:57:48,915 [main] WARN org.hibernate.internal.util.xml.DTDEntityResolver - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+10:57:48,957 [main] INFO org.hibernate.cfg.Configuration - HHH000041: Configured SessionFactory: null
+10:57:51,408 [main] INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+10:57:51,441 [main] INFO org.hibernate.engine.jdbc.internal.LobCreatorBuilder - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+10:57:52,025 [main] INFO org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - HHH000399: Using default transaction strategy (direct JDBC transactions)
+10:57:52,039 [main] INFO org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+10:57:53,568 [main] INFO org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+10:57:53,568 [main] INFO org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000102: Fetching database metadata
+10:57:53,576 [main] INFO org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000396: Updating schema
+10:57:54,032 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000261: Table found: subscriber_db.log
+10:57:54,033 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000037: Columns: [date, comment, id, id_user, type, user]
+10:57:54,033 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000108: Foreign keys: []
+10:57:54,033 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000126: Indexes: [primary]
+10:57:54,078 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000261: Table found: subscriber_db.phone
+10:57:54,078 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000037: Columns: [id_subscriber, number, adsl, security, scv, id, band]
+10:57:54,078 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000108: Foreign keys: [fk5]
+10:57:54,078 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000126: Indexes: [fk5_idx, primary]
+10:57:54,122 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000261: Table found: subscriber_db.subscriber
+10:57:54,122 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000037: Columns: [address, name, comment, id]
+10:57:54,122 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000108: Foreign keys: []
+10:57:54,122 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000126: Indexes: [primary]
+10:57:54,165 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000261: Table found: subscriber_db.user
+10:57:54,165 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000037: Columns: [password, errortext, name, id, loginflag, login, category, username]
+10:57:54,165 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000108: Foreign keys: []
+10:57:54,165 [main] INFO org.hibernate.tool.hbm2ddl.TableMetadata - HHH000126: Indexes: [primary]
+10:57:54,167 [main] INFO org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000232: Schema update complete

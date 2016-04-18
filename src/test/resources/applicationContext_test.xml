@@ -30,14 +30,7 @@
  <mvc:resources location="/resources/" mapping="/resources/**" />
   
  <!-- Load Hibernate related configuration -->
- <import resource="hibernate-context.xml" /> 
+ <import resource="hibernate-context_test.xml" /> 
 
- <!-- Load Jasper views related configuration -->
- <import resource="jasper-views.xml" />
  
- <!-- Load spring-security related configuration -->
- <import resource="spring-security.xml" /> 
- 
- 
-       
 </beans>
