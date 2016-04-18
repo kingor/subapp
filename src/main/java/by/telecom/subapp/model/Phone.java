@@ -92,4 +92,65 @@ public class Phone implements Serializable {
 				.concat(" --- ADSL: ").concat(adsl);
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((adsl == null) ? 0 : adsl.hashCode());
+		result = prime * result + ((band == null) ? 0 : band.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((number == null) ? 0 : number.hashCode());
+		result = prime * result + ((scv == null) ? 0 : scv.hashCode());
+		result = prime * result + ((security == null) ? 0 : security.hashCode());
+		result = prime * result + ((subscriber == null) ? 0 : subscriber.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Phone other = (Phone) obj;
+		if (adsl == null) {
+			if (other.adsl != null)
+				return false;
+		} else if (!adsl.equals(other.adsl))
+			return false;
+		if (band == null) {
+			if (other.band != null)
+				return false;
+		} else if (!band.equals(other.band))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (number == null) {
+			if (other.number != null)
+				return false;
+		} else if (!number.equals(other.number))
+			return false;
+		if (scv == null) {
+			if (other.scv != null)
+				return false;
+		} else if (!scv.equals(other.scv))
+			return false;
+		if (security == null) {
+			if (other.security != null)
+				return false;
+		} else if (!security.equals(other.security))
+			return false;
+		if (subscriber == null) {
+			if (other.subscriber != null)
+				return false;
+		} else if (!subscriber.equals(other.subscriber))
+			return false;
+		return true;
+	}
+
 }

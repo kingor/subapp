@@ -38,4 +38,9 @@ public class LogServiceImpl implements LogService {
 		return logDao.create(newLog);
 	}
 
+	@Transactional
+	public List<Log> getAll() {
+		return logDao.getAll(Log.class, "user", "asc");
+	}
+
 }
