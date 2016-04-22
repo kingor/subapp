@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Phone implements Serializable {
@@ -21,7 +22,9 @@ public class Phone implements Serializable {
 	@JoinColumn(name = "id_subscriber")
 	private Subscriber subscriber;
 
+	@Size(min = 3, max = 10, message = "Поле номер должно быть от 3 до 10 символов")
 	private String number;
+	@Size(min = 3, max = 10, message = "Поле номер должно быть от 3 до 10 символов")
 	private String band;
 	private String security;
 	private String scv;

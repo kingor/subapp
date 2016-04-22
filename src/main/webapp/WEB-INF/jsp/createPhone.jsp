@@ -62,14 +62,16 @@
 										<div class="form-group form-group-sm">
 											<label for="inputName3" class="col-sm-2 control-label">Номер:</label>
 											<div class="col-sm-10">
-												<INPUT type="hidden" name="id_subscriber" value="${phoneAttr.getSubscriber().getId()}"> <input type="text" class="form-control" id="inputName3" name="number"
-													placeholder="Введите номер" required="" autofocus="">
+												<INPUT type="hidden" name="id_subscriber" value="${phoneAttr.getSubscriber().getId()}"> 
+												<form:input class="form-control" path="number" placeholder="Введите номер" required="" autofocus=""/>
+												<form:errors class="label label-danger" path="number"></form:errors>
 											</div>
 										</div>
 										<div class="form-group form-group-sm">
 											<label for="inputAddr3" class="col-sm-2 control-label">Гром полоса:</label>
 											<div class="col-sm-10">
-												<input type="text" class="form-control" id="inputAddr3" name="band" placeholder="Введите громполосу" required="">
+												<form:input class="form-control" path="band" placeholder="Введите громполосу" required=""/>
+												<form:errors class="label label-danger" path="band"></form:errors>
 											</div>
 										</div>
 										<div class="form-group form-group-sm">

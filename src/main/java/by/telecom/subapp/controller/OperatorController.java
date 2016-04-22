@@ -3,11 +3,14 @@ package by.telecom.subapp.controller;
 import java.security.Principal;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,8 +51,14 @@ public class OperatorController {
 	 * Create Subscriber
 	 */
 	@RequestMapping(value = "/createSubscriber.do", method = RequestMethod.POST)
-	public String createSubscriberPost(@ModelAttribute("subscriberAttr") Subscriber subscriber, Model model, Principal principal) {
+	public String createSubscriberPost(@Valid @ModelAttribute("subscriberAttr") Subscriber subscriber, BindingResult bindingResult, Model model,
+			Principal principal) {
 		logger.info("CONTROLLER - caused /createSubscriber.do");
+
+		if (bindingResult.hasErrors()) {
+			return "createSubscriber";
+		}
+
 		subscriberService.create(subscriber);
 		logService.create(principal.getName(), "Insert", subscriber.toString());
 		model.addAttribute("subscriber", subscriber);
@@ -172,10 +181,16 @@ public class OperatorController {
 	 * Create Phone
 	 */
 	@RequestMapping(value = "/createPhone", method = RequestMethod.POST)
-	public String createPhone(@ModelAttribute("phoneAttr") Phone phone, @RequestParam(value = "id_subscriber", required = false) Long subscriberId,
-			Model model, Principal principal) {
+	public String createPhone(@Valid @ModelAttribute("phoneAttr") Phone phone, BindingResult bindingResult,
+			@RequestParam(value = "id_subscriber", required = false) Long subscriberId, Model model, Principal principal) {
 		logger.info("CONTROLLER - caused /createPhone");
-		phone.setSubscriber(subscriberService.read(subscriberId));
+		Subscriber subscriber = subscriberService.read(subscriberId);
+
+		if (bindingResult.hasErrors()) {
+			model.addAttribute("subscriber", subscriber);
+			return "createPhone";
+		}
+		phone.setSubscriber(subscriber);
 		phoneService.create(phone);
 		model.addAttribute("subscriber", phone.getSubscriber());
 		model.addAttribute("phone", phone);

@@ -45,6 +45,13 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.1.Final</version>
 		</dependency>
+		
+		<!-- Hibernate validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.2.4.Final</version>
+		</dependency>
 
 
 		<!-- Spring -->
@@ -117,7 +124,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.version}</version>
 		</dependency>
-		
+
 		<!-- HyperSonic DB for test -->
 		<dependency>
 			<groupId>org.hsqldb</groupId>

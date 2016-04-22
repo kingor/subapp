@@ -11,6 +11,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Subscriber implements Serializable {
@@ -20,7 +21,9 @@ public class Subscriber implements Serializable {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@Size(min = 3, max = 25, message = "Имя должно быть от 3 до 25 символов")
 	private String name;
+	@Size(min = 3, max = 50, message = "Адрес должен быть от 3 до 50 символов")
 	private String address;
 	private String comment;
 

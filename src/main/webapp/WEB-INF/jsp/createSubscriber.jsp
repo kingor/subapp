@@ -44,13 +44,15 @@
 									<div class="form-group form-group-sm">
 										<label for="inputName3" class="col-sm-2 control-label">ФИО:</label>
 										<div class="col-sm-10">
-										 <input type="text" class="form-control" id="inputName3" name="name" placeholder="Введите ФИО абонента" required="" autofocus="">
+										 <form:input class="form-control" path="name" placeholder="Введите ФИО абонента" required="" autofocus=""/>
+										 <form:errors class="label label-danger" path="name"></form:errors>
 										 </div>
 									</div>
 									<div class="form-group form-group-sm">
 										<label for="inputAddr3" class="col-sm-2 control-label">Адрес:</label> 
 										<div class="col-sm-10">
-										<input type="text" class="form-control" id="inputAddr3" name="address" placeholder="Введите адрес" required="">
+										<form:input class="form-control" path="address" placeholder="Введите адрес" required="" />
+										<form:errors class="label label-danger" path="address"></form:errors>
 										</div>
 									</div>
 									<div class="form-group form-group-sm">
