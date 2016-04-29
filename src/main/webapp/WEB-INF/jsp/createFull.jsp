@@ -16,7 +16,7 @@
 <meta name="author" content="">
 <link rel="shortcut icon" href="http://bootstrap-3.ru/assets/ico/favicon.ico">
 
-<title>Система учета абонентов</title>
+<title>Полная информация об абонентах</title>
 
 <!-- Bootstrap core CSS -->
 <LINK href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
@@ -70,7 +70,7 @@
 										</ul>
 									</div>
 								</div>
-</div>
+							</div>
 								<div class="form-group">
 									<div class="col-sm-offset-4 col-sm-4">
 										<input type="hidden" name="id_subscriber" value="${subscriber.id}">

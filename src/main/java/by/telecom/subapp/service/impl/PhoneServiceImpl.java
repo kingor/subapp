@@ -69,4 +69,11 @@ public class PhoneServiceImpl implements PhoneService {
 		phoneDao.delete(persistentObject);
 	}
 
+	@Transactional
+	public Long getCountRow() {
+		logger.info("SERVICE - get count of Phone");
+		Long count = phoneDao.getCountRow(Phone.class);
+		return count;
+	}
+
 }

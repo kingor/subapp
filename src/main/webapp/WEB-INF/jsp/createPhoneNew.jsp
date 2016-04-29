@@ -34,7 +34,7 @@
 			<div class="row">
 				<%@include file="include/menu.jspf"%>
 				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
-					<h2 class="page-header">Просмотр абонентов в базе</h2>
+					<h2 class="page-header">Добавление технических данных</h2>
 					<div class="table-responsive">
 						<table class="table table-condensed table-bordered">
 
@@ -65,10 +65,10 @@
 							</thead>
 
 							<c:if test="${!subscriberSearch.isEmpty()}">
+							<form method="post" action="createPhoneNew.do">
 								<tbody>
 									<c:forEach var="subscriber" items="${subscriberSearch}">
-										<tr>
-											<form method="post" action="createPhoneNew.do">
+										<tr>											
 												<td>${subscriber.name}</td>
 												<td>${subscriber.address}</td>
 												<td>${subscriber.comment}</td>
@@ -80,10 +80,10 @@
 														</button>
 													</div>
 												</th>
-											</form>
 										</tr>
 									</c:forEach>
 								</tbody>
+								</form>							
 							</c:if>
 						</table>
 					</div>

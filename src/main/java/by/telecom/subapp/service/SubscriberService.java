@@ -4,18 +4,8 @@ import java.util.List;
 
 import by.telecom.subapp.model.Subscriber;
 
-public interface SubscriberService {
+public interface SubscriberService extends GenericService<Subscriber> {
 
-	Long create(Subscriber subscriber);
+	List<Subscriber> getByParameter(String name, String address, String comment, String sort, String orderType);
 
-	Subscriber read(Long id);
-
-	void update(Subscriber subscriber);
-
-	void delete(Subscriber subscriber);
-
-	List<Subscriber> getAll(String sort, String orderType);
-
-	List<Subscriber> getByParameter(String name, String address, String comment, String sort,
-			String orderType);
 }

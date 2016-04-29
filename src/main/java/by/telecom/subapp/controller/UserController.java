@@ -31,6 +31,10 @@ public class UserController {
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String getIndex(Model model) {
 		logger.info("CONTROLLER - Received request to show Index page");
+		Long countOfSubscribers = subscriberService.getCountRow();
+		Long countOfPhones = phoneService.getCountRow();
+		model.addAttribute("countOfSubscribers", countOfSubscribers);
+		model.addAttribute("countOfPhones", countOfPhones);
 		return "index";
 	}
 

@@ -15,4 +15,6 @@ public interface GenericDao<T, PK extends Serializable> {
 
 	List<T> getAll(Class<T> classT, String sort, String orderType);
 
+	Long getCountRow(Class<T> classT);
+
 }

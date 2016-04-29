@@ -16,7 +16,7 @@
 <meta name="author" content="">
 <link rel="shortcut icon" href="http://bootstrap-3.ru/assets/ico/favicon.ico">
 
-<title>Система учета абонентов</title>
+<title>Добавление телефона</title>
 
 <!-- Bootstrap core CSS -->
 <LINK href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">

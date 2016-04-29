@@ -28,11 +28,6 @@
 <body>
 	<div class=" wrapper">
 		<%@include file="include/Header.jspf"%>
-<!-- Carousel -->
-<!-- <div class="row"> -->
-<!-- 				<div class="col-sm-10 col-sm-offset-2"> -->
-<!-- 					<h1 class="page-header">Главная часть документа</h1> -->
-<!-- 					<img src="http://localhost:8080/subapp/telecom/resources/image/1.jpg" alt="...">ghfjhgjgh -->
 
 					<div id="carousel-example-generic" class="carousel slide col-sm-offset-2" data-ride="carousel">
                   <!-- Маркеры слайдов -->
@@ -44,11 +39,13 @@
  
                   <!-- Содержимое слайдов -->
                   <div class="carousel-inner">
+                 
                     <div class="item active">
                       <img src="<c:url value="/resources/image/1.jpg"/>" alt="...">
                       <div class="carousel-caption">
                         <h3>Учет</h3>
-                        <p>Ведение базы данных абонентов компании</p>
+                        <p>Ведение базы данных абонентов компании.</p>
+                        <p>Зарегистрированно абонентов: ${countOfSubscribers}</p> 
                       </div>
                     </div>
                      
@@ -57,6 +54,7 @@
                       <div class="carousel-caption">
                         <h3>Поиск</h3>
                         <p>Возможность найти нужного абонента в кратчайшие сроки</p>
+                        <p>Зарегистрированно телефонов: ${countOfPhones}</p> 
                       </div>
                     </div>
                      
@@ -77,21 +75,14 @@
                     <span class="glyphicon glyphicon-chevron-right"></span>
                   </a>
                 </div>
-
-<!-- 			</div> -->
-<!-- 			</div> -->
-			<!-- Carousel -->
-			
+	
 			
 		<div class="container-fluid">
 			<div class="row">
-				<%@include file="include/menu.jspf"%>
-      
+				<%@include file="include/menu.jspf"%>   
 				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
-				
 				</div>
 			</div>
-
 		</div>
 		<div class="push"></div>
 	</div>

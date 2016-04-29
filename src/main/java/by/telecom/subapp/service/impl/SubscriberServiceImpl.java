@@ -68,4 +68,11 @@ public class SubscriberServiceImpl implements SubscriberService {
 
 	}
 
+	@Transactional
+	public Long getCountRow() {
+		logger.info("SERVICE - get count of Subscribers");
+		Long count = subscriberDao.getCountRow(Subscriber.class);
+		return count;
+	}
+
 }

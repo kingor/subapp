@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -65,4 +66,10 @@ public class GenericDaoImpl<T, PK extends Serializable> implements GenericDao<T,
 		session.delete(persistentObject);
 	}
 
+	@Override
+	public Long getCountRow(Class<T> classT) {
+		Session session = sessionFactory.getCurrentSession();
+		Long count = (Long) session.createCriteria(classT).setProjection(Projections.rowCount()).uniqueResult();
+		return count;
+	}
 }

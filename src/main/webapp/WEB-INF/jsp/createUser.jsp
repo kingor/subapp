@@ -16,7 +16,7 @@
 <meta name="author" content="">
 <link rel="shortcut icon" href="http://bootstrap-3.ru/assets/ico/favicon.ico">
 
-<title>Система учета абонентов</title>
+<title>Добавление пользователя</title>
 
 <!-- Bootstrap core CSS -->
 <LINK href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
@@ -35,7 +35,7 @@
 			<div class="row">
 				<%@include file="include/menu.jspf"%>
 				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
-					<h2 class="page-header">Новый пользователь</h2>
+					<h2 class="page-header">Добавление пользователя</h2>
 					<div class="col-sm-8">
 						<form:form class="form-horizontal" role="form" modelAttribute="user" method="post" action="createUser.do">
 							<div class="panel panel-default">
