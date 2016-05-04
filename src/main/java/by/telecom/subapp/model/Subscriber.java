@@ -31,6 +31,13 @@ public class Subscriber implements Serializable {
 
 	}
 
+	public Subscriber(Long id, String name, String address, String comment) {
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.comment = comment;
+	}
+
 	public Long getId() {
 		return id;
 	}

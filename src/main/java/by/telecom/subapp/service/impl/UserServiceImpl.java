@@ -61,4 +61,12 @@ public class UserServiceImpl implements UserService {
 
 	}
 
+	@Override
+	@Transactional
+	public Long getCountRow() {
+		logger.info("SERVICE - get count of users");
+		Long count = userDao.getCountRow(User.class);
+		return count;
+	}
+
 }

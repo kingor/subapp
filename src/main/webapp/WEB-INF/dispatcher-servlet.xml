@@ -10,8 +10,23 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" p:order="1" />
 
-	<!-- Resolves view names based on the names declared on the declared xml location (Jasper views) -->
+	<!-- Resolves view names based on the names declared on the declared xml 
+		location (Jasper views) -->
 	<bean class="org.springframework.web.servlet.view.XmlViewResolver"
 		p:location="/WEB-INF/jasper-views.xml" p:order="0" />
+
+	<!-- l10n -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+		p:basenames="/WEB-INF/locales/messages" p:defaultEncoding="UTF-8" />
+
+	<bean id="localChangeInterceptor"
+		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"
+		p:paramName="lang" />
+
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver"
+		p:defaultLocale="en" />
+
 </beans>
 

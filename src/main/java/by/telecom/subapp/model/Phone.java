@@ -30,6 +30,20 @@ public class Phone implements Serializable {
 	private String scv;
 	private String adsl;
 
+	public Phone() {
+
+	}
+
+	public Phone(Long id, Subscriber subscriber, String number, String band, String security, String scv, String adsl) {
+		this.id = id;
+		this.subscriber = subscriber;
+		this.number = number;
+		this.band = band;
+		this.security = security;
+		this.scv = scv;
+		this.adsl = adsl;
+	}
+
 	public Long getId() {
 		return id;
 	}

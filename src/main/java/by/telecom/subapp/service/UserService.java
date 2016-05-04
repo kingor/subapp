@@ -4,17 +4,7 @@ import java.util.List;
 
 import by.telecom.subapp.model.User;
 
-public interface UserService {
-	public List<User> getAll(String sort, String orderType);
+public interface UserService extends GenericService<User> {
 
-	Long create(User user);
-
-	User read(Long id);
-
-	void update(User user);
-
-	void delete(User user);
-
-	public List<User> getByParameter(String login, String name, Integer category, String sort,
-			String orderType);
+	public List<User> getByParameter(String login, String name, Integer category, String sort, String orderType);
 }

@@ -36,7 +36,7 @@
 				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
 					<h2 class="page-header">Просмотр абонентов в базе</h2>
 					<div class="table-responsive">
-						<table class="table table-condensed table-bordered">
+						<table class="table table-condensed table-striped">
 
 							<thead>
 								<tr>
@@ -54,9 +54,9 @@
 								</tr>
 								<tr>
 									<form name="form3" method="get" action="subscriberSearch.do">
-										<td><INPUT type="text" name="name" value="${name}" class="form-control"></td>
-										<td><INPUT type="text" name="address" value="${address}" class="form-control"></td>
-										<td><INPUT type="text" name="comment" value="${comment}" class="form-control"></td>
+										<th><INPUT type="text" name="name" value="${name}" class="form-control"></th>
+										<th><INPUT type="text" name="address" value="${address}" class="form-control"></th>
+										<th><INPUT type="text" name="comment" value="${comment}" class="form-control"></th>
 										<th><button type="submit" class="btn btn-primary ">
 												<i class="glyphicon glyphicon-search"></i>
 											</button></th>

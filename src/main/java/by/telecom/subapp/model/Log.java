@@ -21,6 +21,18 @@ public class Log implements Serializable {
 	private String type;
 	private String comment;
 
+	public Log() {
+
+	}
+
+	public Log(Long id, String user, Date date, String type, String comment) {
+		this.id = id;
+		this.user = user;
+		this.date = date;
+		this.type = type;
+		this.comment = comment;
+	}
+
 	public Long getId() {
 		return id;
 	}
