@@ -24,9 +24,9 @@
 			<p class="navbar-text  navbar-right">
 				<i class="glyphicon glyphicon-user"></i> ${loginId}
 			</p>
-			<span class="navbar-text navbar-right">
-				<a href="?lang=en">en</a>
-				<a href="?lang=ru">ru</a>
+			<span >
+				<a class="navbar-text" href="?lang=en"> en</a>
+				<a class="navbar-text" href="?lang=ru"> ru</a>
 			</span>
 		</div>
 	</div>

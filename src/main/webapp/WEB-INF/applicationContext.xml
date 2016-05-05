@@ -17,18 +17,18 @@
           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     
-<context:annotation-config />
+<!-- Configures the annotation-driven Spring MVC Controller programming 
+		model. Note that, with Spring 3.0, this tag works in Servlet MVC only! -->
+	<mvc:annotation-driven />
+
+	<mvc:resources location="/resources/" mapping="/resources/**" />
+	
+  <context:annotation-config />
   
  <!-- Scans the classpath for annotated components that will be auto-registered as Spring beans.
   For example @Controller and @Service. Make sure to set the correct base-package-->
  <context:component-scan base-package="by.telecom.subapp" />
-  
- <!-- Configures the annotation-driven Spring MVC Controller programming model.
- Note that, with Spring 3.0, this tag works in Servlet MVC only!  -->
- <mvc:annotation-driven />
  
- <mvc:resources location="/resources/" mapping="/resources/**" />
-  
  <!-- Load Hibernate related configuration -->
  <import resource="hibernate-context.xml" /> 
 
