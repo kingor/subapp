@@ -2,8 +2,8 @@
 <%@ page pageEncoding="UTF-8" %>
 
 <ul class="nav nav-sidebar">
-	<li><a href="createSubscriber"><i class="glyphicon glyphicon-plus"></i><span class="hidden-xs"> Новый абонент</span></a></li>
-	<li><a href="subscriberSearchEdit.do"><i class="glyphicon glyphicon-pencil"></i><span class="hidden-xs"> Редактор абонентов</span></a></li>
-	<li><a href="createPhoneNew"><i class="glyphicon glyphicon-plus"></i><span class="hidden-xs"> Новый телефон</span></a></li>
-	<li><a href="phoneSearchEdit.do"><i class="glyphicon glyphicon-pencil"></i><span class="hidden-xs"> Редактор данных</span></a></li>
+	<li><a href="createSubscriber"><i class="glyphicon glyphicon-plus"></i><span class="hidden-xs"> <sping:message code="menu.new_subscriber"/></span></a></li>
+	<li><a href="subscriberSearchEdit.do"><i class="glyphicon glyphicon-pencil"></i><span class="hidden-xs"> <sping:message code="menu.edit_subscriber"/></span></a></li>
+	<li><a href="createPhoneNew"><i class="glyphicon glyphicon-plus"></i><span class="hidden-xs">  <sping:message code="menu.new_phone"/></span></a></li>
+	<li><a href="phoneSearchEdit.do"><i class="glyphicon glyphicon-pencil"></i><span class="hidden-xs">  <sping:message code="menu.edit_phone"/></span></a></li>
 </ul>
