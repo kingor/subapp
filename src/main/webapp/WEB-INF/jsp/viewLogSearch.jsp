@@ -5,6 +5,7 @@
 <%@page import="by.telecom.subapp.model.Subscriber"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="sping" uri="http://www.springframework.org/tags" %>
 <html lang="ru">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,7 +16,7 @@
 <meta name="author" content="">
 <link rel="shortcut icon" href="http://bootstrap-3.ru/assets/ico/favicon.ico">
 
-<title>Система учета абонентов</title>
+<title><sping:message code="viewLogSearch.title"/></title>
 
 <!-- Bootstrap core CSS -->
 <LINK href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
@@ -34,16 +35,16 @@
 			<div class="row">
 				<%@include file="include/menu.jspf"%>
 				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
-					<h2 class="page-header">Просмотр абонентов в базе</h2>
+					<h2 class="page-header"><sping:message code="viewLogSearch.title"/></h2>
 					<div class="table-responsive">
 						<form name="form3" id="form3" method="get" action="logSearch.do">
 							<table class="table table-condensed table-bordered">
 								<thead>
 									<tr>
-										<th class="col-sm-1 col-md-1">Имя</th>
-										<th class="col-sm-3 col-md-3">Дата</th>
-										<th class="col-sm-1 col-md-1">Тип</th>
-										<th class="col-sm-7 col-md-7">Примечание</th>
+										<th class="col-sm-1 col-md-1"><sping:message code="log.name"/></th>
+										<th class="col-sm-3 col-md-3"><sping:message code="log.date"/></th>
+										<th class="col-sm-1 col-md-1"><sping:message code="log.type"/></th>
+										<th class="col-sm-7 col-md-7"><sping:message code="log.comment"/></th>
 										<th class="col-sm-1 col-md-1"></th>
 									</tr>
 									<tr>
@@ -87,7 +88,7 @@
 					<c:if test="${!logSearch.isEmpty()}">
 					<div class="btn-group">
 						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-							<span class="glyphicon glyphicon-download"></span> Скачать отчет
+							<span class="glyphicon glyphicon-download"></span> <sping:message code="log.download"/>
 						</button>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="download/pdf?dateStart=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateStart}" />&dateEnd=<fmt:formatDate pattern="yyyy-MM-dd" value="${dateEnd}" />&user=${user}

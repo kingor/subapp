@@ -38,6 +38,25 @@
  <!-- Load spring-security related configuration -->
  <import resource="spring-security.xml" /> 
  
- 
+ 	 <mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/*" />
+			<ref bean="localeChangeInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<!-- l10n i18n -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+		p:basenames="/WEB-INF/locales/messages" p:defaultEncoding="UTF-8" />
+
+	<bean id="localeChangeInterceptor"
+		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"
+		p:paramName="lang" />
+
+
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver"
+		p:defaultLocale="ru" />
        
 </beans>

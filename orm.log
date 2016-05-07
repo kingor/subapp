@@ -1,0 +1,45 @@
+14:08:02,369 [main] INFO org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+14:08:02,395 [main] INFO org.hibernate.Version - HHH000412: Hibernate Core {4.3.5.Final}
+14:08:02,414 [main] INFO org.hibernate.cfg.Environment - HHH000205: Loaded properties from resource hibernate.properties: {jdbc.url=jdbc:mysql://localhost:3306/subscriber_db?zeroDateTimeBehavior=convertToNull, jdbc.username=root, hibernate.dialect=org.hibernate.dialect.MySQLDialect, hibernate.show_sql=false, hibernate.bytecode.use_reflection_optimizer=false, jdbc.password=123456, hibernate.hbm2ddl.auto=update, jdbc.driverClassName=com.mysql.jdbc.Driver}
+14:08:02,416 [main] INFO org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+14:08:04,980 [main] INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+14:08:05,093 [main] INFO org.hibernate.engine.jdbc.internal.LobCreatorBuilder - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+14:08:06,026 [main] INFO org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - HHH000399: Using default transaction strategy (direct JDBC transactions)
+14:08:06,039 [main] INFO org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+14:08:06,357 [main] INFO org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.2.4.Final
+14:08:08,716 [main] INFO org.hibernate.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+14:08:08,823 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table Phone drop constraint FK_a9vq655bcqx4vqoikjvlc15o5
+14:08:08,823 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport - user lacks privilege or object not found: PUBLIC.PHONE
+14:08:08,832 [main] INFO org.hibernate.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+14:08:12,948 [Thread-5] INFO org.hibernate.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+14:08:12,952 [Thread-5] INFO org.hibernate.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+15:03:58,919 [main] INFO org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+15:03:58,934 [main] INFO org.hibernate.Version - HHH000412: Hibernate Core {4.3.5.Final}
+15:03:58,941 [main] INFO org.hibernate.cfg.Environment - HHH000205: Loaded properties from resource hibernate.properties: {jdbc.url=jdbc:mysql://localhost:3306/subscriber_db?zeroDateTimeBehavior=convertToNull, jdbc.username=root, hibernate.dialect=org.hibernate.dialect.MySQLDialect, hibernate.show_sql=false, hibernate.bytecode.use_reflection_optimizer=false, jdbc.password=123456, hibernate.hbm2ddl.auto=update, jdbc.driverClassName=com.mysql.jdbc.Driver}
+15:03:58,941 [main] INFO org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+15:04:04,918 [main] INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+15:04:05,044 [main] INFO org.hibernate.engine.jdbc.internal.LobCreatorBuilder - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+15:04:06,728 [main] INFO org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - HHH000399: Using default transaction strategy (direct JDBC transactions)
+15:04:06,744 [main] INFO org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+15:04:07,289 [main] INFO org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.2.4.Final
+15:04:13,906 [main] INFO org.hibernate.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+15:04:14,239 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table Phone drop constraint FK_a9vq655bcqx4vqoikjvlc15o5
+15:04:14,239 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport - user lacks privilege or object not found: PUBLIC.PHONE
+15:04:14,264 [main] INFO org.hibernate.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+15:04:24,219 [Thread-5] INFO org.hibernate.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+15:04:24,223 [Thread-5] INFO org.hibernate.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+15:09:23,750 [main] INFO org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+15:09:23,750 [main] INFO org.hibernate.Version - HHH000412: Hibernate Core {4.3.5.Final}
+15:09:23,766 [main] INFO org.hibernate.cfg.Environment - HHH000205: Loaded properties from resource hibernate.properties: {jdbc.url=jdbc:mysql://localhost:3306/subscriber_db?zeroDateTimeBehavior=convertToNull, jdbc.username=root, hibernate.dialect=org.hibernate.dialect.MySQLDialect, hibernate.show_sql=false, hibernate.bytecode.use_reflection_optimizer=false, jdbc.password=123456, hibernate.hbm2ddl.auto=update, jdbc.driverClassName=com.mysql.jdbc.Driver}
+15:09:23,766 [main] INFO org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+15:09:25,368 [main] INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+15:09:25,399 [main] INFO org.hibernate.engine.jdbc.internal.LobCreatorBuilder - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+15:09:25,882 [main] INFO org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - HHH000399: Using default transaction strategy (direct JDBC transactions)
+15:09:25,897 [main] INFO org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+15:09:26,115 [main] INFO org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.2.4.Final
+15:09:29,102 [main] INFO org.hibernate.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+15:09:29,271 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table Phone drop constraint FK_a9vq655bcqx4vqoikjvlc15o5
+15:09:29,271 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport - user lacks privilege or object not found: PUBLIC.PHONE
+15:09:29,288 [main] INFO org.hibernate.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+15:09:34,088 [Thread-5] INFO org.hibernate.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+15:09:34,094 [Thread-5] INFO org.hibernate.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete

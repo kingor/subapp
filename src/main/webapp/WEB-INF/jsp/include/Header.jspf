@@ -19,7 +19,7 @@
 
 			<c:url value="/telecom/j_spring_security_logout" var="logoutUrl" />
 			<form class="navbar-form navbar-right" role="form" method="post" action="${logoutUrl}">
-				<button type="submit" class="btn btn-success"> <span class="glyphicon glyphicon-log-out"></span> Выход</button>
+				<button type="submit" class="btn btn-success"> <span class="glyphicon glyphicon-log-out"></span> <sping:message code="menu.exit"/></button>
 			</form>
 			<p class="navbar-text  navbar-right">
 				<i class="glyphicon glyphicon-user"></i> ${loginId}
