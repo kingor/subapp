@@ -5,6 +5,7 @@
 <%@page import="java.util.Collection"%>
 <%@page import="by.telecom.subapp.model.Subscriber"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="sping" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -16,7 +17,7 @@
 <meta name="author" content="">
 <link rel="shortcut icon" href="http://bootstrap-3.ru/assets/ico/favicon.ico">
 
-<title>Полная информация о абоненте</title>
+<title><sping:message code="viewSubscriberFull.title"/></title>
 
 <!-- Bootstrap core CSS -->
 <LINK href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
@@ -34,10 +35,8 @@
 		<div class="container-fluid">
 			<div class="row">
 				<%@include file="include/menu.jspf"%>
-
-
 				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
-					<h2 class="page-header">Подробные данные:</h2>
+					<h2 class="page-header"><sping:message code="viewSubscriberFull.title"/></h2>
 					<div class=" col-sm-8">
 						<div class="row">
 
@@ -61,16 +60,16 @@
 
 
 						<c:if test="${!phones.isEmpty()}">
-							<h3>Технические параметры:</h3>
+							<h3><sping:message code="phone.title"/></h3>
 							<div class="table-responsive">
 								<table class="table table-condensed table-bordered">
 									<thead>
 										<tr>
-											<th>Номер</th>
-											<th>Гром полоса</th>
-											<th>Охрана</th>
-											<th>СЦВ</th>
-											<th>ADSL</th>
+											<th><sping:message code="phone.number"/></th>
+											<th><sping:message code="phone.band"/></th>
+											<th><sping:message code="phone.security"/></th>
+											<th><sping:message code="phone.scv"/></th>
+											<th><sping:message code="phone.adsl"/></th>
 										</tr>
 									</thead>
 									<tbody>
@@ -89,11 +88,11 @@
 						</c:if>
 						<c:if test="${phones.isEmpty()}">
 							<div class="alert alert-warning">
-								<i class="glyphicon glyphicon-info-sign"></i> У этого абонента нет ни одного телефона!
+								<i class="glyphicon glyphicon-info-sign"></i> <sping:message code="subscriber.info"/>
 							</div>
 						</c:if>
 						<div class="row">
-							<a class="nav" href="subscribers.do"><i class="glyphicon glyphicon-arrow-left"></i> Назад</a>
+							<a class="nav" href="subscribers.do"><i class="glyphicon glyphicon-arrow-left"></i> <sping:message code="subscriber.back"/></a>
 						</div>
 					</div>
 				</div>

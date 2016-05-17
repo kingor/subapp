@@ -4,7 +4,7 @@
 <%@page import="java.util.Collection"%>
 <%@page import="by.telecom.subapp.model.Subscriber"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib prefix="sping" uri="http://www.springframework.org/tags" %>
 <html lang="ru">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -16,7 +16,7 @@
 <link rel="shortcut icon"
 	href="http://bootstrap-3.ru/assets/ico/favicon.ico">
 
-<title>Система учета абонентов</title>
+<title><sping:message code="viewPhones.title"/></title>
 
 <!-- Bootstrap core CSS -->
 <LINK href="<c:url value="/resources/css/bootstrap.min.css"/>"
@@ -32,47 +32,44 @@
 <body>
 	<div class=" wrapper">
 		<%@include file="include/Header.jspf"%>
-
 		<div class="container-fluid ">
 			<div class="row">
 				<%@include file="include/menu.jspf"%>
-				<div
-					class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
-					<h2 class="page-header">Просмотр абонентов в базе</h2>
+				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
+					<h2 class="page-header"><sping:message code="viewPhones.title"/></h2>
 					<div class="table-responsive">
-						<table class="table table-condensed table-bordered">
-						
+						<table class="table table-condensed table-bordered">				
 							<thead>
 								<tr>
 									<th class="col-sm-2 col-md-2"><a href="phoneSearch.do?sort=number&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> 
 										<i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
-									</a> Номер <a href="phoneSearch.do?sort=number&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
+									</a> <sping:message code="phone.number"/> <a href="phoneSearch.do?sort=number&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 											<i class="glyphicon glyphicon-sort-by-attributes"></i>
 									</a></th>
 									<th class="col-sm-2 col-md-2"><a href="phoneSearch.do?sort=band&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes-alt"></i></a>
-										Громпол. <a href="phoneSearch.do?sort=band&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
+										<sping:message code="phone.band"/> <a href="phoneSearch.do?sort=band&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes"></i></a>
 									</th>
 									<th class="col-sm-2 col-md-2"><a href="phoneSearch.do?sort=security&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes-alt"></i></a>
-										Охрана <a href="phoneSearch.do?sort=security&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
+										<sping:message code="phone.security"/> <a href="phoneSearch.do?sort=security&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes"></i></a>
 									</th>
 									<th class="col-sm-1 col-md-1"><a href="phoneSearch.do?sort=scv&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes-alt"></i></a>
-										СЦВ <a href="phoneSearch.do?sort=scv&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
+										<sping:message code="phone.scv"/> <a href="phoneSearch.do?sort=scv&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes"></i></a>
 									</th>
 									<th class="col-sm-1 col-md-1"><a href="phoneSearch.do?sort=adsl&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes-alt"></i></a>
-										Adsl <a href="phoneSearch.do?sort=adsl&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
+										<sping:message code="phone.adsl"/> <a href="phoneSearch.do?sort=adsl&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes"></i></a>
 									</th>
 									<th class="col-sm-4 col-md-4">
 									<a href="phoneSearch.do?sort=name&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes-alt"></i></a>
-										ФИО <a href="phoneSearch.do?sort=name&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
+										<sping:message code="subscriber.name"/> <a href="phoneSearch.do?sort=name&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}">
 									<i class="glyphicon glyphicon-sort-by-attributes"></i></a>
 									</th>
 									

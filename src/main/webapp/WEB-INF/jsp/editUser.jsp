@@ -5,7 +5,7 @@
 <%@page import="by.telecom.subapp.model.Subscriber"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
+<%@ taglib prefix="sping" uri="http://www.springframework.org/tags" %>
 <html lang="ru">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -16,7 +16,7 @@
 <meta name="author" content="">
 <link rel="shortcut icon" href="http://bootstrap-3.ru/assets/ico/favicon.ico">
 
-<title>Изменение пользовательских данных</title>
+<title><sping:message code="editUser.title"/></title>
 
 <!-- Bootstrap core CSS -->
 <LINK href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
@@ -35,7 +35,7 @@
 			<div class="row">
 				<%@include file="include/menu.jspf"%>
 				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
-					<h2 class="page-header">Редактирование пользовательской информации</h2>
+					<h2 class="page-header"><sping:message code="editUser.title"/></h2>
 					<div class="col-sm-8">
 						<form:form class="form-horizontal" role="form" modelAttribute="userAttr" method="post">
 							<div class="panel panel-default">

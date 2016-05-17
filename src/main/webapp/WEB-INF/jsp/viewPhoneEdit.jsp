@@ -29,7 +29,6 @@
 <body>
 	<div class=" wrapper">
 		<%@include file="include/Header.jspf"%>
-
 		<div class="container-fluid ">
 			<div class="row">
 				<%@include file="include/menu.jspf"%>
@@ -37,32 +36,44 @@
 					<h2 class="page-header"><sping:message code="viewPhoneEdit.title"/></h2>
 					<div class="table-responsive">
 						<table class="table table-condensed table-bordered">
-
 							<thead>
 								<tr>
-									<th class="col-sm-2 col-md-2"><a href="phoneSearchEdit.do?sort=number&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i
-											class="glyphicon glyphicon-sort-by-attributes-alt"></i>
-									</a> <sping:message code="phone.number"/> <a href="phoneSearchEdit.do?sort=number&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i
-											class="glyphicon glyphicon-sort-by-attributes"></i>
+									<th class="col-sm-2 col-md-2">
+									<a href="phoneSearchEdit.do?sort=number&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> 
+									<i	class="glyphicon glyphicon-sort-by-attributes-alt"></i>
+									</a> <sping:message code="phone.number"/> 
+									<a href="phoneSearchEdit.do?sort=number&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> 
+									<i	class="glyphicon glyphicon-sort-by-attributes"></i>
 									</a></th>
-									<th class="col-sm-2 col-md-2"><a href="phoneSearchEdit.do?sort=band&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i
-											class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> <sping:message code="phone.band"/> <a
-										href="phoneSearchEdit.do?sort=band&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i class="glyphicon glyphicon-sort-by-attributes"></i></a>
+									<th class="col-sm-2 col-md-2">
+									<a href="phoneSearchEdit.do?sort=band&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> 
+									<i	class="glyphicon glyphicon-sort-by-attributes-alt"></i>
+											</a> <sping:message code="phone.band"/> <a
+										href="phoneSearchEdit.do?sort=band&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> 
+										<i class="glyphicon glyphicon-sort-by-attributes"></i></a>
 									</th>
-									<th class="col-sm-2 col-md-2"><a href="phoneSearchEdit.do?sort=security&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i
-											class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> <sping:message code="phone.security"/> <a
-										href="phoneSearchEdit.do?sort=security&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i class="glyphicon glyphicon-sort-by-attributes"></i></a>
+									<th class="col-sm-2 col-md-2"><a href="phoneSearchEdit.do?sort=security&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> 
+									<i
+											class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> 
+											<sping:message code="phone.security"/> <a
+										href="phoneSearchEdit.do?sort=security&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> 
+										<i class="glyphicon glyphicon-sort-by-attributes"></i></a>
 									</th>
-									<th class="col-sm-1 col-md-1"><a href="phoneSearchEdit.do?sort=scv&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i
-											class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> <sping:message code="phone.scv"/> <a
+									<th class="col-sm-1 col-md-1"><a href="phoneSearchEdit.do?sort=scv&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> 
+									<i	class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> 
+											<sping:message code="phone.scv"/> <a
 										href="phoneSearchEdit.do?sort=scv&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i class="glyphicon glyphicon-sort-by-attributes"></i></a></th>
-									<th class="col-sm-1 col-md-1"><a href="phoneSearchEdit.do?sort=adsl&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i
-											class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> <sping:message code="phone.adsl"/> <a
-										href="phoneSearchEdit.do?sort=adsl&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i class="glyphicon glyphicon-sort-by-attributes"></i></a>
+									<th class="col-sm-1 col-md-1"><a href="phoneSearchEdit.do?sort=adsl&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> 
+									<i	class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> 
+											<sping:message code="phone.adsl"/> <a
+										href="phoneSearchEdit.do?sort=adsl&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> 
+									<i class="glyphicon glyphicon-sort-by-attributes"></i></a>
 									</th>
-									<th class="col-sm-4 col-md-4"><a href="phoneSearchEdit.do?sort=name&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i
-											class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> <sping:message code="subscriber.name"/> <a
-										href="phoneSearchEdit.do?sort=name&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> <i class="glyphicon glyphicon-sort-by-attributes"></i></a>
+									<th class="col-sm-4 col-md-4"><a href="phoneSearchEdit.do?sort=name&order=desc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> 
+									<i	class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> 
+											<sping:message code="subscriber.name"/> <a
+										href="phoneSearchEdit.do?sort=name&order=asc&number=${number}&band=${band}&security=${security}&scv=${scv}&adsl=${adsl}&name=${name}"> 
+										<i class="glyphicon glyphicon-sort-by-attributes"></i></a>
 									</th>
 									<th colspan="2" class="col-sm-1 col-md-1"></th>
 								</tr>
@@ -74,12 +85,10 @@
 									<td><INPUT type="text" name="scv" value="${scv}" class="form-control"></td>
 									<td><INPUT type="text" name="adsl" value="${adsl}" class="form-control"></td>
 									<td><INPUT type="text" name="name" value="${name}" class="form-control"></td>
-									<th colspan="2">
-										
+									<th colspan="2">										
 											<button type="submit" class="btn btn-primary ">
 												<i class="glyphicon glyphicon-search"></i>
-											</button>
-										
+											</button>										
 									</th>
 									</form>
 								</tr>
@@ -89,7 +98,6 @@
 								<tbody>
 									<c:forEach var="phone" items="${phoneSearchEdit}">
 										<tr>
-
 											<td>${phone.number}</td>
 											<td>${phone.band}</td>
 											<td>${phone.security}</td>
@@ -97,24 +105,20 @@
 											<td>${phone.adsl}</td>
 											<td>${phone.subscriber.name}</td>
 											<th>
-
 												<form method="post" action="editPhoneView.do">
 													<input type="hidden" name="phoneSelect" value="${phone.id}">
 													<button type="submit" class="btn btn-primary btn-xs">
 														<i class="glyphicon glyphicon-pencil"></i>
 													</button>
 												</form>
-
 											</th>
 											<th>
-
 												<form method="post" action="deletePhone.do">
 													<input type="hidden" name="phoneSelect" value="${phone.id}">
 													<button type="submit" class="btn btn-primary btn-xs">
 														<i class="glyphicon glyphicon-trash"></i>
 													</button>
 												</form>
-
 											</th>
 										</tr>
 									</c:forEach>
@@ -124,7 +128,6 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 		<div class="push"></div>
 	</div>

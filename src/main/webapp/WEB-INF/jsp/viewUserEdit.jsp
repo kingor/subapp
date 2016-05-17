@@ -4,7 +4,7 @@
 <%@page import="java.util.Collection"%>
 <%@page import="by.telecom.subapp.model.Subscriber"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib prefix="sping" uri="http://www.springframework.org/tags" %>
 <html lang="ru">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,7 +15,7 @@
 <meta name="author" content="">
 <link rel="shortcut icon" href="http://bootstrap-3.ru/assets/ico/favicon.ico">
 
-<title>Система учета абонентов</title>
+<title><sping:message code="viewUserEdit.title"/></title>
 
 <!-- Bootstrap core CSS -->
 <LINK href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
@@ -34,7 +34,7 @@
 			<div class="row">
 				<%@include file="include/menu.jspf"%>
 				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
-					<h2 class="page-header">Просмотр абонентов в базе</h2>
+					<h2 class="page-header"><sping:message code="viewUserEdit.title"/></h2>
 					<div class="table-responsive">
 						<table class="table table-condensed table-bordered">
 							<form name="form3" method="get" action="userSearchEdit.do">
@@ -42,13 +42,15 @@
 									<tr>
 										<th class="col-sm-4 col-md-4"><a href="userSearchEdit.do?sort=login&order=desc&login=${login}&name=${name}&category=${category}"> <i
 												class="glyphicon glyphicon-sort-by-attributes-alt"></i>
-										</a>Логин<a href="userSearchEdit.do?sort=login&order=asc&login=${login}&name=${name}&category=${category}"> <i class="glyphicon glyphicon-sort-by-attributes"></i>
+										</a> <sping:message code="user.login"/><a href="userSearchEdit.do?sort=login&order=asc&login=${login}&name=${name}&category=${category}"> <i class="glyphicon glyphicon-sort-by-attributes"></i>
 										</a></th>
 										<th class="col-sm-4 col-md-4"><a href="userSearchEdit.do?sort=name&order=desc&login=${login}&name=${name}&category=${category}"> <i
-												class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> Имя<a href="userSearchEdit.do?sort=name&order=asc&login=${login}&name=${name}&category=${category}"> <i
+												class="glyphicon glyphicon-sort-by-attributes-alt"></i>
+										</a> <sping:message code="user.name"/><a href="userSearchEdit.do?sort=name&order=asc&login=${login}&name=${name}&category=${category}"> <i
 												class="glyphicon glyphicon-sort-by-attributes"></i></a></th>
 										<th class="col-sm-3 col-md-3"><a href="userSearchEdit.do?sort=category&order=desc&login=${login}&name=${name}&category=${category}"> <i
-												class="glyphicon glyphicon-sort-by-attributes-alt"></i></a> Категория <a href="userSearchEdit.do?sort=category&order=asc&login=${login}&name=${name}&category=${category}"> <i
+												class="glyphicon glyphicon-sort-by-attributes-alt"></i>
+										</a> <sping:message code="user.type"/> <a href="userSearchEdit.do?sort=category&order=asc&login=${login}&name=${name}&category=${category}"> <i
 												class="glyphicon glyphicon-sort-by-attributes"></i></a></th>
 										<th colspan="2" class="col-sm-1 col-md-1"></th>
 									</tr>
