@@ -16,13 +16,13 @@
           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-    
-<!-- Configures the annotation-driven Spring MVC Controller programming 
+  
+  	<!-- Configures the annotation-driven Spring MVC Controller programming 
 		model. Note that, with Spring 3.0, this tag works in Servlet MVC only! -->
 	<mvc:annotation-driven />
 
-	<mvc:resources location="/resources/" mapping="/resources/**" />
-	
+	<mvc:resources location="/resources/" mapping="/resources/**" /> 
+    	
   <context:annotation-config />
   
  <!-- Scans the classpath for annotated components that will be auto-registered as Spring beans.
@@ -38,7 +38,7 @@
  <!-- Load spring-security related configuration -->
  <import resource="spring-security.xml" /> 
  
- 	 <mvc:interceptors>
+ <mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/*" />
 			<ref bean="localeChangeInterceptor" />
@@ -53,7 +53,6 @@
 	<bean id="localeChangeInterceptor"
 		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"
 		p:paramName="lang" />
-
 
 	<bean id="localeResolver"
 		class="org.springframework.web.servlet.i18n.SessionLocaleResolver"

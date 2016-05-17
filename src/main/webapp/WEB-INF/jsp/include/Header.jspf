@@ -3,31 +3,35 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="sping" uri="http://www.springframework.org/tags" %>
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="sr-only">Toggle navigation</span> 
-				<span class="icon-bar"></span> 
-				<span class="icon-bar"></span> 
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="index"><sping:message code="title"/></a>
-		</div>
-		<security:authentication property="principal.username" var="loginId" />
-		<div class="navbar-collapse collapse" style="height: auto;">
-
-			<c:url value="/telecom/j_spring_security_logout" var="logoutUrl" />
-			<form class="navbar-form navbar-right" role="form" method="post" action="${logoutUrl}">
-				<button type="submit" class="btn btn-success"> <span class="glyphicon glyphicon-log-out"></span> <sping:message code="menu.exit"/></button>
-			</form>
-			<p class="navbar-text  navbar-right">
-				<i class="glyphicon glyphicon-user"></i> ${loginId}
-			</p>
-			<span >
-				<a class="navbar-text" href="?lang=en"> en</a>
-				<a class="navbar-text" href="?lang=ru"> ru</a>
-			</span>
-		</div>
-	</div>
-</div>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<security:authentication property="principal.username" var="loginId" />
+<c:url value="/telecom/j_spring_security_logout" var="logoutUrl" />
+<div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index"><sping:message code="title"/></a>
+        </div>
+        <div class="navbar-collapse collapse " style="height: auto;">
+          <ul class="nav navbar-nav  navbar-right">
+<!--             <li><a href="?lang=en"> English</a></li> -->
+<!--             <li><a href="?lang=ru"> Русский</a></li>    -->
+            <li class="dropdown">
+              <a  class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> ${loginId} <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="?lang=en"> English</a></li>
+                <li><a href="?lang=ru"> Русский</a></li>
+                <li class="divider"></li>
+                <li>
+                <li><a href="${logoutUrl}"><span class="glyphicon glyphicon-log-out"></span> <sping:message code="menu.exit"/></a></li>
+	
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+</nav>
