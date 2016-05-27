@@ -39,41 +39,42 @@
 					<div class="col-sm-8">
 						<form:form class="form-horizontal" role="form" modelAttribute="userAttr" method="post">
 							<div class="panel panel-default">
-								<div class="panel-heading">Данные пользователя</div>
+								<div class="panel-heading"><sping:message code="editUser.text"/></div>
 								<div class="panel-body">
 									<div class="form-group">
-										<INPUT type="hidden" name="id" value="${userAttr.id}"> <label for="inputName3" class="col-sm-2 control-label">Логин:</label>
+										<INPUT type="hidden" name="id" value="${userAttr.id}"> 
+										<label for="inputName3" class="col-sm-2 control-label"><sping:message code="user.login"/>:</label>
 										<div class="col-sm-10">
 											<input type="text" class="form-control" id="inputName3" name="login" value="${userAttr.login}" required="">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputAddr3" class="col-sm-2 control-label">Пароль:</label>
+										<label for="inputAddr3" class="col-sm-2 control-label"><sping:message code="user.password"/>:</label>
 										<div class="col-sm-10">
 											<input type="password" class="form-control" id="inputAddr3" name="password" value="${userAttr.password}" required="">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputCom3" class="col-sm-2 control-label">Имя:</label>
+										<label for="inputCom3" class="col-sm-2 control-label"><sping:message code="user.name"/>:</label>
 										<div class="col-sm-10">
 											<input type="text" class="form-control" id="inputCom3" name="name" value="${userAttr.name}">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputCom3" class="col-sm-2 control-label">Категория:</label>
+										<label for="inputCom3" class="col-sm-2 control-label"><sping:message code="user.type"/>:</label>
 										<div class="col-sm-10">
 											<select class="form-control" name="category" value="${userAttr.category}">
-												<option value="0">Пользователь</option>
-												<option value="1">Оператор</option>
-												<option value="2">Администратор</option>
+												<option value="0"><sping:message code="user.type.user"/></option>
+												<option value="1"><sping:message code="user.type.operator"/></option>
+												<option value="2"><sping:message code="user.type.admin"/></option>
 											</select>
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="col-sm-offset-5 col-sm-8">
-											<button type="submit" formaction="editUser.do" class="btn btn-primary">Сохранить</button>
+											<button type="submit" formaction="editUser.do" class="btn btn-primary"><sping:message code="button.save"/></button>
 
-											<button type="submit" formaction="userSearchEdit.do" class="btn btn-primary">Отмена</button>
+											<button type="submit" formaction="userSearchEdit.do" class="btn btn-primary"><sping:message code="button.cancel"/></button>
 										</div>
 									</div>
 								</div>

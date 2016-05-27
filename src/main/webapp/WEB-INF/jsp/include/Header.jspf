@@ -18,17 +18,17 @@
         </div>
         <div class="navbar-collapse collapse " style="height: auto;">
           <ul class="nav navbar-nav  navbar-right">
-<!--             <li><a href="?lang=en"> English</a></li> -->
-<!--             <li><a href="?lang=ru"> Русский</a></li>    -->
-            <li class="dropdown">
-              <a  class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> ${loginId} <b class="caret"></b></a>
+			<li class="dropdown">
+              <a  class="dropdown-toggle" data-toggle="dropdown"> <sping:message code="header.lang"/></a>
               <ul class="dropdown-menu">
                 <li><a href="?lang=en"> English</a></li>
                 <li><a href="?lang=ru"> Русский</a></li>
-                <li class="divider"></li>
-                <li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a  class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> ${loginId} <b class="caret"></b></a>
+              <ul class="dropdown-menu">
                 <li><a href="${logoutUrl}"><span class="glyphicon glyphicon-log-out"></span> <sping:message code="menu.exit"/></a></li>
-	
               </ul>
             </li>
           </ul>
