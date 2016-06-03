@@ -81,6 +81,16 @@ public class UserController {
 	@RequestMapping(value = "/subscriberFull.do", method = RequestMethod.POST)
 	public String getSubscribersFull(@RequestParam(value = "subscriberSelect", required = false) Long subscriberId, Model model) {
 		logger.info("CONTROLLER - caused /subscriberFull.do");
+
+		return "redirect:subscriberFull.do?id=" + subscriberId;
+	}
+
+	/*
+	 * redirect to Full info about Subscriber
+	 */
+	@RequestMapping(value = "/subscriberFull.do", method = RequestMethod.GET)
+	public String getSubscribersFullGet(@RequestParam(value = "id", required = false) Long subscriberId, Model model) {
+		logger.info("CONTROLLER - caused /subscriberFull.do");
 		Subscriber subscriber = subscriberService.read(subscriberId);
 
 		List<Phone> listPhones = phoneService.getBySubscriber(subscriber);

@@ -112,3 +112,41 @@
 2016-05-07 15:09:33,916 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused create()
 2016-05-07 15:09:33,922 [INFO ][main            ][by.telecom.subapp.service.UserService] - SERVICE - read User with id 1
 2016-05-07 15:09:33,923 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused read() with id = 1
+2016-05-27 14:33:07,369 [INFO ][main            ][by.telecom.subapp.service.SubscriberService] - SERVICE - create Subscriber
+2016-05-27 14:33:07,370 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused create()
+2016-05-27 14:33:07,705 [INFO ][main            ][by.telecom.subapp.service.PhoneService] - SERVICE - create Phone
+2016-05-27 14:33:07,705 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused create()
+2016-05-27 14:33:07,726 [INFO ][main            ][by.telecom.subapp.service.PhoneService] - SERVICE - read Phone with id 1
+2016-05-27 14:33:07,726 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused read() with id = 1
+2016-05-27 14:33:07,940 [INFO ][main            ][by.telecom.subapp.service.SubscriberService] - SERVICE - read Subscriber with id -567890
+2016-05-27 14:33:07,941 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused read() with id = -567890
+2016-05-27 14:33:07,989 [INFO ][main            ][by.telecom.subapp.service.LogService] - SERVICE - create Log
+2016-05-27 14:33:07,995 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused create()
+2016-05-27 14:33:08,002 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused getAll() with sort = user order = asc
+2016-05-27 14:33:08,016 [INFO ][main            ][by.telecom.subapp.service.SubscriberService] - SERVICE - create Subscriber
+2016-05-27 14:33:08,017 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused create()
+2016-05-27 14:33:08,020 [INFO ][main            ][by.telecom.subapp.service.SubscriberService] - SERVICE - read Subscriber with id 2
+2016-05-27 14:33:08,021 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused read() with id = 2
+2016-05-27 14:33:08,029 [INFO ][main            ][by.telecom.subapp.service.UserService] - SERVICE - create User
+2016-05-27 14:33:08,030 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused create()
+2016-05-27 14:33:08,037 [INFO ][main            ][by.telecom.subapp.service.UserService] - SERVICE - read User with id 1
+2016-05-27 14:33:08,046 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused read() with id = 1
+2016-06-03 13:13:23,734 [INFO ][main            ][by.telecom.subapp.service.SubscriberService] - SERVICE - create Subscriber
+2016-06-03 13:13:23,848 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused create()
+2016-06-03 13:13:24,204 [INFO ][main            ][by.telecom.subapp.service.PhoneService] - SERVICE - create Phone
+2016-06-03 13:13:24,205 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused create()
+2016-06-03 13:13:24,232 [INFO ][main            ][by.telecom.subapp.service.PhoneService] - SERVICE - read Phone with id 1
+2016-06-03 13:13:24,233 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused read() with id = 1
+2016-06-03 13:13:24,377 [INFO ][main            ][by.telecom.subapp.service.SubscriberService] - SERVICE - read Subscriber with id -567890
+2016-06-03 13:13:24,378 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused read() with id = -567890
+2016-06-03 13:13:24,389 [INFO ][main            ][by.telecom.subapp.service.LogService] - SERVICE - create Log
+2016-06-03 13:13:24,390 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused create()
+2016-06-03 13:13:24,397 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused getAll() with sort = user order = asc
+2016-06-03 13:13:24,409 [INFO ][main            ][by.telecom.subapp.service.SubscriberService] - SERVICE - create Subscriber
+2016-06-03 13:13:24,409 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused create()
+2016-06-03 13:13:24,428 [INFO ][main            ][by.telecom.subapp.service.SubscriberService] - SERVICE - read Subscriber with id 2
+2016-06-03 13:13:24,428 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused read() with id = 2
+2016-06-03 13:13:24,437 [INFO ][main            ][by.telecom.subapp.service.UserService] - SERVICE - create User
+2016-06-03 13:13:24,437 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused create()
+2016-06-03 13:13:24,442 [INFO ][main            ][by.telecom.subapp.service.UserService] - SERVICE - read User with id 1
+2016-06-03 13:13:24,443 [INFO ][main            ][by.telecom.subapp.dao.GenericDao] - DAO - caused read() with id = 1
