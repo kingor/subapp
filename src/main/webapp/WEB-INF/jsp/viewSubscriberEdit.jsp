@@ -36,7 +36,7 @@
 				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
 					<h2 class="page-header"><sping:message code="viewSubscriberEdit.title"/></h2>
 					<div class="table-responsive">
-						<table class="table table-condensed table-bordered">
+						<table class="table table-condensed table-striped">
 						<form name="form3" method="get" action="subscriberSearchEdit.do">
 							<thead>
 								<tr>

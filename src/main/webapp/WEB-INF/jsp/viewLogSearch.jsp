@@ -38,7 +38,7 @@
 					<h2 class="page-header"><sping:message code="viewLogSearch.title"/></h2>
 					<div class="table-responsive">
 						<form name="form3" id="form3" method="get" action="logSearch.do">
-							<table class="table table-condensed table-bordered">
+							<table class="table table-condensed table-striped">
 								<thead>
 									<tr>
 										<th class="col-sm-1 col-md-1"><sping:message code="log.name"/></th>
