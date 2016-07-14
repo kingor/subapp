@@ -42,6 +42,15 @@ public class PhoneServiceImpl implements PhoneService {
 			sort = "number";
 		if (!"asc".equals(orderType) && !"desc".equals(orderType))
 			orderType = "asc";
+
+		if (number == null && band == null && security == null && scv == null && adsl == null && name == null) {
+			number = "";
+			band = "";
+			security = "";
+			scv = "";
+			adsl = "";
+			name = "";
+		}
 		return phoneDao.getByParameter(number, band, security, scv, adsl, name, sort, orderType);
 	}
 

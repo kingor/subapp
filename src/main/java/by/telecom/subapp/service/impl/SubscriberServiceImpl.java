@@ -34,11 +34,18 @@ public class SubscriberServiceImpl implements SubscriberService {
 
 	@Transactional
 	public List<Subscriber> getByParameter(String name, String address, String comment, String sort, String orderType) {
-		logger.info("SERVICE - get Subscribers by parameters");
+		logger.info("SERVICE - get Subscribers by parameters" + " NAME " + name);
 		if (!"address".equals(sort) && !"comment".equals(sort))
 			sort = "name";
 		if (!"asc".equals(orderType) && !"desc".equals(orderType))
 			orderType = "asc";
+
+		if (name == null && address == null && comment == null) {
+			name = "";
+			address = "";
+			comment = "";
+		}
+
 		return subscriberDao.getByParameter(name, address, comment, sort, orderType);
 	}
 

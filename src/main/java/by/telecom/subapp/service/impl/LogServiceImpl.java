@@ -23,7 +23,11 @@ public class LogServiceImpl implements LogService {
 	public List<Log> getByParameter(String user, Date dateStart, Date dateEnd, String type, String comment) {
 		String sort = "date";
 		String orderType = "asc";
-
+		if (user == null && type == null && comment == null) {
+			user = "";
+			type = "";
+			comment = "";
+		}
 		return logDao.getByParameter(user, dateStart, dateEnd, type, comment, sort, orderType);
 	}
 

@@ -11,7 +11,7 @@ public class MainController {
 
 	protected static Logger logger = Logger.getLogger(MainController.class);
 
-	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = { "/login" }, method = { RequestMethod.GET, RequestMethod.POST })
 	public String getLogin(Model model) {
 		if (logger.isDebugEnabled()) {
 			logger.debug("Received request to show Login page");

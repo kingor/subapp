@@ -32,6 +32,11 @@ public class UserServiceImpl implements UserService {
 			sort = "name";
 		if (!"asc".equals(orderType) && !"desc".equals(orderType))
 			orderType = "asc";
+
+		if (name == null && login == null) {
+			name = "";
+			login = "";
+		}
 		return userDao.getByParameter(login, name, category, sort, orderType);
 	}
 
