@@ -28,7 +28,7 @@ public class UserController {
 
 	private static Logger logger = Logger.getLogger(UserController.class.getSimpleName());
 
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
 	public String getIndex(Model model) {
 		logger.info("CONTROLLER - Received request to show Index page");
 		Long countOfSubscribers = subscriberService.getCountRow();
@@ -42,8 +42,7 @@ public class UserController {
 	 * All Subscribers
 	 */
 	@RequestMapping(value = "/subscribers.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String getSubscribers(@RequestParam(value = "order", required = false) String order,
-			@RequestParam(value = "sort", required = false) String sort, Model model) {
+	public String getSubscribers(@RequestParam(value = "order", required = false) String order, @RequestParam(value = "sort", required = false) String sort, Model model) {
 		logger.info("CONTROLLER - caused /subscriber.do");
 
 		List<Subscriber> subscribers = subscriberService.getAll(sort, order);
@@ -56,10 +55,9 @@ public class UserController {
 	 * Search of Subscriber
 	 */
 	@RequestMapping(value = "/subscriberSearch.do", method = RequestMethod.GET)
-	public String getSubscriberSearch(@RequestParam(value = "order", required = false) String order,
-			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "name", required = false) String name,
-			@RequestParam(value = "address", required = false) String address, @RequestParam(value = "comment", required = false) String comment,
-			Model model) {
+	public String getSubscriberSearch(@RequestParam(value = "order", required = false) String order, @RequestParam(value = "sort", required = false) String sort,
+			@RequestParam(value = "name", required = false) String name, @RequestParam(value = "address", required = false) String address,
+			@RequestParam(value = "comment", required = false) String comment, Model model) {
 		logger.info("CONTROLLER - caused /subscriberSearch.do");
 
 		List<Subscriber> subscribers = subscriberService.getByParameter(name, address, comment, sort, order);
@@ -102,8 +100,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/phones", method = RequestMethod.GET)
-	public String getPhones(@RequestParam(value = "order", required = false) String order,
-			@RequestParam(value = "sort", required = false) String sort, Model model) {
+	public String getPhones(@RequestParam(value = "order", required = false) String order, @RequestParam(value = "sort", required = false) String sort, Model model) {
 		logger.info("CONTROLLER - caused /phones");
 		List<Phone> phones = phoneService.getAll(sort, order);
 
@@ -113,11 +110,10 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/phoneSearch.do", method = RequestMethod.GET)
-	public String getPhoneSearch(@RequestParam(value = "order", required = false) String order,
-			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "number", required = false) String number,
-			@RequestParam(value = "band", required = false) String band, @RequestParam(value = "security", required = false) String security,
-			@RequestParam(value = "scv", required = false) String scv, @RequestParam(value = "adsl", required = false) String adsl,
-			@RequestParam(value = "name", required = false) String name, Model model) {
+	public String getPhoneSearch(@RequestParam(value = "order", required = false) String order, @RequestParam(value = "sort", required = false) String sort,
+			@RequestParam(value = "number", required = false) String number, @RequestParam(value = "band", required = false) String band,
+			@RequestParam(value = "security", required = false) String security, @RequestParam(value = "scv", required = false) String scv,
+			@RequestParam(value = "adsl", required = false) String adsl, @RequestParam(value = "name", required = false) String name, Model model) {
 		logger.info("CONTROLLER - caused /phoneSearch.do");
 
 		List<Phone> phones = phoneService.getByParameter(number, band, security, scv, adsl, name, sort, order);
