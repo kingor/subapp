@@ -87,7 +87,7 @@
 														</button>
 													</form>
 													
-													</th>
+												</th>
 													<th>
 													
 													<form method="post" action="deleteSubscriber.do">

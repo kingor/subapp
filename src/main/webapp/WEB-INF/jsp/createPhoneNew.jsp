@@ -36,7 +36,7 @@
 				<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
 					<h2 class="page-header"><spring:message code="createPhoneNew.title"/></h2>
 					<div class="table-responsive">
-						<table class="table table-condensed table-bordered">
+						<table class="table table-condensed table-striped">
 
 							<thead>
 								<tr>
@@ -67,7 +67,7 @@
 							</thead>
 
 							<c:if test="${!subscriberSearch.isEmpty()}">
-							<form method="post" action="createPhoneNew.do">
+							
 								<tbody>
 									<c:forEach var="subscriber" items="${subscriberSearch}">
 										<tr>											
@@ -76,16 +76,18 @@
 												<td>${subscriber.comment}</td>
 												<th>
 													<div>
+													<form method="post" action="createPhoneNew.do">
 														<input type="hidden" name="id_subscriber" value="${subscriber.id}">
 														<button type="submit" class="btn btn-primary btn-xs">
 															<i class="glyphicon glyphicon glyphicon-plus"></i>
 														</button>
+													</form>	
 													</div>
 												</th>
 										</tr>
 									</c:forEach>
 								</tbody>
-								</form>							
+														
 							</c:if>
 						</table>
 					</div>

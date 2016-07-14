@@ -73,8 +73,7 @@ public class Subscriber implements Serializable {
 	@Override
 	public String toString() {
 		String subscriberData = "";
-		return subscriberData.concat("id: ").concat(String.valueOf(id)).concat(" --- ФИО: ").concat(name).concat(" --- Адрес: ").concat(address)
-				.concat(" --- Примечание: ").concat(comment);
+		return subscriberData.concat("id: ").concat(String.valueOf(id)).concat(" --- ФИО: ").concat(name).concat(" --- Адрес: ").concat(address).concat(" --- Примечание: ").concat(comment);
 	}
 
 	@Override

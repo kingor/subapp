@@ -7,7 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Phone implements Serializable {
@@ -20,11 +22,12 @@ public class Phone implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "id_subscriber")
+	// @Cascade({ CascadeType.REMOVE })
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Subscriber subscriber;
 
-	@Size(min = 3, max = 10, message = "Поле номер должно быть от 3 до 10 символов")
 	private String number;
-	@Size(min = 3, max = 10, message = "Поле номер должно быть от 3 до 10 символов")
+
 	private String band;
 	private String security;
 	private String scv;
@@ -104,9 +107,8 @@ public class Phone implements Serializable {
 	public String toString() {
 		String phoneData = "";
 
-		return phoneData.concat("id: ").concat(String.valueOf(id)).concat(" --- ФИО: ").concat(subscriber.getName()).concat(" --- Номер: ")
-				.concat(number).concat(" --- Громпол: ").concat(band).concat(" --- Охрана: ").concat(security).concat(" --- СЦВ: ").concat(scv)
-				.concat(" --- ADSL: ").concat(adsl);
+		return phoneData.concat("id: ").concat(String.valueOf(id)).concat(" --- ФИО: ").concat(subscriber.getName()).concat(" --- Номер: ").concat(number).concat(" --- Громпол: ").concat(band)
+				.concat(" --- Охрана: ").concat(security).concat(" --- СЦВ: ").concat(scv).concat(" --- ADSL: ").concat(adsl);
 	}
 
 	@Override

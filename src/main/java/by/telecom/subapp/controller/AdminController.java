@@ -49,10 +49,9 @@ public class AdminController {
 	 * @return viewUserEdit is name of jsp
 	 */
 	@RequestMapping(value = "/userSearchEdit.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String getUserSearchEdit(@RequestParam(value = "order", required = false) String orderType,
-			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "login", required = false) String login,
-			@RequestParam(value = "name", required = false) String name, @RequestParam(value = "category", required = false) Integer category,
-			Model model, Principal principal, HttpServletRequest request) {
+	public String getUserSearchEdit(@RequestParam(value = "order", required = false) String orderType, @RequestParam(value = "sort", required = false) String sort,
+			@RequestParam(value = "login", required = false) String login, @RequestParam(value = "name", required = false) String name,
+			@RequestParam(value = "category", required = false) Integer category, Model model, Principal principal, HttpServletRequest request) {
 		logger.info("CONTROLLER - caused /userSearchEdit.do");
 		List<User> users = userService.getByParameter(login, name, 1, sort, orderType);
 		model.addAttribute("userSearchEdit", users);
@@ -139,9 +138,8 @@ public class AdminController {
 	 * View Log page
 	 */
 	@RequestMapping(value = "/logSearch.do", method = RequestMethod.GET)
-	public String getLogSearch(@RequestParam(value = "order", required = false) String order,
-			@RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "user", required = false) String user,
-			@RequestParam(value = "dateStart", required = false) String dateStartParam,
+	public String getLogSearch(@RequestParam(value = "order", required = false) String order, @RequestParam(value = "sort", required = false) String sort,
+			@RequestParam(value = "user", required = false) String user, @RequestParam(value = "dateStart", required = false) String dateStartParam,
 			@RequestParam(value = "dateEnd", required = false) String dateEndParam, @RequestParam(value = "type", required = false) String type,
 			@RequestParam(value = "comment", required = false) String comment, Model model, HttpServletRequest request) {
 		logger.info("CONTROLLER - caused /logSearch.do");
@@ -185,8 +183,7 @@ public class AdminController {
 	 * @return the View and the Model combined
 	 */
 	@RequestMapping(value = "/download/pdf", method = RequestMethod.GET)
-	public ModelAndView doSalesReportPDF(@RequestParam(value = "user", required = false) String user,
-			@RequestParam(value = "dateStart", required = false) String dateStartParam,
+	public ModelAndView doSalesReportPDF(@RequestParam(value = "user", required = false) String user, @RequestParam(value = "dateStart", required = false) String dateStartParam,
 			@RequestParam(value = "dateEnd", required = false) String dateEndParam, @RequestParam(value = "type", required = false) String type,
 			@RequestParam(value = "comment", required = false) String comment, ModelAndView modelAndView) {
 
@@ -205,8 +202,7 @@ public class AdminController {
 	 * @return modelAndView
 	 */
 	@RequestMapping(value = "/download/xls", method = RequestMethod.GET)
-	public ModelAndView doSalesReportXLS(@RequestParam(value = "user", required = false) String user,
-			@RequestParam(value = "dateStart", required = false) String dateStartParam,
+	public ModelAndView doSalesReportXLS(@RequestParam(value = "user", required = false) String user, @RequestParam(value = "dateStart", required = false) String dateStartParam,
 			@RequestParam(value = "dateEnd", required = false) String dateEndParam, @RequestParam(value = "type", required = false) String type,
 			@RequestParam(value = "comment", required = false) String comment, ModelAndView modelAndView) {
 		logger.info("Received request to download XLS report");
@@ -225,8 +221,7 @@ public class AdminController {
 	 * @return modelAndView
 	 */
 	@RequestMapping(value = "/download/html", method = RequestMethod.GET)
-	public ModelAndView doSalesReportHtml(@RequestParam(value = "user", required = false) String user,
-			@RequestParam(value = "dateStart", required = false) String dateStartParam,
+	public ModelAndView doSalesReportHtml(@RequestParam(value = "user", required = false) String user, @RequestParam(value = "dateStart", required = false) String dateStartParam,
 			@RequestParam(value = "dateEnd", required = false) String dateEndParam, @RequestParam(value = "type", required = false) String type,
 			@RequestParam(value = "comment", required = false) String comment, ModelAndView modelAndView) {
 		logger.info("Received request to download Html report");
@@ -245,9 +240,6 @@ public class AdminController {
 	 * @return map with datasource, dateStart, dateEnd
 	 */
 	public Map<String, Object> getReportParam(String user, String dateStartParam, String dateEndParam, String type, String comment) {
-
-		String sort = "date";
-		String order = "asc";
 
 		Date dateStart;
 		Date dateEnd;

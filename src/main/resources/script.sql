@@ -26,16 +26,6 @@ INSERT INTO `log` VALUES (1,'id: 1 --- Логин: user --- Имя:Иванов 
 UNLOCK TABLES;
 
 --
--- Dumping data for table `phone`
---
-
-LOCK TABLES `phone` WRITE;
-/*!40000 ALTER TABLE `phone` DISABLE KEYS */;
-INSERT INTO `phone` VALUES (1,'1234','123','552316','7897','456',1),(2,'7789','789','114512','7891','1234',2),(3,'111','4788','784456','230','896',3);
-/*!40000 ALTER TABLE `phone` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Dumping data for table `subscriber`
 --
 
@@ -43,6 +33,16 @@ LOCK TABLES `subscriber` WRITE;
 /*!40000 ALTER TABLE `subscriber` DISABLE KEYS */;
 INSERT INTO `subscriber` VALUES (1,'ул. Мира, д. 15','','Александров Владимир Михайлович'),(2,'ул. Первая, д.11','неплательщик','Миронов Иван Иванович'),(3,'ул. Ленина, д.8','','Любимов Николай Федорович');
 /*!40000 ALTER TABLE `subscriber` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `phone`
+--
+
+LOCK TABLES `phone` WRITE;
+/*!40000 ALTER TABLE `phone` DISABLE KEYS */;
+INSERT INTO `phone` VALUES (1,'1234','123','552316','7897','456',1),(2,'7789','789','114512','7891','1234',2),(3,'111','4788','784456','230','896',3);
+/*!40000 ALTER TABLE `phone` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
