@@ -2,10 +2,11 @@
 <%@ page pageEncoding="UTF-8"%>
 
 <ul class="nav nav-sidebar">
-	<li class="active"><a href="index"><i class="glyphicon glyphicon-home"></i><span class="hidden-xs"> <sping:message code="menu.main"/></span> </a></li>
-	<li><a href="subscribers.do?sort=name&order=asc"><i class="glyphicon glyphicon-info-sign"></i> <span class="hidden-xs"> <sping:message code="menu.subscriber"/></span></a></li>
-	<li><a href="subscriberSearch.do"><i class="glyphicon glyphicon-search"></i><span class="hidden-xs"> <sping:message code="menu.search_subscriber"/></span></a></li>
-	<li><a href="phones.do"><i class="glyphicon glyphicon-earphone"></i><span class="hidden-xs"> <sping:message code="menu.phone"/></span></a></li>
-	<li><a href="phoneSearch.do"><i class="glyphicon glyphicon-search"></i><span class="hidden-xs"> <sping:message code="menu.search_phone"/></span></a></li>
+	<li class="nav"><a href="index"><i class="glyphicon glyphicon-home"></i><span class="hidden-xs"> <sping:message code="menu.main"/></span> </a></li>
+	<li class="nav"><a href="subscribers.do?sort=name&order=asc"><i class="glyphicon glyphicon-info-sign"></i> <span class="hidden-xs"> <sping:message code="menu.subscriber"/></span></a></li>
+	<li class="nav"><a href="subscriberSearch.do"><i class="glyphicon glyphicon-search"></i><span class="hidden-xs"> <sping:message code="menu.search_subscriber"/></span></a></li>
+	<li class="nav"><a href="phones.do"><i class="glyphicon glyphicon-earphone"></i><span class="hidden-xs"> <sping:message code="menu.phone"/></span></a></li>
+	<li class="nav"><a href="phoneSearch.do"><i class="glyphicon glyphicon-search"></i><span class="hidden-xs"> <sping:message code="menu.search_phone"/></span></a></li>
 </ul>
+
 

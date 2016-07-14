@@ -2,8 +2,8 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="sping" uri="http://www.springframework.org/tags" %>
  <ul class="nav nav-sidebar">
-	<li><a href="createUser"><span class="glyphicon glyphicon-plus"></span><span class="hidden-xs"> <sping:message code="menu.new_user"/></span></a></li>
-	<li><a href="userSearchEdit.do"><span class="glyphicon glyphicon-cog"></span><span class="hidden-xs"> <sping:message code="menu.edit_user"/></span></a></li>
-	<li><a href="logSearch.do"><span class="glyphicon glyphicon-list-alt"></span><span class="hidden-xs"> <sping:message code="menu.log"/></span></a></li>
+	<li class="nav"><a href="createUser"><span class="glyphicon glyphicon-plus"></span><span class="hidden-xs"> <sping:message code="menu.new_user"/></span></a></li>
+	<li class="nav"><a href="userSearchEdit.do"><span class="glyphicon glyphicon-cog"></span><span class="hidden-xs"> <sping:message code="menu.edit_user"/></span></a></li>
+	<li class="nav"><a href="logSearch.do"><span class="glyphicon glyphicon-list-alt"></span><span class="hidden-xs"> <sping:message code="menu.log"/></span></a></li>
 </ul>
     

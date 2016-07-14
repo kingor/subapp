@@ -3,7 +3,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
-
+<script language="JavaScript" type="text/javascript">
+function highlight(){
+  var tags=document.getElementsByTagName("li");
+  for(i in tags){
+    if(tags[i].className=="nav"){
+        if(document.location.href==tags[i].firstChild.href){
+            tags[i].className += " active";
+        }
+    }
+  }
+}
+</script>
 <div class="col-xs-2 col-sm-2 col-md-2 sidebar">
 	<%@include file="menu_user.jspf"%>
 	<security:authorize
@@ -14,3 +25,4 @@
 		<%@include file="menu_admin.jspf"%>
 	</security:authorize>
 </div>
+<script language="JavaScript" type="text/javascript">highlight()</script>
