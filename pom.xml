@@ -45,7 +45,7 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.1.Final</version>
 		</dependency>
-		
+
 		<!-- Hibernate validator -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -158,6 +158,12 @@
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports-fonts</artifactId>
 			<version>6.0.0</version>
+		</dependency>
+		<!-- itext for Jasper -->
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+			<version>2.1.7</version>
 		</dependency>
 
 
